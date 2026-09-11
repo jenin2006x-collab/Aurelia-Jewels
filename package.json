@@ -1,0 +1,13 @@
+{
+  "name": "aurelia-jewels-workspace",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Aurelia Jewels full-stack jewellery commerce demo",
+  "scripts": {
+    "start": "node aurelia-final/server.js",
+    "dev": "node aurelia-final/server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

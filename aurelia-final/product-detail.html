@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurelia Jewels | Handcrafted Luxury Creation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Top Announcement Strip -->
+  <div class="top-strip">
+    EXTRA 10% OFF WITH CODE <span class="coupon-hint">FIRST10</span> • COMPLIMENTARY INSURED SHIPPING ON ORDERS OVER ₹999
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-main">
+      <button class="menu-btn" id="menuBtn" aria-label="Open mobile navigation">☰</button>
+      <a class="logo" href="index.html">
+        <span class="logo-mark">✦</span>
+        <span>AURELIA<small>JEWELS</small></span>
+      </a>
+
+      <div class="search-wrap">
+        <input id="searchInput" type="search" placeholder="Search Gold, Kundan, Diamonds, Pendants...">
+        <button id="searchBtn" aria-label="Search">⌕</button>
+      </div>
+
+      <div class="header-icons">
+        <button title="Account" id="accountBtn" aria-label="Account">♙</button>
+        <button title="Wishlist" id="wishlistBtn" aria-label="Wishlist">♡ <span class="wishlist-count">0</span></button>
+        <button title="Shopping Bag" id="cartBtn" aria-label="Shopping Bag">♧ <span class="cart-count">0</span></button>
+      </div>
+    </div>
+
+    <nav class="nav" id="nav">
+      <a href="index.html">Home</a>
+      <a href="products.html?category=Necklace">Necklaces</a>
+      <a href="products.html?category=Earrings">Earrings</a>
+      <a href="products.html?category=Rings">Rings</a>
+      <a href="products.html?category=Bangles">Bangles</a>
+      <a href="products.html?category=Mangalsutra">Mangalsutra</a>
+      <a href="products.html?category=Pendants">Pendants</a>
+      <a href="products.html">All Jewellery</a>
+    </nav>
+  </header>
+
+  <main class="product-detail-page">
+    <!-- Breadcrumb -->
+    <div class="breadcrumb" id="detailBreadcrumb">
+      <a href="index.html">Home</a> / <a href="products.html">Jewellery</a> / <span id="breadcrumbCategory">Necklace</span> / <span id="breadcrumbTitle">Product</span>
+    </div>
+
+    <!-- Product Detail Layout -->
+    <div class="detail-layout">
+      <!-- Media Gallery -->
+      <div class="gallery-wrapper">
+        <div class="gallery-thumbs" id="galleryThumbs"></div>
+        <div class="gallery-main-view" id="galleryMain">
+          <img src="" alt="Jewellery Design" id="mainProductImage">
+        </div>
+      </div>
+
+      <!-- Info & Actions Pane -->
+      <div class="detail-info-pane">
+        <div class="detail-badge-row">
+          <span class="badge" id="productBadge" style="display:none;"></span>
+          <span class="product-cat" id="productCategory"></span>
+        </div>
+
+        <h1 class="detail-title" id="productName">Loading Creation...</h1>
+
+        <div class="detail-rating-row">
+          <div id="productStars"></div>
+          <span class="review-count" id="productReviewCount">(0 verified reviews)</span>
+        </div>
+
+        <div class="detail-price-box">
+          <span class="current-price" id="productPrice">₹0</span>
+          <span class="old-price" id="productOldPrice" style="display:none;">₹0</span>
+          <span class="discount-pill" id="productDiscount" style="display:none;">0% OFF</span>
+        </div>
+
+        <p class="detail-desc" id="productDesc"></p>
+
+        <!-- Metal Selection -->
+        <div class="options-group">
+          <label class="options-label">Select Metal Finish:</label>
+          <div class="option-pills" id="metalOptions">
+            <button class="option-pill active" data-val="Gold">22K Gold</button>
+            <button class="option-pill" data-val="Rose Gold">18K Rose Gold</button>
+            <button class="option-pill" data-val="Silver">925 Sterling Silver</button>
+          </div>
+        </div>
+
+        <!-- Polish Selection -->
+        <div class="options-group">
+          <label class="options-label">Polish Type:</label>
+          <div class="option-pills" id="polishOptions">
+            <button class="option-pill active" data-val="High Polish">High Polish Gloss</button>
+            <button class="option-pill" data-val="Matte">Brushed Matte</button>
+            <button class="option-pill" data-val="Antique">Heritage Antique</button>
+          </div>
+        </div>
+
+        <!-- Quantity & Add to Cart -->
+        <div class="detail-actions-row">
+          <div class="qty-stepper">
+            <button id="qtyDec">−</button>
+            <span id="detailQty">1</span>
+            <button id="qtyInc">+</button>
+          </div>
+          <button class="btn btn-primary" id="detailAddToCart">ADD TO BAG</button>
+          <button class="btn btn-secondary" id="detailBuyNow">BUY NOW</button>
+          <button class="wishlist-btn" id="detailWishlistBtn" title="Wishlist">♡</button>
+        </div>
+
+        <!-- Pincode Check -->
+        <div class="pincode-checker">
+          <p>Check Delivery & COD Availability</p>
+          <div class="pincode-form">
+            <input type="text" id="pincodeInput" placeholder="Enter 6-digit delivery pincode" maxlength="6">
+            <button id="checkPincodeBtn">CHECK</button>
+          </div>
+          <div id="pincodeResult" style="font-size:12px; margin-top:8px; font-weight:500;"></div>
+        </div>
+
+        <!-- Specifications Table -->
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:22px; margin-top:20px;">Product Specifications</h3>
+        <table class="specs-table">
+          <tbody>
+            <tr><th>Base Material</th><td id="specMaterial">—</td></tr>
+            <tr><th>Plating Finish</th><td id="specPlating">—</td></tr>
+            <tr><th>Stone Variety</th><td id="specStone">—</td></tr>
+            <tr><th>Product Dimensions</th><td id="specDimensions">—</td></tr>
+            <tr><th>Gross Weight</th><td id="specWeight">—</td></tr>
+            <tr><th>Warranty Coverage</th><td id="specWarranty">—</td></tr>
+            <tr><th>Delivery Dispatch</th><td id="specDelivery">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Customer Reviews Section -->
+    <section class="reviews-section">
+      <div class="reviews-header-bar">
+        <div>
+          <h2 style="font-family:'Cormorant Garamond',serif; font-size:32px;">Client Testimonials & Ratings</h2>
+          <p style="font-size:13px; color:var(--text-muted);">Real reflections from verified purchasers</p>
+        </div>
+        <button class="btn btn-secondary" id="toggleWriteReviewBtn">WRITE A REVIEW</button>
+      </div>
+
+      <!-- Write Review Form -->
+      <div class="write-review-card" id="writeReviewCard" style="display:none;">
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:24px; margin-bottom:14px;">Share Your Aurelia Experience</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Full Name *</label>
+            <input type="text" id="revName" placeholder="e.g. Shalini Roy">
+          </div>
+          <div class="form-group">
+            <label>Your Rating *</label>
+            <select id="revRating">
+              <option value="5">★★★★★ (5 - Exceptional)</option>
+              <option value="4">★★★★☆ (4 - Very Pleased)</option>
+              <option value="3">★★★☆☆ (3 - Good)</option>
+              <option value="2">★★☆☆☆ (2 - Fair)</option>
+              <option value="1">★☆☆☆☆ (1 - Poor)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Your Review Note *</label>
+          <textarea id="revText" rows="3" placeholder="Tell us about the craftsmanship, shine, and fit..."></textarea>
+        </div>
+        <button class="btn btn-primary" id="submitReviewBtn">POST REVIEW</button>
+      </div>
+
+      <div id="reviewsContainer"></div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="section" style="padding-top:40px;">
+      <div class="section-heading">
+        <p class="eyebrow">COORDINATING CREATIONS</p>
+        <h2>You May Also Adore</h2>
+      </div>
+      <div class="product-grid" id="relatedProductsGrid"></div>
+    </section>
+
+    <!-- Recently Viewed -->
+    <section class="section" style="padding-top:20px;" id="recentlyViewedSection">
+      <div class="section-heading">
+        <p class="eyebrow">RECENT BROWSING</p>
+        <h2>Recently Viewed</h2>
+      </div>
+      <div class="product-grid" id="recentlyViewedGrid"></div>
+    </section>
+  </main>
+
+  <!-- Shared Drawers & Overlay -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <!-- Cart Drawer -->
+  <aside class="drawer" id="cartDrawer">
+    <div class="drawer-head">
+      <h3>Shopping Bag</h3>
+      <button class="drawer-close" id="closeCart">&times;</button>
+    </div>
+    <div class="shipping-notice" id="cartShippingNotice"></div>
+    <div class="drawer-body" id="cartItems"></div>
+    <div class="drawer-foot">
+      <div class="drawer-coupon-row">
+        <input type="text" id="drawerCouponInput" placeholder="Promo code (e.g. FIRST10)">
+        <button id="drawerApplyCoupon">Apply</button>
+      </div>
+      <div class="drawer-summary">
+        <div><span>Subtotal:</span> <strong id="cartSubtotal">₹0</strong></div>
+        <div><span>Discount:</span> <strong id="cartDiscount">₹0</strong></div>
+        <div><span>Delivery:</span> <strong id="cartShipping">FREE</strong></div>
+        <div class="total-row"><span>Total Payable:</span> <strong id="cartTotal">₹0</strong></div>
+      </div>
+      <a href="checkout.html" class="btn btn-block" style="margin-top:12px; text-align:center;">PROCEED TO CHECKOUT</a>
+      <a href="cart.html" style="display:block; text-align:center; font-size:12px; margin-top:8px; color:var(--text-muted); text-decoration:none;">View Full Bag Details →</a>
+    </div>
+  </aside>
+
+  <!-- Wishlist Drawer -->
+  <aside class="drawer" id="wishlistDrawer">
+    <div class="drawer-head">
+      <h3>Your Curated Wishlist</h3>
+      <button class="drawer-close" id="closeWishlist">&times;</button>
+    </div>
+    <div class="drawer-body" id="wishlistItems"></div>
+  </aside>
+
+  <!-- Shared JS Modules -->
+  <script src="js/data.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/ui.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const params = new URLSearchParams(window.location.search);
+      const prodId = Number(params.get("id")) || 1;
+      const product = window.AureliaData ? window.AureliaData.getProductById(prodId) : null;
+
+      if (!product) {
+        window.location.href = "products.html";
+        return;
+      }
+
+      // Add to recently viewed
+      if (window.Cart) {
+        window.Cart.addRecentlyViewed(product.id);
+      }
+
+      // Populate Headings & Text
+      document.title = product.name + " | Aurelia Jewels";
+      document.getElementById("breadcrumbCategory").textContent = product.category;
+      document.getElementById("breadcrumbCategory").parentElement.setAttribute("href", "products.html?category=" + product.category);
+      document.getElementById("breadcrumbTitle").textContent = product.name;
+      document.getElementById("productCategory").textContent = product.category.toUpperCase();
+      document.getElementById("productName").textContent = product.name;
+      document.getElementById("productDesc").textContent = product.desc;
+      document.getElementById("productPrice").textContent = UI.formatPrice(product.price);
+
+      if (product.oldPrice) {
+        const oldEl = document.getElementById("productOldPrice");
+        oldEl.textContent = UI.formatPrice(product.oldPrice);
+        oldEl.style.display = "inline";
+      }
+
+      if (product.discount) {
+        const discEl = document.getElementById("productDiscount");
+        discEl.textContent = product.discount + "% OFF";
+        discEl.style.display = "inline";
+      }
+
+      if (product.badge) {
+        const b = document.getElementById("productBadge");
+        b.textContent = product.badge;
+        b.className = "badge badge-" + product.badge.toLowerCase().replace(/\s+/g, "-");
+        b.style.display = "inline-block";
+      }
+
+      // Ratings
+      document.getElementById("productStars").innerHTML = UI.starsHTML(product.rating);
+      document.getElementById("productReviewCount").textContent = "(" + product.reviewCount + " verified client reviews)";
+
+      // Specifications
+      document.getElementById("specMaterial").textContent = product.material || "925 Pure Silver & Brass Core";
+      document.getElementById("specPlating").textContent = product.plating || "22K Yellow Micron Gold Plating";
+      document.getElementById("specStone").textContent = product.stone || "Uncut Gemstones & Pearls";
+      document.getElementById("specDimensions").textContent = product.dimensions || "Universal Size / Adjustable";
+      document.getElementById("specWeight").textContent = product.weight || "35 grams";
+      document.getElementById("specWarranty").textContent = product.warranty || "1 Year Complete Warranty";
+      document.getElementById("specDelivery").textContent = product.delivery || "Dispatched in 24-48 Hours";
+
+      // Images Gallery
+      const images = Array.isArray(product.images) && product.images.length ? product.images : [product.img || "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80"];
+      const mainImg = document.getElementById("mainProductImage");
+      mainImg.src = images[0];
+
+      const thumbsContainer = document.getElementById("galleryThumbs");
+      thumbsContainer.innerHTML = "";
+      images.forEach(function (url, idx) {
+        const img = document.createElement("img");
+        img.src = url;
+        img.className = "gallery-thumb" + (idx === 0 ? " active" : "");
+        img.alt = product.name + " angle " + (idx + 1);
+        img.addEventListener("click", function () {
+          mainImg.src = url;
+          document.querySelectorAll(".gallery-thumb").forEach(function (t) { t.classList.remove("active"); });
+          img.classList.add("active");
+        });
+        thumbsContainer.appendChild(img);
+      });
+
+      // Metal & Polish options selection
+      let selectedMetal = product.metal || "Gold";
+      let selectedPolish = product.polish || "High Polish";
+
+      document.querySelectorAll("#metalOptions .option-pill").forEach(function (btn) {
+        if (btn.getAttribute("data-val") === selectedMetal) btn.classList.add("active");
+        btn.addEventListener("click", function () {
+          document.querySelectorAll("#metalOptions .option-pill").forEach(function (b) { b.classList.remove("active"); });
+          btn.classList.add("active");
+          selectedMetal = btn.getAttribute("data-val");
+        });
+      });
+
+      document.querySelectorAll("#polishOptions .option-pill").forEach(function (btn) {
+        if (btn.getAttribute("data-val") === selectedPolish) btn.classList.add("active");
+        btn.addEventListener("click", function () {
+          document.querySelectorAll("#polishOptions .option-pill").forEach(function (b) { b.classList.remove("active"); });
+          btn.classList.add("active");
+          selectedPolish = btn.getAttribute("data-val");
+        });
+      });
+
+      // Quantity Controls
+      let qty = 1;
+      const qtyDisplay = document.getElementById("detailQty");
+      document.getElementById("qtyInc").addEventListener("click", function () {
+        qty++;
+        qtyDisplay.textContent = qty;
+      });
+      document.getElementById("qtyDec").addEventListener("click", function () {
+        if (qty > 1) {
+          qty--;
+          qtyDisplay.textContent = qty;
+        }
+      });
+
+      // Add to Bag Button
+      document.getElementById("detailAddToCart").addEventListener("click", function () {
+        window.Cart.addItem(product, qty, selectedMetal, selectedPolish);
+        UI.openCartDrawer();
+      });
+
+      // Buy Now Button
+      document.getElementById("detailBuyNow").addEventListener("click", function () {
+        window.Cart.addItem(product, qty, selectedMetal, selectedPolish);
+        window.location.href = "checkout.html";
+      });
+
+      // Wishlist Button sync
+      const wishBtn = document.getElementById("detailWishlistBtn");
+      const isWish = window.Cart.isWishlisted(product.id);
+      wishBtn.innerHTML = isWish ? "♥" : "♡";
+      wishBtn.classList.toggle("active", isWish);
+      wishBtn.addEventListener("click", function () {
+        const added = window.Cart.toggleWishlist(product.id);
+        wishBtn.innerHTML = added ? "♥" : "♡";
+        wishBtn.classList.toggle("active", added);
+      });
+
+      // Pincode validation
+      document.getElementById("checkPincodeBtn").addEventListener("click", function () {
+        const code = (document.getElementById("pincodeInput").value || "").trim();
+        const resEl = document.getElementById("pincodeResult");
+        if (/^\d{6}$/.test(code)) {
+          resEl.innerHTML = '<span style="color:var(--success);">✓ Delivery available to ' + code + '. Expected delivery in 2-3 business days. COD Available!</span>';
+        } else {
+          resEl.innerHTML = '<span style="color:var(--danger);">✕ Please enter a valid 6-digit Indian PIN code.</span>';
+        }
+      });
+
+      // Render Customer Reviews
+      function renderReviews() {
+        const revs = window.Cart.getReviews(product.id);
+        const container = document.getElementById("reviewsContainer");
+        if (!revs.length) {
+          container.innerHTML = '<p style="color:var(--text-muted); font-size:13px;">No client reviews yet. Be the first to share your thoughts!</p>';
+          return;
+        }
+        let html = "";
+        revs.forEach(function (r) {
+          html +=
+            '<div class="review-item-card">' +
+              '<div class="review-item-header">' +
+                '<div>' +
+                  '<span class="reviewer-name">' + r.name + '</span> ' +
+                  '<span style="color:var(--success); font-size:11px; margin-left:6px;">✓ Verified Buyer</span>' +
+                '</div>' +
+                '<span class="review-date">' + r.date + '</span>' +
+              '</div>' +
+              '<div style="margin-bottom:8px;">' + UI.starsHTML(r.rating) + '</div>' +
+              '<p class="review-text">' + r.text + '</p>' +
+            '</div>';
+        });
+        container.innerHTML = html;
+      }
+
+      renderReviews();
+
+      // Write Review Toggle & Submission
+      const writeCard = document.getElementById("writeReviewCard");
+      document.getElementById("toggleWriteReviewBtn").addEventListener("click", function () {
+        writeCard.style.display = writeCard.style.display === "none" ? "block" : "none";
+      });
+
+      document.getElementById("submitReviewBtn").addEventListener("click", function () {
+        const name = (document.getElementById("revName").value || "").trim();
+        const rating = document.getElementById("revRating").value;
+        const text = (document.getElementById("revText").value || "").trim();
+
+        if (!name || !text) {
+          UI.showToast("Please enter your name and comments.", "error");
+          return;
+        }
+
+        window.Cart.addReview(product.id, { name: name, rating: rating, text: text });
+        UI.showToast("Thank you! Your review has been published.", "success");
+        document.getElementById("revName").value = "";
+        document.getElementById("revText").value = "";
+        writeCard.style.display = "none";
+        renderReviews();
+      });
+
+      // Related Products
+      const relatedGrid = document.getElementById("relatedProductsGrid");
+      const allSameCat = (window.AureliaData ? window.AureliaData.getProductsByCategory(product.category) : [])
+        .filter(function (p) { return p.id !== product.id; })
+        .slice(0, 4);
+
+      if (relatedGrid) {
+        let relHtml = "";
+        allSameCat.forEach(function (p) {
+          relHtml += UI.productCardHTML(p);
+        });
+        relatedGrid.innerHTML = relHtml || '<p style="color:var(--text-muted);">Explore our other collections.</p>';
+      }
+
+      // Recently Viewed Products
+      const recentGrid = document.getElementById("recentlyViewedGrid");
+      const recentProducts = (window.Cart ? window.Cart.getRecentlyViewed() : []).filter(function (p) {
+        return p.id !== product.id;
+      }).slice(0, 4);
+
+      if (recentGrid && recentProducts.length) {
+        let recHtml = "";
+        recentProducts.forEach(function (p) {
+          if (p) recHtml += UI.productCardHTML(p);
+        });
+        recentGrid.innerHTML = recHtml;
+      } else if (document.getElementById("recentlyViewedSection")) {
+        document.getElementById("recentlyViewedSection").style.display = "none";
+      }
+    });
+  </script>
+<script src="js/spa.js"></script></body>
+</html>
