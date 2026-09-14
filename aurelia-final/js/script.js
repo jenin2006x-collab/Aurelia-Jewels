@@ -4,51 +4,135 @@
   function renderGrid(el,arr){if(el)el.innerHTML=arr.map(card).join('')}
   function catalog(){
     const grid=document.getElementById('productGrid'); if(!grid)return;
-    const params=new URLSearchParams(location.search); const cat=params.get('category'); const q=params.get('q'); const urlSort=params.get('sort');
-    const all=[...AureliaData.products];
-    let base=cat?all.filter(p=>p.category.toLowerCase()===cat.toLowerCase()):all;
-    if(q)base=AureliaData.search(q);
-    state.filtered=base; state.shown=12;
-    if(urlSort && document.getElementById('sortSelect')) document.getElementById('sortSelect').value=urlSort==='popular'?'popular':urlSort==='latest'?'latest':urlSort;
-    const apply=()=>{
-      let arr=[...state.filtered];
-      const query=(document.getElementById('catalogSearch')?.value||'').trim().toLowerCase();
-      if(query)arr=arr.filter(p=>(p.name+' '+p.category+' '+p.metal+' '+p.stone+' '+p.polish).toLowerCase().includes(query));
-      const cats=[...document.querySelectorAll('.category-filter:checked')].map(x=>x.value);
-      const metals=[...document.querySelectorAll('.metal:checked,[data-filter-metal]:checked')].map(x=>x.value);
-      const polishes=[...document.querySelectorAll('.polish:checked')].map(x=>x.value);
-      const max=Number(document.getElementById('priceRange')?.value||10000);
-      const rating=Number(document.querySelector('.rating-filter:checked')?.value||0);
-      arr=arr.filter(p=>(!cats.length||cats.includes(p.category))&&(!metals.length||metals.includes(p.metal))&&(!polishes.length||polishes.includes(p.polish))&&p.price<=max&&p.rating>=rating);
-      const sort=document.getElementById('sortSelect')?.value||'latest';
-      if(sort==='low'||sort==='price-low')arr.sort((a,b)=>a.price-b.price);
-      else if(sort==='high'||sort==='price-high')arr.sort((a,b)=>b.price-a.price);
-      else if(sort==='rating'||sort==='popular')arr.sort((a,b)=>b.rating-a.rating||b.reviewCount-a.reviewCount);
-      else arr.sort((a,b)=>b.id-a.id);
-      renderGrid(grid,arr.slice(0,state.shown));
-      const count=document.getElementById('resultCount');if(count)count.textContent=arr.length+' creations';
-      const more=document.getElementById('loadMoreBtn');if(more){more.style.display=state.shown<arr.length?'inline-block':'none';more.textContent=`LOAD MORE CREATIONS (${Math.max(0,arr.length-state.shown)}+)`}
-      const pv=document.getElementById('priceValue');if(pv)pv.textContent=UI.formatPrice(max);
-      window.AureliaCatalogResults=arr;
+    const params=new URLSearchParams(location.search); const catParam=params.get('category'); const qParam=params.get('q'); const urlSort=params.get('sort');
+    
+    // Select initial set
+    let base = AureliaData.products;
+    if (catParam) {
+      base = AureliaData.getProductsByCategory(catParam);
+      const titleEl = document.getElementById('catalogTitle');
+      if(titleEl) titleEl.textContent = catParam + ' Collection';
+      const eyeEl = document.getElementById('catalogEyebrow');
+      if(eyeEl) eyeEl.textContent = 'AURELIA ' + catParam.toUpperCase();
+      document.title = catParam + ' Collection | Aurelia Jewels';
+      
+      // Auto-check the category in sidebar if present
+      document.querySelectorAll('.category-filter').forEach(cb => {
+        if (cb.value.toLowerCase() === catParam.toLowerCase() ||
+            (catParam.toLowerCase().includes('necklace set') && cb.value.toLowerCase().includes('necklace set')) ||
+            (catParam.toLowerCase().includes('cross') && cb.value.toLowerCase().includes('cross')) ||
+            (catParam.toLowerCase().includes('hug') && cb.value.toLowerCase().includes('hug')) ||
+            cb.value.toLowerCase().startsWith(catParam.toLowerCase())) {
+          cb.checked = true;
+        }
+      });
+      
+      // Highlight active nav link
+      document.querySelectorAll('.nav a').forEach(a => {
+        const href = (a.getAttribute('href') || '').toLowerCase();
+        if (href.includes('category=' + encodeURIComponent(catParam).toLowerCase()) ||
+            href.includes('category=' + catParam.toLowerCase().replace(/ /g, '+'))) {
+          a.classList.add('active');
+        } else {
+          a.classList.remove('active');
+        }
+      });
+    } else if (qParam) {
+      base = AureliaData.search(qParam);
+      const titleEl = document.getElementById('catalogTitle');
+      if(titleEl) titleEl.textContent = 'Search: "' + qParam + '"';
+      const eyeEl = document.getElementById('catalogEyebrow');
+      if(eyeEl) eyeEl.textContent = 'SEARCH RESULTS';
+      document.title = 'Search "' + qParam + '" | Aurelia Jewels';
+      const sInput = document.getElementById('catalogSearch');
+      if (sInput) sInput.value = qParam;
+    }
+
+    state.filtered = base;
+    state.shown = 12;
+
+    if(urlSort && document.getElementById('sortSelect')) {
+      document.getElementById('sortSelect').value = urlSort;
+    }
+
+    const apply = () => {
+      let arr = [...base];
+      const searchVal = (document.getElementById('catalogSearch')?.value || '').trim().toLowerCase();
+      if (searchVal) {
+        arr = AureliaData.search(searchVal);
+      }
+
+      const selectedCats = [...document.querySelectorAll('.category-filter:checked')].map(x => x.value.toLowerCase());
+      const selectedMetals = [...document.querySelectorAll('[data-filter-metal]:checked')].map(x => x.value.toLowerCase());
+      const selectedPolishes = [...document.querySelectorAll('.polish:checked')].map(x => x.value.toLowerCase());
+      const maxPrice = Number(document.getElementById('priceRange')?.value || 50000);
+
+      arr = arr.filter(p => {
+        if (selectedCats.length && !selectedCats.some(c => p.category.toLowerCase().includes(c) || c.includes(p.category.toLowerCase()))) return false;
+        if (selectedMetals.length && !selectedMetals.some(m => p.metal.toLowerCase().includes(m) || m.includes(p.metal.toLowerCase()))) return false;
+        if (selectedPolishes.length && !selectedPolishes.some(pol => p.polish.toLowerCase().includes(pol) || pol.includes(p.polish.toLowerCase()))) return false;
+        if (p.price > maxPrice) return false;
+        return true;
+      });
+
+      const sort = document.getElementById('sortSelect')?.value || 'latest';
+      if (sort === 'price-low') arr.sort((a, b) => a.price - b.price);
+      else if (sort === 'price-high') arr.sort((a, b) => b.price - a.price);
+      else if (sort === 'rating') arr.sort((a, b) => b.rating - a.rating || b.reviewCount - a.reviewCount);
+      else if (sort === 'popular') arr.sort((a, b) => b.reviewCount - a.reviewCount || b.rating - a.rating);
+      else arr.sort((a, b) => b.id - a.id);
+
+      renderGrid(grid, arr.slice(0, state.shown));
+      const countEl = document.getElementById('resultCount');
+      if (countEl) countEl.textContent = arr.length + ' exquisite pieces found';
+      
+      const moreBtn = document.getElementById('loadMoreBtn');
+      if (moreBtn) {
+        moreBtn.style.display = state.shown < arr.length ? 'inline-block' : 'none';
+        moreBtn.textContent = 'LOAD MORE CREATIONS (' + Math.max(0, arr.length - state.shown) + ' REMAINING)';
+      }
+      
+      const priceVal = document.getElementById('priceValue');
+      if (priceVal) priceVal.textContent = UI.formatPrice(maxPrice);
+      
+      window.AureliaCatalogResults = arr;
     };
-    document.getElementById('sortSelect')?.addEventListener('change',apply);
-    document.getElementById('catalogSearch')?.addEventListener('input',apply);
-    document.getElementById('catalogSearch')?.addEventListener('keydown',e=>{if(e.key==='Enter')apply()});
-    document.getElementById('searchBtn')?.addEventListener('click',()=>{const v=document.getElementById('catalogSearch')?.value.trim();if(v)location.href='products.html?q='+encodeURIComponent(v)});
-    document.getElementById('priceRange')?.addEventListener('input',apply);
-    document.querySelectorAll('.category-filter,.metal,[data-filter-metal],.polish,.rating-filter').forEach(x=>x.addEventListener('change',apply));
-    document.getElementById('clearFilters')?.addEventListener('click',()=>{document.querySelectorAll('.category-filter,.metal,[data-filter-metal],.polish').forEach(x=>x.checked=false);document.querySelector('.rating-filter[value="0"]')?.click();const r=document.getElementById('priceRange');if(r)r.value=r.max||10000;state.filtered=cat?all.filter(p=>p.category.toLowerCase()===cat.toLowerCase()):q?AureliaData.search(q):all;state.shown=12;apply()});
-    document.getElementById('loadMoreBtn')?.addEventListener('click',()=>{state.shown+=8;apply()});
-    document.getElementById('openFilters')?.addEventListener('click',()=>document.getElementById('filters')?.classList.add('open'));
-    document.getElementById('closeFilters')?.addEventListener('click',()=>document.getElementById('filters')?.classList.remove('open'));
+
+    document.getElementById('sortSelect')?.addEventListener('change', apply);
+    document.getElementById('catalogSearch')?.addEventListener('input', apply);
+    document.getElementById('catalogSearch')?.addEventListener('keydown', e => { if (e.key === 'Enter') apply(); });
+    document.getElementById('searchBtn')?.addEventListener('click', () => {
+      const v = document.getElementById('catalogSearch')?.value.trim();
+      if (v) location.href = 'products.html?q=' + encodeURIComponent(v);
+    });
+    document.getElementById('priceRange')?.addEventListener('input', apply);
+    document.querySelectorAll('.category-filter, [data-filter-metal], .polish').forEach(x => x.addEventListener('change', apply));
+    
+    document.getElementById('clearFilters')?.addEventListener('click', () => {
+      document.querySelectorAll('.category-filter, [data-filter-metal], .polish').forEach(x => x.checked = false);
+      const pr = document.getElementById('priceRange');
+      if (pr) pr.value = 50000;
+      const sInput = document.getElementById('catalogSearch');
+      if (sInput) sInput.value = '';
+      base = AureliaData.products;
+      state.shown = 12;
+      const titleEl = document.getElementById('catalogTitle');
+      if (titleEl) titleEl.textContent = 'All Collections';
+      history.replaceState(null, '', 'products.html');
+      apply();
+    });
+
+    document.getElementById('loadMoreBtn')?.addEventListener('click', () => {
+      state.shown += 12;
+      apply();
+    });
+    document.getElementById('openFilters')?.addEventListener('click', () => document.getElementById('filters')?.classList.add('open'));
+    document.getElementById('closeFilters')?.addEventListener('click', () => document.getElementById('filters')?.classList.remove('open'));
+    
     apply();
   }
   function home(){
-    renderGrid(document.getElementById('featuredGrid'),AureliaData.products.slice(0,8));
-    renderGrid(document.getElementById('recommendedHomeGrid'),AureliaData.products.slice(8,16));
-    renderGrid(document.getElementById('weddingGrid'),AureliaData.products.slice(16,24));
-    renderGrid(document.getElementById('newArrivalsStrip'),AureliaData.products.slice(24,32));
-    const recent=Cart.getRecentlyViewed(); const rs=document.getElementById('homeRecentSection');renderGrid(document.getElementById('homeRecentGrid'),recent);if(rs)rs.style.display=recent.length?'block':'none';
+    // Homepage is kept simple and lightweight with no jewellery items per user requirement
   }
   function bindQuickView(){
     let id=null,qty=1;
@@ -56,18 +140,38 @@
     window.addQuickViewToCart=()=>{if(id){Cart.add(id,qty);UI.toast('Added to shopping bag');document.getElementById('quickViewModal')?.classList.remove('open')}};
     document.addEventListener('click',e=>{const b=e.target.closest('.quick-btn');if(!b)return;e.preventDefault();const p=AureliaData.getProductById(b.dataset.quickId);if(!p)return;id=p.id;qty=1;const map={qvImg:p.img,qvCategory:p.category,qvName:p.name,qvPrice:UI.formatPrice(p.price),qvOldPrice:UI.formatPrice(p.oldPrice),qvDiscount:p.discount+'% OFF',qvDesc:p.desc||p.description};Object.entries(map).forEach(([k,v])=>{const el=document.getElementById(k);if(!el)return;if(k==='qvImg')el.src=v;else el.textContent=v});document.getElementById('qvQty').textContent='1';document.getElementById('quickViewModal')?.classList.add('open')});
   }
-  function hero(){let i=0;const slides=[...document.querySelectorAll('.hero-slide')];if(!slides.length)return;const dots=document.getElementById('dots');if(dots&&dots.children.length===0)slides.forEach((_,k)=>{const b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Slide '+(k+1));b.addEventListener('click',()=>show(k));dots.appendChild(b)});const ds=[...(dots?.querySelectorAll('button')||[])];function show(n){i=(n+slides.length)%slides.length;slides.forEach((s,k)=>s.classList.toggle('active',k===i));ds.forEach((d,k)=>d.classList.toggle('active',k===i))}document.getElementById('prevSlide')?.addEventListener('click',()=>show(i-1));document.getElementById('nextSlide')?.addEventListener('click',()=>show(i+1));show(0);setInterval(()=>show(i+1),6000)}
+  function hero(){
+    const slides=[...document.querySelectorAll('.hero-slide')];
+    if(slides.length <= 1) return;
+    let i=0;
+    const dots=document.getElementById('dots');
+    if(dots&&dots.children.length===0)slides.forEach((_,k)=>{const b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Slide '+(k+1));b.addEventListener('click',()=>show(k));dots.appendChild(b)});
+    const ds=[...(dots?.querySelectorAll('button')||[])];
+    function show(n){i=(n+slides.length)%slides.length;slides.forEach((s,k)=>s.classList.toggle('active',k===i));ds.forEach((d,k)=>d.classList.toggle('active',k===i))}
+    document.getElementById('prevSlide')?.addEventListener('click',()=>show(i-1));
+    document.getElementById('nextSlide')?.addEventListener('click',()=>show(i+1));
+    show(0);
+    setInterval(()=>show(i+1),6000);
+  }
   function navigation(){
     document.getElementById('menuBtn')?.addEventListener('click',()=>document.getElementById('nav')?.classList.toggle('open'));
     document.getElementById('searchBtn')?.addEventListener('click',()=>{const q=document.getElementById('searchInput')?.value.trim();if(q)location.href='products.html?q='+encodeURIComponent(q)});
     document.getElementById('searchInput')?.addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('searchBtn')?.click()});
     document.getElementById('accountBtn')?.addEventListener('click',()=>location.href='account.html');
-    document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const h=a.getAttribute('href');if(h==='#'||h==='#home')return;e.preventDefault();location.hash=h.slice(1);goHash()}));
+    document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+      const h=a.getAttribute('href');
+      if(!h || h==='#' || h==='#home' || h.startsWith('#heritage') || h.startsWith('#store') || h.startsWith('#gold')) return;
+      if(h.startsWith('#products') || h==='#cart' || h==='#orders' || h==='#account' || h==='#admin'){
+        e.preventDefault();
+        location.hash=h.slice(1);
+        goHash();
+      }
+    }));
   }
   function goHash(){const h=location.hash||'#home';if(h==='#home'||h==='#')return;const m=h.match(/^#products(?:\?(.*))?$/);if(m){location.href='products.html'+(m[1]?'?'+m[1]:'');return}if(h==='#cart'){location.href='cart.html';return}if(h==='#orders'){location.href='orders.html';return}if(h==='#account'){location.href='account.html';return}if(h==='#admin'){location.href='admin/';return}}
   function modals(){document.querySelectorAll('.modal-close-btn').forEach(b=>b.addEventListener('click',()=>b.closest('.modal-backdrop')?.classList.remove('open')));document.querySelectorAll('.modal-backdrop').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open')}));}
   function newsletter(){document.getElementById('subscribeForm')?.addEventListener('submit',e=>{e.preventDefault();const email=document.getElementById('email').value.trim();if(!email)return;localStorage.setItem('aurelia_subscriber',email);UI.toast('You are on the Aurelia list ✦');e.target.reset()})}
-  function init(){navigation();hero();home();catalog();bindQuickView();modals();newsletter();goHash();document.getElementById('newArrivalsStrip')?.addEventListener('click',()=>{});if(window.AureliaData?.syncFromServer)AureliaData.syncFromServer().then(()=>{home();catalog();UI&&UI.refresh()});}
+  function init(){navigation();hero();home();catalog();bindQuickView();modals();newsletter();goHash();document.getElementById('newArrivalsStrip')?.addEventListener('click',()=>{});if(window.AureliaData?.syncFromServer)AureliaData.syncFromServer().then(()=>{catalog();UI&&UI.refresh()});}
   document.addEventListener('DOMContentLoaded',init);window.addEventListener('hashchange',goHash);
 })();
 
@@ -98,7 +202,7 @@
     certificate:['Certificate Authenticity','Product certification and hallmark information shown in this demo is illustrative and intended to demonstrate the product-detail experience.']
   };
   function bind(){
-    document.getElementById('storeBtn')?.addEventListener('click',openStore);document.getElementById('mobileStoreBtn')?.addEventListener('click',openStore);document.getElementById('storeCity')?.addEventListener('change',storeResults);
+    document.getElementById('storeBtn')?.addEventListener('click',openStore);document.getElementById('mobileStoreBtn')?.addEventListener('click',openStore);document.getElementById('boutiqueConsultBtn')?.addEventListener('click',openStore);document.getElementById('storeCity')?.addEventListener('change',storeResults);
     document.getElementById('goldRatesBtn')?.addEventListener('click',()=>document.getElementById('goldModal')?.classList.add('open'));
     const amount=document.getElementById('savingAmount'),months=document.getElementById('savingMonths'),label=document.getElementById('savingAmountLabel'),total=document.getElementById('savingTotal');
     function calc(){if(!amount||!months)return;const a=Number(amount.value),m=Number(months.value);if(label)label.textContent=UI.formatPrice(a);if(total)total.textContent=UI.formatPrice(a*m)}

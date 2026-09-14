@@ -7,28 +7,200 @@ const DB_FILE = path.join(DB_DIR, 'aurelia.json');
 fs.mkdirSync(DB_DIR, { recursive: true });
 
 function seedProducts() {
-  const imgs=[
-    'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=85',
-    'https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=85',
-    'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=900&q=85',
-    'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=900&q=85',
-    'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=900&q=85',
-    'https://images.unsplash.com/photo-1598560917505-59a3ad559071?auto=format&fit=crop&w=900&q=85'
-  ];
-  const names=['Royal Kundan Choker','Celeste Pearl Drop','Aria Solitaire Ring','Meera Antique Jhumka','Noor Gold Kada','Saanvi Pendant Set','Aadhya Bridal Haar','Ira Rose Gold Hoops','Veda Kundan Ring','Tara Layered Chain','Riya Mangalsutra','Anaya Pearl Choker','Zara Halo Ring','Myra Temple Jhumka','Kiara Gold Bangle','Avni Polki Pendant','Diya Bridal Set','Aarohi Diamond Studs','Navya Kundan Kada','Ishita Chain Pendant','Siya Classic Ring','Rhea Chandbali','Aanya Heritage Bangle','Mahi Mangalsutra','Esha Pearl Drops','Kavya Statement Choker','Naina Solitaire Band','Tia Floral Jhumka','Sara Rose Gold Bangle','Vanya Polki Set','Anvi Minimal Pendant','Isha Bridal Necklace'];
-  const cats=['Necklace','Earrings','Rings','Bangles','Mangalsutra','Pendants'];
-  return names.map((name,i)=>{const cat=cats[i%cats.length];const price=1899+((i*733)%7600);const old=Math.round(price*(1.18+((i%4)*.08)));return {id:i+1,name,category:cat,price,oldPrice:old,discount:Math.round((1-price/old)*100),rating:4.4+(i%6)*.1,reviewCount:47+i*13,metal:['Gold','Silver','Rose Gold'][i%3],polish:['High Polish','Antique','Matte'][i%3],stone:['Kundan','Pearl','Lab Solitaire','Polki'][i%4],material:i%3===0?'925 Sterling Silver':'Premium Brass Core',plating:i%3===1?'22K Yellow Gold Plating':'18K Rose Gold Plating',dimensions:'Adjustable / Universal',weight:(12+i%8)+' grams',warranty:'1 Year Complete Warranty',delivery:'Dispatched in 24–48 Hours',stock:3+(i%9),badge:i<4?'BESTSELLER':i<8?'NEW':'SIGNATURE',desc:'Aurelia craftsmanship meets modern Indian elegance in this finely finished piece, designed for celebrations and everyday heirloom moments.',img:imgs[i%imgs.length],images:[imgs[i%imgs.length],imgs[(i+1)%imgs.length],imgs[(i+2)%imgs.length]]};});
+  try {
+    if (fs.existsSync(DB_FILE)) {
+      const parsed = JSON.parse(fs.readFileSync(DB_FILE, "utf8"));
+      if (parsed.products && parsed.products.length) return parsed.products;
+    }
+  } catch (e) {}
+  return [];
 }
-const coupons={FIRST10:{type:'percent',value:10,min:0},WELCOME15:{type:'percent',value:15,min:1500},FESTIVE20:{type:'percent',value:20,min:3000},FLAT500:{type:'flat',value:500,min:2999}};
-function fresh(){return {users:[],products:seedProducts(),coupons,orders:[],reviews:{},wishlists:{},carts:{},addresses:{}};}
-let db;
-if(fs.existsSync(DB_FILE)){try{db=JSON.parse(fs.readFileSync(DB_FILE,'utf8'));}catch{db=fresh();}}else db=fresh();
-for(const k of ['users','products','orders','reviews','wishlists','carts','addresses']) if(db[k]===undefined) db[k]=fresh()[k];
-if(!db.products.length) db.products=seedProducts();
-if(!db.coupons || !Object.keys(db.coupons).length) db.coupons=coupons;
-function save(){const tmp=DB_FILE+'.tmp';fs.writeFileSync(tmp,JSON.stringify(db,null,2));fs.renameSync(tmp,DB_FILE);}
-function id(){return crypto.randomUUID();}
-function publicUser(u){if(!u)return null;const {passwordHash,passwordSalt,...safe}=u;return safe;}
-function hashPassword(password,salt=crypto.randomBytes(16).toString('hex')){const hash=crypto.scryptSync(String(password),salt,64).toString('hex');return {hash,salt};}
-function verifyPassword(password,u){return crypto.timingSafeEqual(Buffer.from(hashPassword(password,u.passwordSalt).hash,'hex'),Buffer.from(u.passwordHash,'hex'));}
-module.exports={get db(){return db},save,id,publicUser,hashPassword,verifyPassword,DB_FILE};
+
+function readData() {
+  try {
+    if (!fs.existsSync(DB_FILE)) {
+      const initial = {
+        products: seedProducts(),
+        users: [],
+        orders: [],
+        coupons: [
+          { code: 'AURELIA10', discountPercent: 10, minOrder: 1000 },
+          { code: 'ROYAL15', discountPercent: 15, minOrder: 2500 },
+          { code: 'BRIDAL20', discountPercent: 20, minOrder: 5000 }
+        ]
+      };
+      fs.writeFileSync(DB_FILE, JSON.stringify(initial, null, 2), 'utf8');
+      return initial;
+    }
+    const raw = fs.readFileSync(DB_FILE, 'utf8');
+    const data = JSON.parse(raw);
+    if (!data.products || data.products.length === 0) {
+      data.products = seedProducts();
+      fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2), 'utf8');
+    }
+    return data;
+  } catch (err) {
+    console.error('Error reading data:', err);
+    return { products: seedProducts(), users: [], orders: [], coupons: [] };
+  }
+}
+
+function writeData(data) {
+  fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2), 'utf8');
+}
+
+function getAllProducts(filters = {}) {
+  const data = readData();
+  let list = data.products || [];
+
+  if (filters.category && filters.category !== 'All') {
+    list = list.filter(p => p.category.toLowerCase() === filters.category.toLowerCase());
+  }
+  if (filters.metal) {
+    list = list.filter(p => p.metal && p.metal.toLowerCase() === filters.metal.toLowerCase());
+  }
+  if (filters.stone) {
+    list = list.filter(p => p.stone && p.stone.toLowerCase() === filters.stone.toLowerCase());
+  }
+  if (filters.polish) {
+    list = list.filter(p => p.polish && p.polish.toLowerCase() === filters.polish.toLowerCase());
+  }
+  if (filters.maxPrice) {
+    const max = Number(filters.maxPrice);
+    if (!isNaN(max)) list = list.filter(p => p.price <= max);
+  }
+  if (filters.search) {
+    const q = filters.search.toLowerCase();
+    list = list.filter(p =>
+      p.name.toLowerCase().includes(q) ||
+      p.category.toLowerCase().includes(q) ||
+      (p.desc && p.desc.toLowerCase().includes(q))
+    );
+  }
+
+  if (filters.sort === 'price-low') {
+    list.sort((a, b) => a.price - b.price);
+  } else if (filters.sort === 'price-high') {
+    list.sort((a, b) => b.price - a.price);
+  } else if (filters.sort === 'rating') {
+    list.sort((a, b) => b.rating - a.rating);
+  } else if (filters.sort === 'popular') {
+    list.sort((a, b) => b.reviewCount - a.reviewCount);
+  }
+
+  return list;
+}
+
+function getProductById(id) {
+  const data = readData();
+  const numId = Number(id);
+  return (data.products || []).find(p => p.id === numId) || null;
+}
+
+function findUserByEmail(email) {
+  const data = readData();
+  return (data.users || []).find(u => u.email.toLowerCase() === email.toLowerCase());
+}
+
+function createUser(userData) {
+  const data = readData();
+  const newUser = {
+    id: Date.now(),
+    ...userData,
+    createdAt: new Date().toISOString()
+  };
+  data.users = data.users || [];
+  data.users.push(newUser);
+  writeData(data);
+  return newUser;
+}
+
+function createOrder(orderData) {
+  const data = readData();
+  const newOrder = {
+    id: 'AUR-' + Date.now().toString(36).toUpperCase(),
+    ...orderData,
+    status: 'Confirmed',
+    createdAt: new Date().toISOString()
+  };
+  data.orders = data.orders || [];
+  data.orders.push(newOrder);
+  writeData(data);
+  return newOrder;
+}
+
+function getOrdersByUser(email) {
+  const data = readData();
+  return (data.orders || []).filter(o => o.customerEmail && o.customerEmail.toLowerCase() === email.toLowerCase());
+}
+
+function validateCoupon(code, cartTotal) {
+  const data = readData();
+  const coupon = (data.coupons || []).find(c => c.code.toUpperCase() === (code || '').trim().toUpperCase());
+  if (!coupon) return { valid: false, message: 'Invalid coupon code' };
+  if (cartTotal < coupon.minOrder) {
+    return { valid: false, message: `Minimum order value of ₹${coupon.minOrder} required for this coupon` };
+  }
+  const discountAmount = Math.round((cartTotal * coupon.discountPercent) / 100);
+  return { valid: true, discountPercent: coupon.discountPercent, discountAmount, code: coupon.code };
+}
+
+let db = readData();
+if (!db.users) db.users = [];
+if (!db.orders) db.orders = [];
+if (!db.coupons || Array.isArray(db.coupons)) {
+  db.coupons = {
+    'AURELIA10': { type: 'percent', value: 10, min: 1000 },
+    'ROYAL15': { type: 'percent', value: 15, min: 2500 },
+    'BRIDAL20': { type: 'percent', value: 20, min: 5000 },
+    'FIRST10': { type: 'percent', value: 10, min: 999 }
+  };
+}
+if (!db.addresses) db.addresses = {};
+if (!db.carts) db.carts = {};
+if (!db.wishlists) db.wishlists = {};
+if (!db.reviews) db.reviews = {};
+
+function save() {
+  writeData(db);
+}
+
+function hashPassword(pw) {
+  const salt = crypto.randomBytes(16).toString('hex');
+  const hash = crypto.scryptSync(pw, salt, 64).toString('hex');
+  return { salt, hash };
+}
+
+function verifyPassword(pw, user) {
+  if (!user || !user.passwordSalt || !user.passwordHash) return false;
+  const hash = crypto.scryptSync(pw, user.passwordSalt, 64).toString('hex');
+  return hash === user.passwordHash;
+}
+
+function publicUser(u) {
+  if (!u) return null;
+  return { id: u.id, name: u.name, email: u.email, phone: u.phone, role: u.role };
+}
+
+function genId() {
+  return crypto.randomBytes(8).toString('hex');
+}
+
+module.exports = {
+  db,
+  save,
+  DB_FILE,
+  hashPassword,
+  verifyPassword,
+  publicUser,
+  id: genId,
+  readData,
+  writeData,
+  getAllProducts,
+  getProductById,
+  findUserByEmail,
+  createUser,
+  createOrder,
+  getOrdersByUser,
+  validateCoupon
+};

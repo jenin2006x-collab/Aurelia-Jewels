@@ -16,7 +16,46 @@ async function handle(req,res,pathName){
   const method=req.method;
   if(pathName==='/api/health'&&method==='GET')return ok(res,{ok:true,service:'Aurelia API',time:new Date().toISOString(),database:dbmod.DB_FILE});
   if(pathName==='/api/products'&&method==='GET'){
-    const u=new URL(req.url,'http://localhost');let items=[...db().products];const q=u.searchParams.get('q');const cat=u.searchParams.get('category');const max=Number(u.searchParams.get('maxPrice')||0);const metals=u.searchParams.getAll('metal');if(q)items=items.filter(p=>(p.name+' '+p.category+' '+p.metal+' '+p.stone).toLowerCase().includes(q.toLowerCase()));if(cat)items=items.filter(p=>p.category.toLowerCase()===cat.toLowerCase());if(max)items=items.filter(p=>p.price<=max);if(metals.length)items=items.filter(p=>metals.includes(p.metal));const sort=u.searchParams.get('sort');if(sort==='price-low')items.sort((a,b)=>a.price-b.price);if(sort==='price-high')items.sort((a,b)=>b.price-a.price);if(sort==='latest')items.sort((a,b)=>b.id-a.id);return ok(res,{products:items.map(productSafe),count:items.length});
+    const u=new URL(req.url,'http://localhost');let items=[...db().products];const q=u.searchParams.get('q');const cat=u.searchParams.get('category');const max=Number(u.searchParams.get('maxPrice')||0);const metals=u.searchParams.getAll('metal');
+    if(q){
+      const lq=q.trim().toLowerCase();
+      if(lq==='mangalsutra'||lq==='mangalsutras'){
+        items=[];
+      } else if(lq==='ring'){
+        items=items.filter(p=>p.category==='Rings'||p.category==='Hug Rings'||p.name.toLowerCase().includes('ring'));
+      } else if(lq==='cross chain'||lq==='cross chains'){
+        items=items.filter(p=>p.category==='Cross Chains'||p.name.toLowerCase().includes('cross'));
+      } else if(lq==='necklace'||lq==='necklaces'){
+        items=items.filter(p=>p.category==='Necklaces'||p.category==='Necklace Sets'||p.name.toLowerCase().includes('necklace'));
+      } else {
+        items=items.filter(p=>(p.name+' '+p.category+' '+(p.subcategory||'')+' '+p.metal+' '+p.polish+' '+(p.stone||'')+' '+(p.desc||p.description||'')).toLowerCase().includes(lq));
+      }
+    }
+    if(cat){
+      const c=cat.trim().toLowerCase();
+      items=items.filter(p=>{
+        const pc=p.category.toLowerCase();
+        if(pc===c)return true;
+        if((c==='necklace'||c==='necklaces')&&(pc==='necklaces'||pc==='necklace'))return true;
+        if((c==='necklace set'||c==='necklace sets')&&(pc==='necklace sets'||pc==='necklace set'))return true;
+        if((c==='chain'||c==='chains')&&(pc==='chains'||pc==='chain'))return true;
+        if((c==='cross chain'||c==='cross chains')&&(pc==='cross chains'||pc==='cross chain'))return true;
+        if((c==='pendant'||c==='pendants')&&(pc==='pendants'||pc==='pendant'))return true;
+        if((c==='earring'||c==='earrings')&&(pc==='earrings'||pc==='earring'))return true;
+        if((c==='ring'||c==='rings')&&(pc==='rings'||pc==='ring'))return true;
+        if((c==='hug ring'||c==='hug rings')&&(pc==='hug rings'||pc==='hug ring'))return true;
+        if((c==='bangle'||c==='bangles')&&(pc==='bangles'||pc==='bangle'))return true;
+        if((c==='bracelet'||c==='bracelets')&&(pc==='bracelets'||pc==='bracelet'))return true;
+        return false;
+      });
+    }
+    if(max)items=items.filter(p=>p.price<=max);
+    if(metals.length)items=items.filter(p=>metals.some(m=>p.metal.toLowerCase().includes(m.toLowerCase())));
+    const sort=u.searchParams.get('sort');
+    if(sort==='price-low')items.sort((a,b)=>a.price-b.price);
+    if(sort==='price-high')items.sort((a,b)=>b.price-a.price);
+    if(sort==='latest')items.sort((a,b)=>b.id-a.id);
+    return ok(res,{products:items.map(productSafe),count:items.length});
   }
   const pm=pathName.match(/^\/api\/products\/(\d+)$/);if(pm&&method==='GET'){const p=db().products.find(x=>x.id===Number(pm[1]));return p?ok(res,p):fail(res,404,'Product not found')}
   if(pathName==='/api/auth/register'&&method==='POST'){const d=await body(req);if(!d.name||!d.email||!d.password)return fail(res,400,'Name, email and password are required');if(String(d.password).length<6)return fail(res,400,'Password must be at least 6 characters');if(db().users.some(x=>x.email.toLowerCase()===String(d.email).toLowerCase()))return fail(res,409,'An account already exists');const hp=hashPassword(d.password);const u={id:dbmod.id(),name:String(d.name),email:String(d.email).toLowerCase(),phone:d.phone||'',role:'customer',passwordHash:hp.hash,passwordSalt:hp.salt,createdAt:new Date().toISOString()};db().users.push(u);dbmod.save();return json(res,201,{user:publicUser(u),token:issue(u)})}

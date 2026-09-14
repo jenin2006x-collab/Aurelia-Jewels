@@ -1,2 +1,212 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Catalogue | Aurelia Jewels</title><link rel="stylesheet" href="css/style.css"></head><body><header class="header"><div class="header-main"><button id="menuBtn">☰</button><a class="logo" href="index.html"><span class="logo-mark">✦</span><span>AURELIA<small>JEWELS</small></span></a><div class="search-wrap"><input id="catalogSearch" placeholder="Search jewellery, Kundan, pearls..."><button id="searchBtn">⌕</button></div><div class="header-icons"><button id="wishlistBtn">♡ <span class="wishlist-count">0</span></button><button id="cartBtn">♧ <span class="cart-count">0</span></button></div></div><nav class="nav" id="nav"><a href="index.html">Home</a><a href="products.html?category=Necklace">Necklaces</a><a href="products.html?category=Earrings">Earrings</a><a href="products.html?category=Rings">Rings</a><a href="products.html?category=Bangles">Bangles</a><a href="products.html?category=Mangalsutra">Mangalsutra</a><a href="products.html?category=Pendants">Pendants</a><a href="account.html">Account</a></nav></header><main class="catalog-layout"><aside class="filters"><p class="eyebrow">REFINE</p><h2>Catalogue</h2><div class="filter-group"><label>Maximum Price <b id="priceValue">₹10,000</b></label><input id="priceRange" type="range" min="1000" max="10000" value="10000" style="width:100%"></div><div class="filter-group"><p>Base Metal</p><label><input type="checkbox" data-filter-metal value="Gold"> Gold</label><br><label><input type="checkbox" data-filter-metal value="Silver"> Silver</label><br><label><input type="checkbox" data-filter-metal value="Rose Gold"> Rose Gold</label></div><div class="filter-group"><button class="btn" onclick="location.href='products.html'">CLEAR FILTERS</button></div></aside><section><div class="catalog-top"><div><p class="eyebrow">AURELIA COLLECTIONS</p><h1 style="font:600 40px Georgia,serif;margin:5px 0">Fine Jewellery</h1><span id="resultCount"></span></div><select id="sortSelect"><option value="popular">Popularity</option><option value="latest">Latest</option><option value="price-low">Price: Low to High</option><option value="price-high">Price: High to Low</option></select></div><div class="product-grid" id="productGrid"></div><div style="text-align:center;margin:35px"><button class="btn" id="loadMoreBtn">LOAD MORE CREATIONS</button></div></section></main><div class="drawer-overlay" id="drawerOverlay"></div><aside class="drawer" id="cartDrawer"><div class="drawer-head"><h3>Shopping Bag</h3><button class="drawer-close" id="closeCart">×</button></div><div class="drawer-body" id="cartItems"></div><div class="drawer-foot"><div>Subtotal: <b id="cartSubtotal">₹0</b></div><div>Discount: <b id="cartDiscount">₹0</b></div><div>Delivery: <b id="cartShipping">₹0</b></div><div style="font-size:18px;margin-top:8px">Total: <b id="cartTotal">₹0</b></div><a class="btn" style="width:100%;text-align:center;margin-top:14px" href="checkout.html">CHECKOUT</a></div></aside><aside class="drawer" id="wishlistDrawer"><div class="drawer-head"><h3>Wishlist</h3><button class="drawer-close" id="closeWishlist">×</button></div><div class="drawer-body" id="wishlistItems"></div></aside><script src="js/data.js"></script><script src="js/api.js"></script>
-  <script src="js/auth.js"></script><script src="js/cart.js"></script><script src="js/ui.js"></script><script src="js/script.js"></script><script src="js/spa.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Fine Jewellery Collections | Aurelia Jewels</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-main">
+      <button class="menu-btn" id="menuBtn" aria-label="Open mobile navigation">☰</button>
+      <a class="logo" href="index.html">
+        <span class="logo-mark">✦</span>
+        <span>AURELIA<small>JEWELS</small></span>
+      </a>
+      <div class="search-wrap">
+        <input id="catalogSearch" placeholder="Search jewellery, Kundan, pearls, diamonds...">
+        <button id="searchBtn" aria-label="Search">⌕</button>
+      </div>
+      <div class="header-icons">
+        <button title="Account" id="accountBtn" aria-label="Account">♙</button>
+        <button title="Wishlist" id="wishlistBtn" aria-label="Wishlist">♡ <span class="wishlist-count">0</span></button>
+        <button title="Shopping Bag" id="cartBtn" aria-label="Shopping Bag">♧ <span class="cart-count">0</span></button>
+      </div>
+    </div>
+    <!-- Top Interface Navigation -->
+        <nav class="nav" id="nav">
+      <a href="index.html">Home</a>
+      <a href="products.html?category=Necklaces" id="navNecklaces">Necklaces</a>
+      <a href="products.html?category=Necklace+Sets" id="navNecklaceSets">Necklace Sets</a>
+      <a href="products.html?category=Chains" id="navChains">Chains</a>
+      <a href="products.html?category=Cross+Chains" id="navCrossChains">Cross Chains</a>
+      <a href="products.html?category=Pendants" id="navPendants">Pendants</a>
+      <a href="products.html?category=Earrings" id="navEarrings">Earrings</a>
+      <a href="products.html?category=Rings" id="navRings">Rings</a>
+      <a href="products.html?category=Hug+Rings" id="navHugRings">Hug Rings</a>
+      <a href="products.html?category=Bangles" id="navBangles">Bangles</a>
+      <a href="products.html?category=Bracelets" id="navBracelets">Bracelets</a>
+    </nav>
+  </header>
+
+  <main class="catalog-layout">
+        <aside class="filters" id="filters">
+      <div class="filter-title" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px;">
+        <span style="font-size:13px; letter-spacing:2px; font-weight:600;">FILTERS</span>
+        <button id="closeFilters" style="background:none; border:none; font-size:24px; cursor:pointer;" aria-label="Close filters">×</button>
+      </div>
+
+      <div class="filter-group">
+        <label>Maximum Price <b id="priceValue">₹50,000</b></label>
+        <input id="priceRange" type="range" min="1000" max="50000" value="50000" step="500" style="width:100%">
+      </div>
+
+      <div class="filter-group">
+        <p style="font-weight:600; margin-bottom:8px;">Category</p>
+        <label style="display:block; margin-bottom:5px;"><input type="checkbox" class="category-filter" value="Necklaces"> Necklaces</label>
+        <label style="display:block; margin-bottom:5px;"><input type="checkbox" class="category-filter" value="Necklace Sets"> Necklace Sets</label>
+        <label style="display:block; margin-bottom:5px;"><input type="checkbox" class="category-filter" value="Chains"> Chains</label>
+        <label style="display:block; margin-bottom:5px;"><input type="checkbox" class="category-filter" value="Cross Chains"> Cross Chains</label>
+        <label style="display:block; margin-bottom:5px;"><input type="checkbox" class="category-filter" value="Pendants"> Pendants</label>
+        <label style="display:block; margin-bottom:5px;"><input type="checkbox" class="category-filter" value="Earrings"> Earrings</label>
+        <label style="display:block; margin-bottom:5px;"><input type="checkbox" class="category-filter" value="Rings"> Rings</label>
+        <label style="display:block; margin-bottom:5px;"><input type="checkbox" class="category-filter" value="Hug Rings"> Hug Rings</label>
+        <label style="display:block; margin-bottom:5px;"><input type="checkbox" class="category-filter" value="Bangles"> Bangles</label>
+        <label style="display:block; margin-bottom:5px;"><input type="checkbox" class="category-filter" value="Bracelets"> Bracelets</label>
+      </div>
+
+      <div class="filter-group">
+        <p style="font-weight:600; margin-bottom:8px;">Precious Metal</p>
+        <label style="display:block; margin-bottom:5px;"><input type="checkbox" data-filter-metal value="22K Gold"> 22K Solid Gold</label>
+        <label style="display:block; margin-bottom:5px;"><input type="checkbox" data-filter-metal value="18K Gold"> 18K Solid Gold</label>
+        <label style="display:block; margin-bottom:5px;"><input type="checkbox" data-filter-metal value="Rose Gold"> 18K Rose Gold</label>
+        <label style="display:block; margin-bottom:5px;"><input type="checkbox" data-filter-metal value="White Gold"> 18K White Gold</label>
+        <label style="display:block; margin-bottom:5px;"><input type="checkbox" data-filter-metal value="Silver"> 925 Sterling Silver</label>
+      </div>
+
+      <div class="filter-group">
+        <p style="font-weight:600; margin-bottom:8px;">Polish & Finish</p>
+        <label style="display:block; margin-bottom:5px;"><input type="checkbox" class="polish" value="Gold"> High Polish Yellow Gold</label>
+        <label style="display:block; margin-bottom:5px;"><input type="checkbox" class="polish" value="Rhodium"> Rhodium Mirror Polish</label>
+        <label style="display:block; margin-bottom:5px;"><input type="checkbox" class="polish" value="Rose Gold"> Rose Gold Finish</label>
+        <label style="display:block; margin-bottom:5px;"><input type="checkbox" class="polish" value="Antique"> Heritage Antique Patina</label>
+        <label style="display:block; margin-bottom:5px;"><input type="checkbox" class="polish" value="Matte"> Brushed Matte Luster</label>
+      </div>
+
+      <div class="filter-group" style="margin-top:20px;">
+        <button class="clear-btn" id="clearFilters" style="width:100%;">RESET FILTERS</button>
+      </div>
+    </aside>
+
+    <section>
+      <div class="catalog-top" style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:28px; flex-wrap:wrap; gap:16px;">
+        <div>
+          <p class="eyebrow" id="catalogEyebrow">AURELIA COLLECTIONS</p>
+          <h1 id="catalogTitle" style="font-family:'Cormorant Garamond',Georgia,serif; font-size:clamp(28px, 4vw, 38px); font-weight:600; margin:4px 0 6px;">Fine Jewellery</h1>
+          <span id="resultCount" style="font-size:13px; color:#776e63;"></span>
+        </div>
+        <div style="display:flex; align-items:center; gap:12px;">
+          <button class="mobile-filter-btn" id="openFilters">☰ FILTERS</button>
+          <select id="sortSelect" style="padding:10px 14px; border:1px solid #ddd; background:#fff; border-radius:4px; font-size:13px;">
+            <option value="latest">Featured & Latest</option>
+            <option value="popular">Most Popular</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+          </select>
+        </div>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+      <div style="text-align:center; margin:40px 0;" id="loadMoreWrap">
+        <button class="btn btn-secondary" id="loadMoreBtn" style="padding:12px 32px;">LOAD MORE</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Drawers -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="drawer" id="cartDrawer">
+    <div class="drawer-head">
+      <h3>♧ Shopping Bag (<span class="cart-count">0</span>)</h3>
+      <button class="drawer-close" id="closeCart">×</button>
+    </div>
+    <div class="drawer-body" id="cartItems"></div>
+    <div class="drawer-foot">
+      <div>Subtotal: <b id="cartSubtotal">₹0</b></div>
+      <div>Discount: <b id="cartDiscount">₹0</b></div>
+      <div>Delivery: <b id="cartShipping">FREE</b></div>
+      <div style="font-size:18px; margin-top:8px;">Total: <b id="cartTotal">₹0</b></div>
+      <a class="btn" style="width:100%; text-align:center; margin-top:14px; display:block;" href="checkout.html">CHECKOUT</a>
+    </div>
+  </aside>
+
+  <aside class="drawer" id="wishlistDrawer">
+    <div class="drawer-head">
+      <h3>♡ Saved Pieces (<span class="wishlist-count">0</span>)</h3>
+      <button class="drawer-close" id="closeWishlist">×</button>
+    </div>
+    <div class="drawer-body" id="wishlistItems"></div>
+  </aside>
+
+  <!-- Quick View Modal -->
+  <div class="modal-backdrop" id="quickViewModal">
+    <div class="modal-box">
+      <button class="modal-close-btn" aria-label="Close modal">×</button>
+      <div class="quick-view-grid">
+        <img class="quick-view-img" id="qvImg" alt="Jewellery item" src="" onerror="this.onerror=null; this.src='/images/necklace_kundan.jpg';">
+        <div class="quick-view-info">
+          <span class="product-cat" id="qvCategory">NECKLACE</span>
+          <h2 id="qvName">Kundan Royal Choker</h2>
+          <div class="product-price" style="margin:14px 0;">
+            <span class="current-price" id="qvPrice">₹4,499</span>
+            <span class="old-price" id="qvOldPrice">₹6,999</span>
+            <span class="discount-pill" id="qvDiscount">35% OFF</span>
+          </div>
+          <p id="qvDesc" style="font-size:14px; color:#666; margin-bottom:18px;"></p>
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+            <div class="qty-selector">
+              <button type="button" onclick="adjustQuickViewQty(-1)">−</button>
+              <span id="qvQty">1</span>
+              <button type="button" onclick="adjustQuickViewQty(1)">+</button>
+            </div>
+            <button class="btn" onclick="addQuickViewToCart()" style="flex:1;">ADD TO BAG</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer" style="margin-top:60px;">
+    <div class="footer-grid">
+      <div>
+        <a class="logo footer-logo" href="index.html">
+          <span class="logo-mark">✦</span>
+          <span>AURELIA<small>JEWELS</small></span>
+        </a>
+        <p>Contemporary fine jewellery crafted for everyday elegance and milestone memories.</p>
+      </div>
+      <div>
+        <h3>COLLECTIONS</h3>
+        <a href="products.html?category=Necklace">Necklace</a>
+        <a href="products.html?category=Earrings">Earrings</a>
+        <a href="products.html?category=Rings">Rings</a>
+        <a href="products.html?category=Bangles">Bangles</a>
+        <a href="products.html?category=Cross+Chains">Cross Chains</a>
+      </div>
+      <div>
+        <h3>PATRON CARE</h3>
+        <a href="index.html">Home</a>
+        <a href="account.html">Patron Account</a>
+        <a href="cart.html">Shopping Bag</a>
+      </div>
+      <div>
+        <h3>CONCIERGE</h3>
+        <p>Mon - Sat: 10:00 AM - 7:00 PM IST</p>
+        <p>support@aureliajewels.in</p>
+      </div>
+    </div>
+    <div class="copyright">© 2026 Aurelia Jewels. Handcrafted Luxury Fine Jewellery.</div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
