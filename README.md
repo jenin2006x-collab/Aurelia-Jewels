@@ -1,20 +1,128 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+﻿# Aurelia Jewels 💎
 
-# Run and deploy your AI Studio app
+Aurelia Jewels is a responsive full-stack jewelry e-commerce web application developed as an internship project.
 
-This contains everything you need to run your app locally.
+The application provides a complete online shopping experience including product browsing, search, filtering, wishlist, cart, checkout, order tracking, customer accounts, and an admin dashboard.
 
-View your app in AI Studio: https://ai.studio/apps/fd1256e5-8635-4e49-b1b5-039b31aa1840
+---
 
-## Run Locally
+## ✨ Features
 
-**Prerequisites:**  Node.js
+### Customer Features
+- Responsive jewelry e-commerce website
+- Premium homepage with hero carousel
+- Product categories
+- Product search
+- Product filtering by:
+  - Category
+  - Price
+  - Base Metal
+  - Polish
+- Product sorting
+- Product details and specifications
+- Product image gallery
+- Quick View
+- Wishlist
+- Shopping cart
+- Coupon application
+- Checkout process
+- Delivery address management
+- Pincode delivery checker
+- Order placement
+- Order history
+- Order tracking
+- Customer account
+- Saved addresses
+- Customer reviews
 
+### Admin Features
+- Admin dashboard
+- Product management
+- Inventory/stock management
+- Order management
+- Customer management
+- Coupon management
+- Sales and store statistics
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+---
+
+## 💍 Product Categories
+
+The catalogue includes:
+
+- Necklaces
+- Necklace Sets
+- Chains
+- Cross Chains
+- Pendants
+- Earrings
+- Rings
+- Hug Rings
+- Bangles
+- Bracelets
+
+The catalogue contains 150 jewelry products with dedicated product images.
+
+---
+
+## 🛠️ Technologies Used
+
+### Frontend
+- HTML5
+- CSS3
+- JavaScript
+- Responsive Design
+
+### Backend
+- Node.js
+- REST APIs
+- JSON-based persistent database
+- Password hashing
+- Authentication
+- Role-based access
+
+---
+
+## 📁 Project Structure
+
+```text
+Aurelia-Jewels/
+│
+├── index.html
+├── products.html
+├── product-detail.html
+├── account.html
+├── cart.html
+├── checkout.html
+├── orders.html
+├── 404.html
+│
+├── assets/
+│   └── products/
+│       └── Product Images
+│
+├── backend/
+│   ├── data/
+│   └── server files
+│
+├── scripts/
+│
+├── styles/
+│
+├── package.json
+├── server.js
+└── README.md
+```
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (v18 or higher)
+
+### Run Locally
+```bash
+node aurelia-final/server.js
+```
+Then visit [http://localhost:5500](http://localhost:5500) in your browser.
