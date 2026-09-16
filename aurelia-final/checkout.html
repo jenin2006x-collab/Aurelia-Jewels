@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Checkout | Aurelia Jewels</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body style="background:var(--bg-cream);">
+  <header class="header">
+    <div class="header-main" style="justify-content:center; position:relative;">
+      <a class="logo" href="index.html">
+        <span class="logo-mark">✦</span>
+        <span>AURELIA<small>JEWELS</small></span>
+      </a>
+      <div style="position:absolute; right:32px; font-size:12px; color:var(--text-muted); display:flex; align-items:center; gap:6px;">
+        <span>🔒 256-Bit SSL Encrypted Checkout</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="checkout-wrapper">
+    <!-- Progress Indicator -->
+    <div class="checkout-steps-bar">
+      <div class="step-item active" id="stepIndicator1">
+        <div class="step-circle">1</div>
+        <div class="step-label">Delivery Address</div>
+      </div>
+      <div class="step-item" id="stepIndicator2">
+        <div class="step-circle">2</div>
+        <div class="step-label">Shipping Method</div>
+      </div>
+      <div class="step-item" id="stepIndicator3">
+        <div class="step-circle">3</div>
+        <div class="step-label">Payment</div>
+      </div>
+      <div class="step-item" id="stepIndicator4">
+        <div class="step-circle">4</div>
+        <div class="step-label">Confirmation</div>
+      </div>
+    </div>
+
+    <!-- Active Checkout Steps Container -->
+    <div id="checkoutMainContainer">
+      <!-- Injected by JavaScript -->
+    </div>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/ui.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async function () {
+      await window.Auth.hydrate();
+      await window.Cart.hydrate();
+      const items = window.Cart.getItems();
+      if (!items.length) {
+        window.location.href = "cart.html";
+        return;
+      }
+
+      let currentStep = 1;
+      let orderFormData = {
+        customer: {},
+        address: {},
+        deliveryMethod: "Standard Insured Shipping (Free)",
+        paymentMethod: "Cash on Delivery",
+        deliveryCost: 0
+      };
+
+      // Pre-fill user data if logged in
+      const currentUser = window.Auth.getUser();
+      if (currentUser) {
+        orderFormData.customer.name = currentUser.name;
+        orderFormData.customer.email = currentUser.email;
+        orderFormData.customer.phone = currentUser.phone;
+        const addresses = await window.Auth.getAddresses();
+        if (addresses.length) {
+          orderFormData.address = Object.assign({}, addresses[0]);
+        }
+      }
+
+      function updateStepIndicators(step) {
+        for (let i = 1; i <= 4; i++) {
+          const el = document.getElementById("stepIndicator" + i);
+          if (!el) continue;
+          el.className = "step-item";
+          if (i < step) el.classList.add("completed");
+          if (i === step) el.classList.add("active");
+        }
+      }
+
+      function renderStep() {
+        updateStepIndicators(currentStep);
+        const container = document.getElementById("checkoutMainContainer");
+        const totals = window.Cart.getTotals();
+        const activeCoupon = window.Cart.getCoupon();
+
+        // Right side order mini summary component
+        const miniSummaryHTML =
+          '<div class="order-summary-card" style="position:static;">' +
+            '<h3 style="font-size:22px;">Order Summary (' + window.Cart.getCount() + ' Items)</h3>' +
+            '<div style="max-height:240px; overflow-y:auto; margin-bottom:18px; border-bottom:1px solid var(--border); padding-bottom:10px;">' +
+              items.map(function (item) {
+                return (
+                  '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; font-size:13px;">' +
+                    '<div style="display:flex; gap:10px; align-items:center;">' +
+                      '<div style="width:40px; height:40px; background:linear-gradient(135deg,#f9f5ef,#efe7db); border:1px solid #e0d4c3; border-radius:3px; display:grid; place-items:center; color:var(--gold); font-size:16px; flex-shrink:0;">✦</div>' +
+                      '<div style="width:52px;height:52px;flex:0 0 52px;border:1px solid var(--border);background:var(--bg-cream);border-radius:4px;overflow:hidden;"><img src="' + (item.image || item.img || (Array.isArray(item.images) ? item.images[0] : '') || UI.fallbackImg(item.category)) + '" alt="' + item.name + '" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div><div><strong>' + item.name.slice(0, 24) + (item.name.length > 24 ? '...' : '') + '</strong><br><small style="color:var(--text-muted);">Qty: ' + item.qty + '</small></div>' +
+                    '</div>' +
+                    '<span>' + UI.formatPrice(item.price * item.qty) + '</span>' +
+                  '</div>'
+                );
+              }).join("") +
+            '</div>' +
+            '<div class="summary-row"><span>Subtotal:</span> <strong>' + UI.formatPrice(totals.subtotal) + '</strong></div>' +
+            '<div class="summary-row"><span>Discount:</span> <strong style="color:var(--success);">' + (totals.discount > 0 ? "- " + UI.formatPrice(totals.discount) : "₹0") + '</strong></div>' +
+            '<div class="summary-row"><span>Shipping:</span> <strong>' + (orderFormData.deliveryCost === 0 ? "FREE" : UI.formatPrice(orderFormData.deliveryCost)) + '</strong></div>' +
+            '<div class="summary-row total-row"><span>Final Payable:</span> <strong>' + UI.formatPrice(totals.subtotal - totals.discount + orderFormData.deliveryCost) + '</strong></div>' +
+            (activeCoupon ? '<div style="margin-top:10px; font-size:11px; color:var(--success);">✓ Coupon ' + activeCoupon.code + ' applied</div>' : '') +
+          '</div>';
+
+        // STEP 1: Address
+        if (currentStep === 1) {
+          const isUserLogged = window.Auth && Auth.isLoggedIn();
+          const loggedUser = isUserLogged ? Auth.getUser() : null;
+          const patronBannerHTML = isUserLogged
+            ? '<div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:6px; padding:12px 16px; margin-bottom:20px; display:flex; justify-content:space-between; align-items:center; font-size:13px; color:#166534;">' +
+                '<span>✓ Signed in as <strong>' + (loggedUser.name || loggedUser.email) + '</strong> (Aurelia Patron)</span>' +
+                '<span style="font-size:12px; color:#15803d; font-weight:600;">Saved details linked</span>' +
+              '</div>'
+            : '<div style="background:var(--bg-sand); border:1px solid var(--border); border-radius:6px; padding:12px 16px; margin-bottom:20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; font-size:13px;">' +
+                '<div><span>✦ <strong>Already an Aurelia Patron?</strong> Sign in to auto-fill saved address details.</span></div>' +
+                '<div style="display:flex; gap:8px;">' +
+                  '<button type="button" id="btnPatronQuickLogin" class="btn btn-secondary btn-sm" style="padding:6px 12px; font-size:11px;">SIGN IN AS DEMO PATRON</button>' +
+                  '<a href="account.html?redirect=checkout.html" class="btn btn-secondary btn-sm" style="padding:6px 12px; font-size:11px;">SIGN IN</a>' +
+                '</div>' +
+              '</div>';
+
+          container.innerHTML =
+            '<div class="checkout-grid">' +
+              '<div class="checkout-panel">' +
+                patronBannerHTML +
+                '<h2 style="font-family:\'Cormorant Garamond\',serif; font-size:28px; margin-bottom:20px;">1. Contact & Delivery Address</h2>' +
+                '<div class="form-row">' +
+                  '<div class="form-group"><label>Full Name *</label><input type="text" id="custName" value="' + (orderFormData.customer.name || "") + '" placeholder="e.g. Radhika Merchant"></div>' +
+                  '<div class="form-group"><label>Mobile Phone *</label><input type="tel" id="custPhone" value="' + (orderFormData.customer.phone || "") + '" placeholder="10-digit mobile number"></div>' +
+                '</div>' +
+                '<div class="form-group"><label>Email Address (For Invoicing) *</label><input type="email" id="custEmail" value="' + (orderFormData.customer.email || "") + '" placeholder="radhika@example.com"></div>' +
+                '<div class="form-group"><label>House / Flat No., Building & Street *</label><input type="text" id="custAddress1" value="' + (orderFormData.address.address1 || "") + '" placeholder="e.g. Villa 14, Royal Palm Estates"></div>' +
+                '<div class="form-group"><label>Locality / Landmark</label><input type="text" id="custAddress2" value="' + (orderFormData.address.address2 || "") + '" placeholder="Near City Mall"></div>' +
+                '<div class="form-row">' +
+                  '<div class="form-group"><label>City *</label><input type="text" id="custCity" value="' + (orderFormData.address.city || "Mumbai") + '"></div>' +
+                  '<div class="form-group"><label>State *</label><input type="text" id="custState" value="' + (orderFormData.address.state || "Maharashtra") + '"></div>' +
+                  '<div class="form-group"><label>Pincode *</label><input type="text" id="custPincode" value="' + (orderFormData.address.pincode || "") + '" placeholder="6 digits" maxlength="6"></div>' +
+                '</div>' +
+                '<button class="btn btn-primary" id="btnGoStep2" style="width:100%; padding:14px; margin-top:14px;">CONTINUE TO DELIVERY OPTIONS →</button>' +
+              '</div>' +
+              '<div>' + miniSummaryHTML + '</div>' +
+            '</div>';
+
+          document.getElementById("btnPatronQuickLogin")?.addEventListener("click", async function () {
+            try {
+              const u = await window.Auth.login("priya@example.com", "demo123");
+              UI.showToast("Signed in as " + u.name + " (Patron)", "success");
+              orderFormData.customer.name = u.name;
+              orderFormData.customer.email = u.email;
+              orderFormData.customer.phone = u.phone || "9820123456";
+              const addresses = await window.Auth.getAddresses();
+              if (addresses.length) {
+                orderFormData.address = Object.assign({}, addresses[0]);
+              }
+              renderStep();
+            } catch (err) {
+              UI.showToast("Could not sign in: " + err.message, "error");
+            }
+          });
+
+          document.getElementById("btnGoStep2").addEventListener("click", function () {
+            const name = document.getElementById("custName").value.trim();
+            const phone = document.getElementById("custPhone").value.trim();
+            const email = document.getElementById("custEmail").value.trim();
+            const addr1 = document.getElementById("custAddress1").value.trim();
+            const city = document.getElementById("custCity").value.trim();
+            const state = document.getElementById("custState").value.trim();
+            const pincode = document.getElementById("custPincode").value.trim();
+
+            if (!name || !phone || !email || !addr1 || !city || !pincode) {
+              UI.showToast("Please complete all required fields (*).", "error");
+              return;
+            }
+            if (!/^\d{6}$/.test(pincode)) {
+              UI.showToast("Please enter a valid 6-digit PIN code.", "error");
+              return;
+            }
+
+            orderFormData.customer = { name: name, phone: phone, email: email };
+            orderFormData.address = {
+              name: name,
+              phone: phone,
+              address1: addr1,
+              address2: document.getElementById("custAddress2").value.trim(),
+              city: city,
+              state: state,
+              pincode: pincode
+            };
+
+            currentStep = 2;
+            renderStep();
+          });
+        }
+
+        // STEP 2: Delivery Options
+        else if (currentStep === 2) {
+          container.innerHTML =
+            '<div class="checkout-grid">' +
+              '<div class="checkout-panel">' +
+                '<h2 style="font-family:\'Cormorant Garamond\',serif; font-size:28px; margin-bottom:20px;">2. Select Delivery Method</h2>' +
+                '<div class="payment-methods-grid">' +
+                  '<label class="payment-method-card active">' +
+                    '<input type="radio" name="delOption" value="standard" checked> ' +
+                    '<div><strong>Standard Insured Delivery (3–5 Business Days)</strong><br><small style="color:var(--text-muted);">Complimentary on all orders above ₹999. Tamper-evident velvet vault packaging.</small></div>' +
+                    '<strong style="margin-left:auto; color:var(--success);">FREE</strong>' +
+                  '</label>' +
+                  '<label class="payment-method-card">' +
+                    '<input type="radio" name="delOption" value="express"> ' +
+                    '<div><strong>Priority Air Express (1–2 Days Delivery)</strong><br><small style="color:var(--text-muted);">Dedicated air dispatch with real-time live SMS coordinates.</small></div>' +
+                    '<strong style="margin-left:auto;">₹99</strong>' +
+                  '</label>' +
+                  '<label class="payment-method-card">' +
+                    '<input type="radio" name="delOption" value="sameday"> ' +
+                    '<div><strong>Same-Day White Glove Courier (Metro Cities)</strong><br><small style="color:var(--text-muted);">Hand-delivered by an armed security courier concierge.</small></div>' +
+                    '<strong style="margin-left:auto;">₹199</strong>' +
+                  '</label>' +
+                '</div>' +
+                '<div style="display:flex; gap:12px; margin-top:24px;">' +
+                  '<button class="btn btn-secondary" id="btnBackStep1">← Back</button>' +
+                  '<button class="btn btn-primary" id="btnGoStep3" style="flex:1;">CONTINUE TO PAYMENT →</button>' +
+                '</div>' +
+              '</div>' +
+              '<div>' + miniSummaryHTML + '</div>' +
+            '</div>';
+
+          document.querySelectorAll('input[name="delOption"]').forEach(function (radio) {
+            radio.addEventListener("change", function () {
+              document.querySelectorAll(".payment-method-card").forEach(function (c) { c.classList.remove("active"); });
+              radio.closest(".payment-method-card").classList.add("active");
+              if (radio.value === "standard") {
+                orderFormData.deliveryMethod = "Standard Insured Shipping (Free)";
+                orderFormData.deliveryCost = 0;
+              } else if (radio.value === "express") {
+                orderFormData.deliveryMethod = "Priority Air Express (1-2 Days)";
+                orderFormData.deliveryCost = 99;
+              } else {
+                orderFormData.deliveryMethod = "Same-Day White Glove Courier";
+                orderFormData.deliveryCost = 199;
+              }
+              renderStep();
+            });
+          });
+
+          document.getElementById("btnBackStep1").addEventListener("click", function () {
+            currentStep = 1;
+            renderStep();
+          });
+
+          document.getElementById("btnGoStep3").addEventListener("click", function () {
+            currentStep = 3;
+            renderStep();
+          });
+        }
+
+        // STEP 3: Payment
+        else if (currentStep === 3) {
+          container.innerHTML =
+            '<div class="checkout-grid">' +
+              '<div class="checkout-panel">' +
+                '<h2 style="font-family:\'Cormorant Garamond\',serif; font-size:28px; margin-bottom:20px;">3. Choose Payment Method</h2>' +
+                '<div class="payment-methods-grid">' +
+                  '<label class="payment-method-card active">' +
+                    '<input type="radio" name="payOption" value="cod" checked> ' +
+                    '<div><strong>Cash on Delivery (COD)</strong><br><small style="color:var(--text-muted);">Inspect the hallmarked seal and pay in cash/UPI upon delivery.</small></div>' +
+                  '</label>' +
+                  '<label class="payment-method-card">' +
+                    '<input type="radio" name="payOption" value="upi"> ' +
+                    '<div><strong>Instant UPI / QR Code (GPay, PhonePe, Paytm)</strong><br><small style="color:var(--text-muted);">Zero convenience fee with instant confirmation.</small></div>' +
+                  '</label>' +
+                  '<label class="payment-method-card">' +
+                    '<input type="radio" name="payOption" value="card"> ' +
+                    '<div><strong>Credit / Debit Card (Visa, Mastercard, RuPay)</strong><br><small style="color:var(--text-muted);">All major Indian & International luxury cards supported.</small></div>' +
+                  '</label>' +
+                '</div>' +
+                '<div id="upiExtraFields" style="display:none; background:var(--bg-cream); padding:16px; border-radius:6px; margin-bottom:18px;">' +
+                  '<label style="display:block; font-size:12px; font-weight:600; margin-bottom:6px;">Your UPI VPA ID</label>' +
+                  '<input type="text" id="upiIdInput" placeholder="yourname@okhdfcbank" style="width:100%; padding:10px; border:1px solid var(--border); border-radius:4px;">' +
+                '</div>' +
+                '<div id="cardExtraFields" style="display:none; background:var(--bg-cream); padding:16px; border-radius:6px; margin-bottom:18px;">' +
+                  '<div class="form-group"><label>Card Number</label><input type="text" placeholder="XXXX XXXX XXXX 4920" maxlength="19"></div>' +
+                  '<div class="form-row">' +
+                    '<div class="form-group"><label>Expiry (MM/YY)</label><input type="text" placeholder="12/28" maxlength="5"></div>' +
+                    '<div class="form-group"><label>CVV</label><input type="password" placeholder="•••" maxlength="4"></div>' +
+                  '</div>' +
+                '</div>' +
+                '<div style="display:flex; gap:12px; margin-top:24px;">' +
+                  '<button class="btn btn-secondary" id="btnBackStep2">← Back</button>' +
+                  '<button class="btn btn-primary" id="btnPlaceOrder" style="flex:1;">CONFIRM & PLACE ORDER ✦</button>' +
+                '</div>' +
+              '</div>' +
+              '<div>' + miniSummaryHTML + '</div>' +
+            '</div>';
+
+          document.querySelectorAll('input[name="payOption"]').forEach(function (r) {
+            r.addEventListener("change", function () {
+              document.querySelectorAll(".payment-method-card").forEach(function (c) { c.classList.remove("active"); });
+              r.closest(".payment-method-card").classList.add("active");
+              document.getElementById("upiExtraFields").style.display = r.value === "upi" ? "block" : "none";
+              document.getElementById("cardExtraFields").style.display = r.value === "card" ? "block" : "none";
+              if (r.value === "cod") orderFormData.paymentMethod = "Cash on Delivery";
+              if (r.value === "upi") orderFormData.paymentMethod = "Instant UPI";
+              if (r.value === "card") orderFormData.paymentMethod = "Credit / Debit Card";
+            });
+          });
+
+          document.getElementById("btnBackStep2").addEventListener("click", function () {
+            currentStep = 2;
+            renderStep();
+          });
+
+          document.getElementById("btnPlaceOrder").addEventListener("click", async function () {
+            const btn = document.getElementById("btnPlaceOrder");
+            if (btn.disabled) return;
+            btn.disabled = true;
+            const originalText = btn.textContent;
+            btn.textContent = "COMMITTING ORDER TO VAULT...";
+
+            try {
+              const finalTotals = {
+                subtotal: totals.subtotal,
+                discount: totals.discount,
+                shipping: orderFormData.deliveryCost,
+                total: totals.subtotal - totals.discount + orderFormData.deliveryCost
+              };
+
+              const createdOrder = await window.Cart.placeOrder({
+                customer: orderFormData.customer,
+                address: orderFormData.address,
+                deliveryMethod: orderFormData.deliveryMethod,
+                paymentMethod: orderFormData.paymentMethod,
+                items: items,
+                totals: finalTotals,
+                coupon: activeCoupon ? activeCoupon.code : ""
+              });
+
+              currentStep = 4;
+              renderConfirmation(createdOrder);
+            } catch (err) {
+              btn.disabled = false;
+              btn.textContent = originalText;
+              UI.showToast(err.message || "Failed to place order. Please try again.", "error");
+            }
+          });
+        }
+      }
+
+      function renderConfirmation(order) {
+        updateStepIndicators(4);
+        const container = document.getElementById("checkoutMainContainer");
+        const oid = order.orderId || order.id || ("AJ-" + Math.random().toString(36).substring(2, 8).toUpperCase());
+        const custName = (order.customer && order.customer.name) || "Valued Patron";
+        const addrLine = order.address ? ((order.address.address1 || order.address.line1 || "") + ", " + (order.address.city || "") + (order.address.pincode ? " (" + order.address.pincode + ")" : "")) : "Direct Concierge Dispatch";
+        const delMethod = order.deliveryMethod || "Standard Insured Shipping";
+        const payMethod = order.paymentMethod || "Cash on Delivery";
+        const grandTotal = order.totals ? (order.totals.total || 0) : 0;
+
+        container.innerHTML =
+          '<div class="confirmation-card">' +
+            '<div class="confirm-icon">✓</div>' +
+            '<h1 style="font-family:\'Cormorant Garamond\',serif; font-size:42px; margin-bottom:8px;">Order Confirmed!</h1>' +
+            '<p style="color:var(--text-muted); font-size:15px;">Thank you, ' + custName + '. Your bespoke jewellery suite is officially reserved.</p>' +
+            '<div class="order-badge-pill">Order Reference: ' + oid + '</div>' +
+            '<div style="max-width:560px; margin:0 auto 32px; background:var(--bg-cream); border:1px solid var(--border); border-radius:6px; padding:20px; text-align:left; font-size:13px;">' +
+              '<div style="display:flex; justify-content:space-between; margin-bottom:8px;"><strong>Delivery Destination:</strong> <span>' + addrLine + '</span></div>' +
+              '<div style="display:flex; justify-content:space-between; margin-bottom:8px;"><strong>Delivery Method:</strong> <span>' + delMethod + '</span></div>' +
+              '<div style="display:flex; justify-content:space-between; margin-bottom:8px;"><strong>Payment Status:</strong> <span>' + payMethod + '</span></div>' +
+              '<div style="display:flex; justify-content:space-between; margin-bottom:8px; border-top:1px dashed var(--border); padding-top:8px;"><strong>Total Amount:</strong> <strong style="color:var(--primary); font-size:15px;">' + UI.formatPrice(grandTotal) + '</strong></div>' +
+            '</div>' +
+            '<div style="display:flex; justify-content:center; gap:16px;">' +
+              '<a href="orders.html?id=' + encodeURIComponent(oid) + '" class="btn btn-primary">TRACK YOUR ORDER</a>' +
+              '<a href="index.html" class="btn btn-secondary">BACK TO HOME</a>' +
+            '</div>' +
+          '</div>';
+
+        UI.showToast("Congratulations! Order " + oid + " placed successfully.", "success");
+      }
+
+      renderStep();
+    });
+  </script>
+<script src="js/spa.js"></script></body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Tracking & History | Aurelia Jewels</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="top-strip">
+    LIVE CONCIERGE TRACKING • REAL-TIME DISPATCH UPDATES FROM OUR VAULT
+  </div>
+
+  <header class="header">
+    <div class="header-main">
+      <button class="menu-btn" id="menuBtn" aria-label="Open mobile navigation">☰</button>
+      <a class="logo" href="index.html">
+        <span class="logo-mark">✦</span>
+        <span>AURELIA<small>JEWELS</small></span>
+      </a>
+
+      <div class="search-wrap">
+        <input id="searchInput" type="search" placeholder="Search Gold, Kundan, Diamonds, Pendants...">
+        <button id="searchBtn" aria-label="Search">⌕</button>
+      </div>
+
+      <div class="header-icons">
+        <button title="Account" id="accountBtn" aria-label="Account">♙</button>
+        <button title="Wishlist" id="wishlistBtn" aria-label="Wishlist">♡ <span class="wishlist-count">0</span></button>
+        <button title="Shopping Bag" id="cartBtn" aria-label="Shopping Bag">♧ <span class="cart-count">0</span></button>
+      </div>
+    </div>
+
+        <nav class="nav" id="nav">
+      <a href="index.html">Home</a>
+      <a href="products.html?category=Necklaces" id="navNecklaces">Necklaces</a>
+      <a href="products.html?category=Necklace+Sets" id="navNecklaceSets">Necklace Sets</a>
+      <a href="products.html?category=Chains" id="navChains">Chains</a>
+      <a href="products.html?category=Pendants" id="navPendants">Pendants</a>
+      <a href="products.html?category=Earrings" id="navEarrings">Earrings</a>
+      <a href="products.html?category=Rings" id="navRings">Rings</a>
+      <a href="products.html?category=Bangles" id="navBangles">Bangles</a>
+      <a href="products.html?category=Bracelets" id="navBracelets">Bracelets</a>
+    </nav>
+  </header>
+
+  <main style="max-width:1150px; margin:0 auto; padding:40px 24px 80px;">
+    <div class="section-heading" style="text-align:left; margin-bottom:32px;">
+      <p class="eyebrow">CONCIERGE DISPATCH SYSTEM</p>
+      <h2>Order Status & Tracking</h2>
+    </div>
+
+    <div id="ordersContent">
+      <!-- Injected via JavaScript -->
+    </div>
+  </main>
+
+  <!-- Drawers -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="drawer" id="cartDrawer">
+    <div class="drawer-head"><h3>Shopping Bag</h3><button class="drawer-close" id="closeCart">&times;</button></div>
+    <div class="shipping-notice" id="cartShippingNotice"></div>
+    <div class="drawer-body" id="cartItems"></div>
+    <div class="drawer-foot">
+      <div class="drawer-summary">
+        <div><span>Subtotal:</span> <strong id="cartSubtotal">₹0</strong></div>
+        <div><span>Discount:</span> <strong id="cartDiscount">₹0</strong></div>
+        <div><span>Delivery:</span> <strong id="cartShipping">FREE</strong></div>
+        <div class="total-row"><span>Total Payable:</span> <strong id="cartTotal">₹0</strong></div>
+      </div>
+      <a href="checkout.html" class="btn btn-block" style="margin-top:12px; text-align:center;">PROCEED TO CHECKOUT</a>
+    </div>
+  </aside>
+  <aside class="drawer" id="wishlistDrawer">
+    <div class="drawer-head"><h3>Your Curated Wishlist</h3><button class="drawer-close" id="closeWishlist">&times;</button></div>
+    <div class="drawer-body" id="wishlistItems"></div>
+  </aside>
+
+  <script src="js/data.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/ui.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async function () {
+      const container = document.getElementById("ordersContent");
+      const params = new URLSearchParams(window.location.search);
+      const targetId = params.get("id");
+      let allOrders = await window.Cart.fetchOrders();
+
+      if (targetId && !allOrders.some(o => (o.orderId || o.id) === targetId)) {
+        try {
+          const r = await AureliaAPI.get('/orders/' + encodeURIComponent(targetId));
+          if (r && r.order) {
+            allOrders = [r.order, ...allOrders];
+          }
+        } catch (e) {}
+      }
+
+      if (!allOrders.length) {
+        container.innerHTML =
+          '<div style="text-align:center; padding:80px 20px; background:#fff; border:1px solid var(--border); border-radius:8px;">' +
+            '<div style="font-size:48px; margin-bottom:14px;">📦</div>' +
+            '<h3 style="font-family:\'Cormorant Garamond\',serif; font-size:30px; margin-bottom:10px;">No Active Orders Found</h3>' +
+            '<p style="color:var(--text-muted); font-size:14px; margin-bottom:24px;">When you acquire fine jewellery from Aurelia, real-time tracking will appear here.</p>' +
+            '<a href="products.html" class="btn">DISCOVER PIECES</a>' +
+          '</div>';
+        return;
+      }
+
+      // If a specific order ID is requested or default to the latest order
+      let selectedOrder = targetId ? allOrders.find(o => (o.orderId || o.id) === targetId) : allOrders[0];
+      if (!selectedOrder) selectedOrder = allOrders[0];
+      const selectedOid = selectedOrder.orderId || selectedOrder.id;
+
+      let ordersNavTabs = '<div style="display:flex; gap:10px; overflow-x:auto; margin-bottom:24px; padding-bottom:8px;">';
+      allOrders.forEach(function (o) {
+        const oid = o.orderId || o.id;
+        const isSel = oid === selectedOid;
+        ordersNavTabs +=
+          '<a href="orders.html?id=' + encodeURIComponent(oid) + '" class="btn btn-sm ' + (isSel ? 'btn-primary' : 'btn-secondary') + '" style="white-space:nowrap;">' +
+            '#' + oid + ' (' + o.status + ')' +
+          '</a>';
+      });
+      ordersNavTabs += '</div>';
+
+      const trackingSteps = selectedOrder.trackingSteps || [
+        { label: "Order Placed", done: true, time: "Confirmed" },
+        { label: "Vault Inspection", done: selectedOrder.status !== "Placed", time: "Completed" },
+        { label: "Securely Packed", done: ["Packed", "Shipped", "Delivered"].indexOf(selectedOrder.status) !== -1, time: "Tamper Sealed" },
+        { label: "Air Transit", done: ["Shipped", "Delivered"].indexOf(selectedOrder.status) !== -1, time: "With Courier" },
+        { label: "Delivered", done: selectedOrder.status === "Delivered", time: "Handed to Recipient" }
+      ];
+
+      const stepsHTML = trackingSteps.map(function (s) {
+        return (
+          '<div class="timeline-step ' + (s.done ? 'done' : '') + '">' +
+            '<div class="timeline-step-icon">' + (s.done ? '✓' : '○') + '</div>' +
+            '<div class="timeline-step-label">' + s.label + '</div>' +
+            '<div class="timeline-step-time">' + (s.time || "") + '</div>' +
+          '</div>'
+        );
+      }).join("");
+
+      const itemsListHTML = (selectedOrder.items || []).map(function (item) {
+        return (
+          '<div style="display:flex; gap:16px; align-items:center; padding:14px 0; border-bottom:1px solid var(--border-light);">' +
+            '<div style="width:64px; height:64px; background:#f8f5ef; border:1px solid #e0d4c3; border-radius:4px; overflow:hidden; flex-shrink:0;"><img src="' + (item.image || item.img || (Array.isArray(item.images) ? item.images[0] : '') || UI.fallbackImg(item.category)) + '" alt="' + item.name + '" style="width:100%;height:100%;object-fit:contain;" loading="lazy"></div>' +
+            '<div style="flex:1;">' +
+              '<h4 style="font-size:14px; font-weight:600; margin-bottom:4px;"><a href="product-detail.html?id=' + item.id + '" style="color:inherit; text-decoration:none;">' + item.name + '</a></h4>' +
+              '<p style="font-size:12px; color:var(--text-muted);">' + (item.metal ? item.metal : "") + (item.polish ? " • " + item.polish : "") + '</p>' +
+              '<span style="font-size:12px; color:var(--gold); font-weight:600;">Qty: ' + item.qty + ' &nbsp;×&nbsp; ' + UI.formatPrice(item.price) + '</span>' +
+            '</div>' +
+            '<div style="font-weight:700; color:var(--dark-brown); font-size:14px;">' + UI.formatPrice(item.price * item.qty) + '</div>' +
+          '</div>'
+        );
+      }).join("");
+
+      const custName = (selectedOrder.customer && selectedOrder.customer.name) || "Valued Patron";
+      const custPhone = (selectedOrder.customer && selectedOrder.customer.phone) ? "<br>📞 " + selectedOrder.customer.phone : "";
+      const addrDetails = selectedOrder.address
+        ? ((selectedOrder.address.address1 || selectedOrder.address.line1 || "") + (selectedOrder.address.address2 ? ", " + selectedOrder.address.address2 : "") + "<br>" + (selectedOrder.address.city || "") + (selectedOrder.address.state ? ", " + selectedOrder.address.state : "") + (selectedOrder.address.pincode ? " - " + selectedOrder.address.pincode : ""))
+        : "Vault Direct Concierge";
+
+      container.innerHTML =
+        ordersNavTabs +
+        '<div style="background:#fff; border:1px solid var(--border); border-radius:8px; overflow:hidden; box-shadow:var(--shadow-sm);">' +
+          '<div style="background:var(--bg-cream); padding:20px 24px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;">' +
+            '<div>' +
+              '<h3 style="font-family:\'Cormorant Garamond\',serif; font-size:26px;">Order #' + selectedOid + '</h3>' +
+              '<p style="font-size:12px; color:var(--text-muted);">Recorded on ' + new Date(selectedOrder.createdAt).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric", hour: "2-digit", minute: "2-digit" }) + '</p>' +
+            '</div>' +
+            '<div style="display:flex; gap:10px; align-items:center;">' +
+              '<span class="badge" style="background:var(--primary); color:#fff; padding:6px 14px; font-size:12px;">' + (selectedOrder.status || "PLACED").toUpperCase() + '</span>' +
+              '<button onclick="window.print()" class="btn btn-secondary btn-sm">PRINT RECEIPT 🖨</button>' +
+            '</div>' +
+          '</div>' +
+
+          '<!-- Tracking Timeline -->' +
+          '<div class="order-tracking-timeline">' + stepsHTML + '</div>' +
+
+          '<div style="display:grid; grid-template-columns:1.8fr 1.2fr; gap:32px; padding:28px 24px; border-top:1px solid var(--border-light);">' +
+            '<div>' +
+              '<h4 style="font-family:\'Cormorant Garamond\',serif; font-size:22px; margin-bottom:12px;">Enclosed Creations</h4>' +
+              itemsListHTML +
+            '</div>' +
+            '<div style="background:var(--bg-sand); padding:20px; border-radius:6px; font-size:13px; height:fit-content;">' +
+              '<h4 style="font-family:\'Cormorant Garamond\',serif; font-size:20px; margin-bottom:14px;">Logistics & Financials</h4>' +
+              '<div style="margin-bottom:12px;">' +
+                '<strong>Delivery Destination:</strong><br>' +
+                custName + '<br>' +
+                addrDetails +
+                custPhone +
+              '</div>' +
+              '<div style="margin-bottom:12px; border-top:1px solid var(--border); padding-top:10px;">' +
+                '<strong>Shipping Carrier:</strong> ' + (selectedOrder.deliveryMethod || "Standard Insured") + '<br>' +
+                '<strong>Payment Method:</strong> ' + (selectedOrder.paymentMethod || "Cash on Delivery") + '<br>' +
+                (selectedOrder.coupon ? '<strong>Applied Coupon:</strong> <span style="color:var(--success);">' + selectedOrder.coupon + '</span><br>' : '') +
+              '</div>' +
+              '<div style="border-top:1px dashed var(--border); padding-top:10px;">' +
+                '<div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>Subtotal:</span> <strong>' + UI.formatPrice(selectedOrder.totals ? selectedOrder.totals.subtotal : 0) + '</strong></div>' +
+                '<div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>Discount:</span> <strong style="color:var(--success);">- ' + UI.formatPrice(selectedOrder.totals ? selectedOrder.totals.discount : 0) + '</strong></div>' +
+                '<div style="display:flex; justify-content:space-between; margin-bottom:4px;"><span>Shipping:</span> <strong>' + (selectedOrder.totals && selectedOrder.totals.shipping === 0 ? "FREE" : UI.formatPrice(selectedOrder.totals ? selectedOrder.totals.shipping : 0)) + '</strong></div>' +
+                '<div style="display:flex; justify-content:space-between; margin-top:8px; font-size:15px; font-weight:700; color:var(--primary);"><span>Amount Paid:</span> <strong>' + UI.formatPrice(selectedOrder.totals ? selectedOrder.totals.total : 0) + '</strong></div>' +
+              '</div>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+    });
+  </script>
+<script src="js/spa.js"></script></body>
+</html>

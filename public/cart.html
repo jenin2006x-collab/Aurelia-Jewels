@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Bag | Aurelia Jewels</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="top-strip">
+    DISCOVER UNPARALLELED BRILLIANCE • FREE INSURED SHIPPING ON ORDERS ABOVE ₹999
+  </div>
+
+  <header class="header">
+    <div class="header-main">
+      <button class="menu-btn" id="menuBtn" aria-label="Open mobile navigation">☰</button>
+      <a class="logo" href="index.html">
+        <span class="logo-mark">✦</span>
+        <span>AURELIA<small>JEWELS</small></span>
+      </a>
+
+      <div class="search-wrap">
+        <input id="searchInput" type="search" placeholder="Search Gold, Kundan, Diamonds, Pendants...">
+        <button id="searchBtn" aria-label="Search">⌕</button>
+      </div>
+
+      <div class="header-icons">
+        <button title="Account" id="accountBtn" aria-label="Account">♙</button>
+        <button title="Wishlist" id="wishlistBtn" aria-label="Wishlist">♡ <span class="wishlist-count">0</span></button>
+        <button title="Shopping Bag" id="cartBtn" aria-label="Shopping Bag">♧ <span class="cart-count">0</span></button>
+      </div>
+    </div>
+
+        <nav class="nav" id="nav">
+      <a href="index.html">Home</a>
+      <a href="products.html?category=Necklaces" id="navNecklaces">Necklaces</a>
+      <a href="products.html?category=Necklace+Sets" id="navNecklaceSets">Necklace Sets</a>
+      <a href="products.html?category=Chains" id="navChains">Chains</a>
+      <a href="products.html?category=Pendants" id="navPendants">Pendants</a>
+      <a href="products.html?category=Earrings" id="navEarrings">Earrings</a>
+      <a href="products.html?category=Rings" id="navRings">Rings</a>
+      <a href="products.html?category=Bangles" id="navBangles">Bangles</a>
+      <a href="products.html?category=Bracelets" id="navBracelets">Bracelets</a>
+    </nav>
+  </header>
+
+  <main style="max-width:1350px; margin:0 auto; padding:36px 24px 80px;">
+    <div class="section-heading" style="text-align:left; margin-bottom:28px;">
+      <p class="eyebrow">YOUR SELECTED SUITES</p>
+      <h2>Shopping Bag</h2>
+    </div>
+
+    <div id="cartContentWrapper">
+      <!-- Injected via JavaScript -->
+    </div>
+  </main>
+
+  <!-- Shared Drawers & Overlay -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="drawer" id="cartDrawer">
+    <div class="drawer-head"><h3>Shopping Bag</h3><button class="drawer-close" id="closeCart">&times;</button></div>
+    <div class="shipping-notice" id="cartShippingNotice"></div>
+    <div class="drawer-body" id="cartItems"></div>
+    <div class="drawer-foot">
+      <div class="drawer-coupon-row">
+        <input type="text" id="drawerCouponInput" placeholder="Promo code">
+        <button id="drawerApplyCoupon">Apply</button>
+      </div>
+      <div class="drawer-summary">
+        <div><span>Subtotal:</span> <strong id="cartSubtotal">₹0</strong></div>
+        <div><span>Discount:</span> <strong id="cartDiscount">₹0</strong></div>
+        <div><span>Delivery:</span> <strong id="cartShipping">FREE</strong></div>
+        <div class="total-row"><span>Total Payable:</span> <strong id="cartTotal">₹0</strong></div>
+      </div>
+      <a href="checkout.html" class="btn btn-block" style="margin-top:12px; text-align:center;">PROCEED TO CHECKOUT</a>
+    </div>
+  </aside>
+
+  <aside class="drawer" id="wishlistDrawer">
+    <div class="drawer-head"><h3>Your Curated Wishlist</h3><button class="drawer-close" id="closeWishlist">&times;</button></div>
+    <div class="drawer-body" id="wishlistItems"></div>
+  </aside>
+
+  <script src="js/data.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/ui.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      function renderFullCart() {
+        const wrapper = document.getElementById("cartContentWrapper");
+        const items = window.Cart.getItems();
+        const totals = window.Cart.getTotals();
+        const activeCoupon = window.Cart.getCoupon();
+
+        if (!items.length) {
+          wrapper.innerHTML =
+            '<div style="text-align:center; padding:80px 20px; background:var(--bg-cream); border:1px solid var(--border); border-radius:8px;">' +
+              '<div style="font-size:52px; margin-bottom:16px;">🛍️</div>' +
+              '<h3 style="font-family:\'Cormorant Garamond\',serif; font-size:32px; margin-bottom:12px;">Your Shopping Bag is Empty</h3>' +
+              '<p style="color:var(--text-muted); font-size:14px; max-width:440px; margin:0 auto 24px;">Discover fine jewellery handcrafted in 22K gold, sparkling Kundan, and lab solitaires.</p>' +
+              '<a href="products.html" class="btn">EXPLORE THE CATALOGUE</a>' +
+            '</div>';
+          return;
+        }
+
+        let tableRows = "";
+        items.forEach(function (item, idx) {
+          const itemSubtotal = item.price * (item.qty || 1);
+          tableRows +=
+            '<tr>' +
+              '<td class="cart-product-cell">' +
+                '<a href="product-detail.html?id=' + item.id + '" class="cart-thumb-box"><img src="' + (item.image || item.img || (Array.isArray(item.images) ? item.images[0] : '') || UI.fallbackImg(item.category)) + '" alt="' + item.name + '" loading="lazy"></a>' +
+                '<div class="cart-product-meta">' +
+                  '<h4><a href="product-detail.html?id=' + item.id + '" style="color:inherit; text-decoration:none;">' + item.name + '</a></h4>' +
+                  '<p>' + (item.metal ? item.metal : "") + (item.polish ? " • " + item.polish : "") + '</p>' +
+                  '<span style="color:var(--gold); font-weight:600; font-size:13px;">' + UI.formatPrice(item.price) + '</span>' +
+                '</div>' +
+              '</td>' +
+              '<td>' +
+                '<div class="qty-stepper" style="display:inline-flex; align-items:center; border:1px solid var(--border); border-radius:4px; background:#fff;">' +
+                  '<button class="page-cart-dec" data-id="' + item.id + '" style="width:36px; height:36px; border:0; background:none; cursor:pointer; font-size:16px;">−</button>' +
+                  '<span style="width:32px; text-align:center; font-weight:600;">' + item.qty + '</span>' +
+                  '<button class="page-cart-inc" data-id="' + item.id + '" style="width:36px; height:36px; border:0; background:none; cursor:pointer; font-size:16px;">+</button>' +
+                '</div>' +
+              '</td>' +
+              '<td style="font-weight:700; color:var(--dark-brown); font-size:15px;">' + UI.formatPrice(itemSubtotal) + '</td>' +
+              '<td>' +
+                '<button class="page-cart-remove" data-id="' + item.id + '" style="background:none; border:0; color:var(--danger); cursor:pointer; font-size:13px; font-weight:500;">Remove</button>' +
+              '</td>' +
+            '</tr>';
+        });
+
+        wrapper.innerHTML =
+          '<div class="cart-page-layout">' +
+            '<div>' +
+              '<div class="cart-table-wrap">' +
+                '<table class="cart-table">' +
+                  '<thead>' +
+                    '<tr>' +
+                      '<th>Jewellery Piece</th>' +
+                      '<th>Quantity</th>' +
+                      '<th>Subtotal</th>' +
+                      '<th>Action</th>' +
+                    '</tr>' +
+                  '</thead>' +
+                  '<tbody>' + tableRows + '</tbody>' +
+                '</table>' +
+              '</div>' +
+              '<div style="margin-top:20px; display:flex; justify-content:space-between; align-items:center;">' +
+                '<a href="products.html" style="font-size:13px; font-weight:600; color:var(--primary); text-decoration:none;">← Continue Shopping</a>' +
+                '<button id="clearBagBtn" style="background:none; border:0; color:var(--text-muted); cursor:pointer; font-size:12px;">Clear Entire Bag</button>' +
+              '</div>' +
+            '</div>' +
+            '<div>' +
+              '<div class="order-summary-card">' +
+                '<h3>Order Summary</h3>' +
+                '<div class="summary-row"><span>Bag Subtotal:</span> <strong>' + UI.formatPrice(totals.subtotal) + '</strong></div>' +
+                '<div class="summary-row"><span>Promotional Discount:</span> <strong style="color:var(--success);">' + (totals.discount > 0 ? "- " + UI.formatPrice(totals.discount) : "₹0") + '</strong></div>' +
+                '<div class="summary-row"><span>Insured Shipping:</span> <strong>' + (totals.shipping === 0 ? "FREE" : UI.formatPrice(totals.shipping)) + '</strong></div>' +
+                '<div class="summary-row total-row"><span>Estimated Total:</span> <strong>' + UI.formatPrice(totals.total) + '</strong></div>' +
+                '<div style="margin-top:24px;">' +
+                  '<label style="display:block; font-size:11px; font-weight:700; letter-spacing:1px; color:var(--text-muted); text-transform:uppercase; margin-bottom:8px;">Have a Promo Code?</label>' +
+                  '<div class="coupon-box">' +
+                    '<input type="text" id="pageCouponInput" placeholder="FIRST10, WELCOME15..." value="' + (activeCoupon ? activeCoupon.code : "") + '">' +
+                    '<button class="btn btn-sm" id="pageApplyCouponBtn">' + (activeCoupon ? "REPLACE" : "APPLY") + '</button>' +
+                  '</div>' +
+                  (activeCoupon ? '<div style="font-size:12px; color:var(--success); margin-top:-10px; margin-bottom:14px;">✓ Code <strong>' + activeCoupon.code + '</strong> applied (' + activeCoupon.description + ')</div>' : '') +
+                '</div>' +
+                '<a href="checkout.html" class="btn btn-block" style="text-align:center; padding:16px; font-size:13px; letter-spacing:1.5px; margin-top:12px;">PROCEED TO CHECKOUT →</a>' +
+                '<div style="margin-top:24px; padding-top:20px; border-top:1px solid var(--border); font-size:12px; color:var(--text-muted); display:flex; flex-direction:column; gap:8px;">' +
+                  '<div>✓ 100% Certified Hallmarked Jewellery</div>' +
+                  '<div>✓ 15-Day Easy Exchange Policy</div>' +
+                  '<div>✓ Secure Encrypted 256-bit Checkout</div>' +
+                '</div>' +
+              '</div>' +
+            '</div>' +
+          '</div>';
+
+        // Bind event listeners for table buttons
+        wrapper.querySelectorAll(".page-cart-inc").forEach(function (b) {
+          b.addEventListener("click", function () {
+            window.Cart.updateQty(Number(b.getAttribute("data-id")), 1);
+            renderFullCart();
+          });
+        });
+
+        wrapper.querySelectorAll(".page-cart-dec").forEach(function (b) {
+          b.addEventListener("click", function () {
+            window.Cart.updateQty(Number(b.getAttribute("data-id")), -1);
+            renderFullCart();
+          });
+        });
+
+        wrapper.querySelectorAll(".page-cart-remove").forEach(function (b) {
+          b.addEventListener("click", function () {
+            window.Cart.removeItem(Number(b.getAttribute("data-id")));
+            renderFullCart();
+          });
+        });
+
+        const clearBtn = document.getElementById("clearBagBtn");
+        if (clearBtn) {
+          clearBtn.addEventListener("click", function () {
+            if (confirm("Are you sure you wish to clear all items from your shopping bag?")) {
+              window.Cart.clearCart();
+              renderFullCart();
+            }
+          });
+        }
+
+        const applyBtn = document.getElementById("pageApplyCouponBtn");
+        if (applyBtn) {
+          applyBtn.addEventListener("click", function () {
+            const val = document.getElementById("pageCouponInput").value;
+            const res = window.Cart.applyCoupon(val);
+            if (res.success) {
+              renderFullCart();
+            } else {
+              UI.showToast(res.message, "error");
+            }
+          });
+        }
+      }
+
+      renderFullCart();
+    });
+  </script>
+<script src="js/spa.js"></script></body>
+</html>
