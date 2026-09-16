@@ -3,7 +3,7 @@ const fs=require('fs');
 const path=require('path');
 const {handle}=require('./backend/api');
 const {db,save,hashPassword}=require('./backend/db');
-const PORT=5500;
+const PORT=process.env.PORT||5500;
 const ROOT=__dirname;
 const MIME={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.json':'application/json; charset=utf-8','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.svg':'image/svg+xml','.ico':'image/x-icon','.webp':'image/webp'};
 // Seed demo accounts once. Passwords are stored as scrypt hashes, never plaintext.
