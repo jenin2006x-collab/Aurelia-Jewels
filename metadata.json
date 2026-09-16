@@ -1,0 +1,8 @@
+{
+  "name": "Aurelia Jewels",
+  "description": "Fine jewellery and luxury handcrafted collections storefront with patron portal and admin operations dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

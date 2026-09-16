@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Account | Aurelia Jewels</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="top-strip">
+    EXCLUSIVE PRIVILEGES FOR AURELIA PATRONS • SPECIAL BIRTHDAY OFFERS & BESPOKE STYLING
+  </div>
+
+  <header class="header">
+    <div class="header-main">
+      <button class="menu-btn" id="menuBtn" aria-label="Open mobile navigation">☰</button>
+      <a class="logo" href="index.html">
+        <span class="logo-mark">✦</span>
+        <span>AURELIA<small>JEWELS</small></span>
+      </a>
+
+      <div class="search-wrap">
+        <input id="searchInput" type="search" placeholder="Search Gold, Kundan, Diamonds, Pendants...">
+        <button id="searchBtn" aria-label="Search">⌕</button>
+      </div>
+
+      <div class="header-icons">
+        <button title="Account" id="accountBtn" aria-label="Account">♙</button>
+        <button title="Wishlist" id="wishlistBtn" aria-label="Wishlist">♡ <span class="wishlist-count">0</span></button>
+        <button title="Shopping Bag" id="cartBtn" aria-label="Shopping Bag">♧ <span class="cart-count">0</span></button>
+      </div>
+    </div>
+
+        <nav class="nav" id="nav">
+      <a href="index.html">Home</a>
+      <a href="products.html?category=Necklaces" id="navNecklaces">Necklaces</a>
+      <a href="products.html?category=Necklace+Sets" id="navNecklaceSets">Necklace Sets</a>
+      <a href="products.html?category=Chains" id="navChains">Chains</a>
+      <a href="products.html?category=Pendants" id="navPendants">Pendants</a>
+      <a href="products.html?category=Earrings" id="navEarrings">Earrings</a>
+      <a href="products.html?category=Rings" id="navRings">Rings</a>
+      <a href="products.html?category=Bangles" id="navBangles">Bangles</a>
+      <a href="products.html?category=Bracelets" id="navBracelets">Bracelets</a>
+    </nav>
+  </header>
+
+  <main class="account-wrapper">
+    <!-- Unauthenticated View: Login / Register Form -->
+    <div id="authSection" style="display:none; max-width:480px; margin:40px auto; background:#fff; border:1px solid var(--border); border-radius:8px; padding:36px; box-shadow:var(--shadow-sm);">
+      <div style="text-align:center; margin-bottom:28px;">
+        <span style="color:var(--gold); font-size:28px;">✦</span>
+        <h2 style="font-family:'Cormorant Garamond',serif; font-size:32px;" id="authHeading">Welcome to Aurelia</h2>
+        <p style="font-size:13px; color:var(--text-muted);">Access your orders, wishlist, and bespoke benefits</p>
+      </div>
+
+      <div style="display:flex; border-bottom:1px solid var(--border); margin-bottom:24px;">
+        <button id="tabBtnLogin" class="account-tab-btn active" style="flex:1;">SIGN IN</button>
+        <button id="tabBtnRegister" class="account-tab-btn" style="flex:1;">CREATE ACCOUNT</button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="loginForm">
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="loginEmail" placeholder="priya@example.com" value="priya@example.com" required>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="loginPassword" placeholder="demo123" value="demo123" required>
+        </div>
+        <div style="font-size:11px; color:var(--text-muted); margin-bottom:18px; background:var(--bg-cream); padding:8px 12px; border-radius:4px;">
+          💡 <strong>Demo Credentials:</strong> priya@example.com / demo123
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; padding:14px;">SIGN IN TO AURELIA</button>
+      </form>
+
+      <!-- Register Form -->
+      <form id="registerForm" style="display:none;">
+        <div class="form-group">
+          <label>Full Name *</label>
+          <input type="text" id="regName" placeholder="e.g. Ananya Sen" required>
+        </div>
+        <div class="form-group">
+          <label>Email Address *</label>
+          <input type="email" id="regEmail" placeholder="ananya@example.com" required>
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" id="regPhone" placeholder="+91 98765 00000">
+        </div>
+        <div class="form-group">
+          <label>Create Password *</label>
+          <input type="password" id="regPassword" placeholder="At least 6 characters" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; padding:14px;">CREATE ACCOUNT</button>
+      </form>
+    </div>
+
+    <!-- Authenticated View: User Account Dashboard -->
+    <div id="dashboardSection" style="display:none;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:28px;">
+        <div>
+          <h1 style="font-family:'Cormorant Garamond',serif; font-size:36px;">Welcome, <span id="dashUserName">Client</span></h1>
+          <p style="color:var(--text-muted); font-size:13px;" id="dashUserEmail">client@aurelia.com</p>
+        </div>
+        <button class="btn btn-secondary btn-sm" id="logoutBtn">SIGN OUT</button>
+      </div>
+
+      <!-- Tabs Navigation -->
+      <div class="account-tabs-nav">
+        <button class="account-tab-btn active" data-tab="profileTab">Profile Details</button>
+        <button class="account-tab-btn" data-tab="ordersTab">My Orders (<span id="ordersCountBadge">0</span>)</button>
+        <button class="account-tab-btn" data-tab="wishlistTab">Saved Wishlist</button>
+        <button class="account-tab-btn" data-tab="addressesTab">Saved Addresses</button>
+      </div>
+
+      <!-- Tab 1: Profile Details -->
+      <div class="account-tab-content" id="profileTab">
+        <div class="checkout-panel" style="max-width:600px;">
+          <h3 style="font-family:'Cormorant Garamond',serif; font-size:24px; margin-bottom:18px;">Edit Personal Profile</h3>
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="profName">
+          </div>
+          <div class="form-group">
+            <label>Registered Email</label>
+            <input type="email" id="profEmail" disabled style="background:#f4f4f4; color:#888;">
+          </div>
+          <div class="form-group">
+            <label>Contact Phone</label>
+            <input type="tel" id="profPhone">
+          </div>
+          <button class="btn btn-primary" id="saveProfileBtn">SAVE PROFILE CHANGES</button>
+        </div>
+      </div>
+
+      <!-- Tab 2: Orders -->
+      <div class="account-tab-content" id="ordersTab" style="display:none;">
+        <div id="accountOrdersList">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+
+      <!-- Tab 3: Wishlist -->
+      <div class="account-tab-content" id="wishlistTab" style="display:none;">
+        <div class="product-grid" id="accountWishlistGrid">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+
+      <!-- Tab 4: Addresses -->
+      <div class="account-tab-content" id="addressesTab" style="display:none;">
+        <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:20px;" id="addressesGrid">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Drawers -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="drawer" id="cartDrawer">
+    <div class="drawer-head"><h3>Shopping Bag</h3><button class="drawer-close" id="closeCart">&times;</button></div>
+    <div class="shipping-notice" id="cartShippingNotice"></div>
+    <div class="drawer-body" id="cartItems"></div>
+    <div class="drawer-foot">
+      <div class="drawer-summary">
+        <div><span>Subtotal:</span> <strong id="cartSubtotal">₹0</strong></div>
+        <div><span>Discount:</span> <strong id="cartDiscount">₹0</strong></div>
+        <div><span>Delivery:</span> <strong id="cartShipping">FREE</strong></div>
+        <div class="total-row"><span>Total Payable:</span> <strong id="cartTotal">₹0</strong></div>
+      </div>
+      <a href="checkout.html" class="btn btn-block" style="margin-top:12px; text-align:center;">PROCEED TO CHECKOUT</a>
+    </div>
+  </aside>
+  <aside class="drawer" id="wishlistDrawer">
+    <div class="drawer-head"><h3>Your Curated Wishlist</h3><button class="drawer-close" id="closeWishlist">&times;</button></div>
+    <div class="drawer-body" id="wishlistItems"></div>
+  </aside>
+
+  <script src="js/data.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/ui.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async function () {
+      const authSection = document.getElementById("authSection");
+      const dashSection = document.getElementById("dashboardSection");
+
+      async function refreshView() {
+        if (window.Auth.isLoggedIn()) {
+          authSection.style.display = "none";
+          dashSection.style.display = "block";
+          await renderDashboard();
+        } else {
+          authSection.style.display = "block";
+          dashSection.style.display = "none";
+        }
+      }
+
+      // Login / Register Tabs Toggle
+      const tabLogin = document.getElementById("tabBtnLogin");
+      const tabReg = document.getElementById("tabBtnRegister");
+      const formLogin = document.getElementById("loginForm");
+      const formReg = document.getElementById("registerForm");
+
+      tabLogin.addEventListener("click", function () {
+        tabLogin.classList.add("active");
+        tabReg.classList.remove("active");
+        formLogin.style.display = "block";
+        formReg.style.display = "none";
+      });
+
+      tabReg.addEventListener("click", function () {
+        tabReg.classList.add("active");
+        tabLogin.classList.remove("active");
+        formReg.style.display = "block";
+        formLogin.style.display = "none";
+      });
+
+      // Submit Login
+      formLogin.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const email = document.getElementById("loginEmail").value;
+        const pass = document.getElementById("loginPassword").value;
+        const res = await window.Auth.login(email, pass);
+        if (res.success) {
+          UI.showToast(res.message, "success");
+          await window.Auth.hydrate();
+      await window.Cart.hydrate();
+      await refreshView();
+        } else {
+          UI.showToast(res.message, "error");
+        }
+      });
+
+      // Submit Register
+      formReg.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const name = document.getElementById("regName").value;
+        const email = document.getElementById("regEmail").value;
+        const phone = document.getElementById("regPhone").value;
+        const pass = document.getElementById("regPassword").value;
+        const res = await window.Auth.register(name, email, phone, pass);
+        if (res.success) {
+          UI.showToast(res.message, "success");
+          await refreshView();
+        } else {
+          UI.showToast(res.message, "error");
+        }
+      });
+
+      // Logout
+      document.getElementById("logoutBtn").addEventListener("click", function () {
+        window.Auth.logout();
+      });
+
+      // Render Dashboard
+      async function renderDashboard() {
+        const user = window.Auth.getUser();
+        if (!user) return;
+
+        document.getElementById("dashUserName").textContent = user.name;
+        document.getElementById("dashUserEmail").textContent = user.email;
+        document.getElementById("profName").value = user.name;
+        document.getElementById("profEmail").value = user.email;
+        document.getElementById("profPhone").value = user.phone || "";
+
+        // Profile Save
+        document.getElementById("saveProfileBtn").onclick = async function () {
+          const res = await window.Auth.updateProfile({
+            name: document.getElementById("profName").value,
+            phone: document.getElementById("profPhone").value
+          });
+          if (res.success) {
+            UI.showToast(res.message, "success");
+            renderDashboard();
+          }
+        };
+
+        // Orders Tab
+        const allOrders = await window.Cart.fetchOrders();
+        document.getElementById("ordersCountBadge").textContent = allOrders.length;
+        const ordersContainer = document.getElementById("accountOrdersList");
+
+        if (!allOrders.length) {
+          ordersContainer.innerHTML =
+            '<div style="text-align:center; padding:40px; background:var(--bg-cream); border-radius:6px; border:1px solid var(--border);">' +
+              '<p style="color:var(--text-muted); margin-bottom:14px;">You have placed no orders yet.</p>' +
+              '<a href="products.html" class="btn btn-sm">EXPLORE COLLECTIONS</a>' +
+            '</div>';
+        } else {
+          let oHtml = "";
+          allOrders.forEach(function (o) {
+            const dateStr = new Date(o.createdAt).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
+            oHtml +=
+              '<div class="order-history-card">' +
+                '<div class="order-history-header">' +
+                  '<div><strong>Order #' + o.orderId + '</strong> &nbsp;|&nbsp; Placed on ' + dateStr + '</div>' +
+                  '<div><span class="badge badge-sale" style="background:#287a48; color:#fff;">' + o.status + '</span></div>' +
+                '</div>' +
+                '<div style="padding:20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">' +
+                  '<div>' +
+                    '<p style="font-size:13px; color:var(--text-muted); margin-bottom:4px;">Recipient: <strong>' + (o.customer ? o.customer.name : "Valued Patron") + '</strong></p>' +
+                    '<p style="font-size:13px; color:var(--text-muted); margin-bottom:4px;">Items: <strong>' + (o.items ? o.items.length : 1) + ' creations</strong> &nbsp;|&nbsp; Total: <strong style="color:var(--primary);">' + UI.formatPrice(o.totals ? o.totals.total : 0) + '</strong></p>' +
+                    '<p style="font-size:12px; color:var(--text-muted);">Payment: ' + o.paymentMethod + '</p>' +
+                  '</div>' +
+                  '<div>' +
+                    '<a href="orders.html?id=' + o.orderId + '" class="btn btn-secondary btn-sm">TRACK STATUS & TIMELINE →</a>' +
+                  '</div>' +
+                '</div>' +
+              '</div>';
+          });
+          ordersContainer.innerHTML = oHtml;
+        }
+
+        // Wishlist Tab
+        const wishContainer = document.getElementById("accountWishlistGrid");
+        const wishIds = window.Cart.getWishlist();
+        if (!wishIds.length) {
+          wishContainer.innerHTML = '<p style="color:var(--text-muted); grid-column:1/-1; text-align:center; padding:40px;">No saved pieces in your wishlist.</p>';
+        } else {
+          let wHtml = "";
+          wishIds.forEach(function (id) {
+            const prod = window.AureliaData.getProductById(id);
+            if (prod) wHtml += UI.productCardHTML(prod);
+          });
+          wishContainer.innerHTML = wHtml;
+        }
+
+        // Addresses Tab
+        const addrContainer = document.getElementById("addressesGrid");
+        const addrs = await window.Auth.getAddresses();
+        let aHtml = "";
+        addrs.forEach(function (a) {
+          aHtml +=
+            '<div style="background:#fff; border:1px solid var(--border); border-radius:6px; padding:20px; position:relative;">' +
+              (a.isDefault ? '<span class="badge" style="background:var(--gold); color:#fff; position:absolute; top:16px; right:16px;">DEFAULT</span>' : '') +
+              '<h4 style="font-size:15px; font-weight:600; margin-bottom:6px;">' + a.name + '</h4>' +
+              '<p style="font-size:13px; color:#555; line-height:1.6; margin-bottom:12px;">' +
+                a.address1 + '<br>' + (a.address2 ? a.address2 + '<br>' : '') + a.city + ', ' + a.state + ' - ' + a.pincode + '<br>' +
+                '📞 ' + a.phone +
+              '</p>' +
+              '<button class="delete-addr-btn" data-id="' + a.id + '" style="background:none; border:0; color:var(--danger); font-size:12px; cursor:pointer;">Delete Address</button>' +
+            '</div>';
+        });
+        addrContainer.innerHTML = aHtml || '<p style="color:var(--text-muted);">No addresses saved yet. They will automatically save when you checkout.</p>';
+
+        addrContainer.querySelectorAll(".delete-addr-btn").forEach(function (btn) {
+          btn.addEventListener("click", async function () {
+            await window.Auth.deleteAddress(btn.getAttribute("data-id"));
+            await renderDashboard();
+          });
+        });
+      }
+
+      // Tabs switching
+      document.querySelectorAll(".account-tabs-nav .account-tab-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          document.querySelectorAll(".account-tabs-nav .account-tab-btn").forEach(function (b) { b.classList.remove("active"); });
+          document.querySelectorAll(".account-tab-content").forEach(function (c) { c.style.display = "none"; });
+
+          btn.classList.add("active");
+          const targetId = btn.getAttribute("data-tab");
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) targetEl.style.display = "block";
+        });
+      });
+
+      await refreshView();
+    });
+  </script>
+<script src="js/spa.js"></script></body>
+</html>
