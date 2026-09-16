@@ -27,9 +27,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Handcrafted 22K gold heritage choker featuring certified uncut polki stones set in traditional lac kundan work.",
     "description": "Handcrafted 22K gold heritage choker featuring certified uncut polki stones set in traditional lac kundan work.",
-    "img": "/assets/products/necklace-001.jpg",
-    "image": "/assets/products/necklace-001.jpg",
-    "images": ["/assets/products/necklace-001.jpg"]
+    "img": "/images/gold_kundan_necklace.jpg",
+    "image": "/images/gold_kundan_necklace.jpg",
+    "images": [
+      "/images/gold_kundan_necklace.jpg"
+    ]
   },
   {
     "id": 2,
@@ -58,9 +60,11 @@ window.AureliaData = {
     "isNew": true,
     "desc": "Brilliant-cut laboratory-certified diamonds cascading across an 18K white-gold articulated framework.",
     "description": "Brilliant-cut laboratory-certified diamonds cascading across an 18K white-gold articulated framework.",
-    "img": "/assets/products/necklace-002.jpg",
-    "image": "/assets/products/necklace-002.jpg",
-    "images": ["/assets/products/necklace-002.jpg"]
+    "img": "/images/necklace_diamond.jpg",
+    "image": "/images/necklace_diamond.jpg",
+    "images": [
+      "/images/necklace_diamond.jpg"
+    ]
   },
   {
     "id": 3,
@@ -89,9 +93,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Majestic antique-finished gold choker encrusted with deep pigeon-blood rubies and freshwater seed pearls.",
     "description": "Majestic antique-finished gold choker encrusted with deep pigeon-blood rubies and freshwater seed pearls.",
-    "img": "/assets/products/necklace-003.jpg",
-    "image": "/assets/products/necklace-003.jpg",
-    "images": ["/assets/products/necklace-003.jpg"]
+    "img": "/images/necklace_ruby.jpg",
+    "image": "/images/necklace_ruby.jpg",
+    "images": [
+      "/images/necklace_ruby.jpg"
+    ]
   },
   {
     "id": 4,
@@ -120,9 +126,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Imperial Mughal-inspired gulbandh with untreated Zambian emerald droplets strung with micro-faceted gold beads.",
     "description": "Imperial Mughal-inspired gulbandh with untreated Zambian emerald droplets strung with micro-faceted gold beads.",
-    "img": "/assets/products/necklace-004.jpg",
-    "image": "/assets/products/necklace-004.jpg",
-    "images": ["/assets/products/necklace-004.jpg"]
+    "img": "/images/products/necklace_emerald_bust.jpg",
+    "image": "/images/products/necklace_emerald_bust.jpg",
+    "images": [
+      "/images/products/necklace_emerald_bust.jpg"
+    ]
   },
   {
     "id": 5,
@@ -151,9 +159,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Delicate wirework filigree depicting traditional floral arabesques in hallmarked 22 karat yellow gold.",
     "description": "Delicate wirework filigree depicting traditional floral arabesques in hallmarked 22 karat yellow gold.",
-    "img": "/assets/products/necklace-005.jpg",
-    "image": "/assets/products/necklace-005.jpg",
-    "images": ["/assets/products/necklace-005.jpg"]
+    "img": "/images/categories/necklaces.jpg",
+    "image": "/images/categories/necklaces.jpg",
+    "images": [
+      "/images/categories/necklaces.jpg"
+    ]
   },
   {
     "id": 6,
@@ -182,9 +192,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Deep royal blue faceted sapphires encircled by a dual-tone yellow and white gold bezel matrix.",
     "description": "Deep royal blue faceted sapphires encircled by a dual-tone yellow and white gold bezel matrix.",
-    "img": "/assets/products/necklace-006.jpg",
-    "image": "/assets/products/necklace-006.jpg",
-    "images": ["/assets/products/necklace-006.jpg"]
+    "img": "/images/products/sapphire_necklace.jpg",
+    "image": "/images/products/sapphire_necklace.jpg",
+    "images": [
+      "/images/products/sapphire_necklace.jpg"
+    ]
   },
   {
     "id": 7,
@@ -213,9 +225,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Classic Bikaner jadau craftsmanship highlighted by open-cut polki crystals and meenakari reverse enameling.",
     "description": "Classic Bikaner jadau craftsmanship highlighted by open-cut polki crystals and meenakari reverse enameling.",
-    "img": "/assets/products/necklace-007.jpg",
-    "image": "/assets/products/necklace-007.jpg",
-    "images": ["/assets/products/necklace-007.jpg"]
+    "img": "/images/necklace_diamond.jpg",
+    "image": "/images/necklace_diamond.jpg",
+    "images": [
+      "/images/necklace_diamond.jpg"
+    ]
   },
   {
     "id": 8,
@@ -244,9 +258,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Traditional South Indian kasu mala composed of 32 embossed coins honoring auspicious motifs in matte antique gold.",
     "description": "Traditional South Indian kasu mala composed of 32 embossed coins honoring auspicious motifs in matte antique gold.",
-    "img": "/assets/products/necklace-008.jpg",
-    "image": "/assets/products/necklace-008.jpg",
-    "images": ["/assets/products/necklace-008.jpg"]
+    "img": "/images/gold_kundan_necklace.jpg",
+    "image": "/images/gold_kundan_necklace.jpg",
+    "images": [
+      "/images/gold_kundan_necklace.jpg"
+    ]
   },
   {
     "id": 9,
@@ -275,9 +291,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Solid torque collar (hasli) with capped finials strung with rows of natural Basra seed pearls.",
     "description": "Solid torque collar (hasli) with capped finials strung with rows of natural Basra seed pearls.",
-    "img": "/assets/products/necklace-009.jpg",
-    "image": "/assets/products/necklace-009.jpg",
-    "images": ["/assets/products/necklace-009.jpg"]
+    "img": "/images/products/pearl_necklace.jpg",
+    "image": "/images/products/pearl_necklace.jpg",
+    "images": [
+      "/images/products/pearl_necklace.jpg"
+    ]
   },
   {
     "id": 10,
@@ -306,9 +324,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Crescent-shaped gold links encrusted with luminous uncut polki gems and delicate pearl jhumki droplets.",
     "description": "Crescent-shaped gold links encrusted with luminous uncut polki gems and delicate pearl jhumki droplets.",
-    "img": "/assets/products/necklace-010.jpg",
-    "image": "/assets/products/necklace-010.jpg",
-    "images": ["/assets/products/necklace-010.jpg"]
+    "img": "/images/gold_kundan_necklace.jpg",
+    "image": "/images/gold_kundan_necklace.jpg",
+    "images": [
+      "/images/gold_kundan_necklace.jpg"
+    ]
   },
   {
     "id": 11,
@@ -337,9 +357,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Harmonious nine-gem setting invoking astrological balance, set in polished 22 karat yellow gold bezels.",
     "description": "Harmonious nine-gem setting invoking astrological balance, set in polished 22 karat yellow gold bezels.",
-    "img": "/assets/products/necklace-011.jpg",
-    "image": "/assets/products/necklace-011.jpg",
-    "images": ["/assets/products/necklace-011.jpg"]
+    "img": "/images/categories/necklaces.jpg",
+    "image": "/images/categories/necklaces.jpg",
+    "images": [
+      "/images/categories/necklaces.jpg"
+    ]
   },
   {
     "id": 12,
@@ -368,9 +390,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Artisanal Cuttack tarakasi filigree gold lace forming an airy floral pattern across the collarbones.",
     "description": "Artisanal Cuttack tarakasi filigree gold lace forming an airy floral pattern across the collarbones.",
-    "img": "/assets/products/necklace-012.jpg",
-    "image": "/assets/products/necklace-012.jpg",
-    "images": ["/assets/products/necklace-012.jpg"]
+    "img": "/images/categories/necklaces.jpg",
+    "image": "/images/categories/necklaces.jpg",
+    "images": [
+      "/images/categories/necklaces.jpg"
+    ]
   },
   {
     "id": 13,
@@ -399,9 +423,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Nagashi hand-repoussé temple motifs accented by natural cabochon rubies in warm antique 22K gold.",
     "description": "Nagashi hand-repoussé temple motifs accented by natural cabochon rubies in warm antique 22K gold.",
-    "img": "/assets/products/necklace-013.jpg",
-    "image": "/assets/products/necklace-013.jpg",
-    "images": ["/assets/products/necklace-013.jpg"]
+    "img": "/images/necklace_ruby.jpg",
+    "image": "/images/necklace_ruby.jpg",
+    "images": [
+      "/images/necklace_ruby.jpg"
+    ]
   },
   {
     "id": 14,
@@ -430,9 +456,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Three cascading tiers of uncut polki medallions flanked by South Sea pearl clusters and emerald spacers.",
     "description": "Three cascading tiers of uncut polki medallions flanked by South Sea pearl clusters and emerald spacers.",
-    "img": "/assets/products/necklace-014.jpg",
-    "image": "/assets/products/necklace-014.jpg",
-    "images": ["/assets/products/necklace-014.jpg"]
+    "img": "/images/categories/necklaces.jpg",
+    "image": "/images/categories/necklaces.jpg",
+    "images": [
+      "/images/categories/necklaces.jpg"
+    ]
   },
   {
     "id": 15,
@@ -461,9 +489,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Modern minimalist architectural gold segments set with micro-pavé diamonds for sleek evening wear.",
     "description": "Modern minimalist architectural gold segments set with micro-pavé diamonds for sleek evening wear.",
-    "img": "/assets/products/necklace-015.jpg",
-    "image": "/assets/products/necklace-015.jpg",
-    "images": ["/assets/products/necklace-015.jpg"]
+    "img": "/images/necklace_diamond.jpg",
+    "image": "/images/necklace_diamond.jpg",
+    "images": [
+      "/images/necklace_diamond.jpg"
+    ]
   },
   {
     "id": 16,
@@ -492,9 +522,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Grand bridal necklace complete with matching tiered chandbali earrings and maang tikka in heritage jadau kundan.",
     "description": "Grand bridal necklace complete with matching tiered chandbali earrings and maang tikka in heritage jadau kundan.",
-    "img": "/assets/products/necklace-set-001.jpg",
-    "image": "/assets/products/necklace-set-001.jpg",
-    "images": ["/assets/products/necklace-set-001.jpg"]
+    "img": "/images/products/necklace_set_bridal_emerald.jpg",
+    "image": "/images/products/necklace_set_bridal_emerald.jpg",
+    "images": [
+      "/images/products/necklace_set_bridal_emerald.jpg"
+    ]
   },
   {
     "id": 17,
@@ -523,9 +555,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Long temple haram paired with bell-shaped jhumkas showcasing Lakshmi repoussé relief work and cabochon kemp stones.",
     "description": "Long temple haram paired with bell-shaped jhumkas showcasing Lakshmi repoussé relief work and cabochon kemp stones.",
-    "img": "/assets/products/necklace-set-002.jpg",
-    "image": "/assets/products/necklace-set-002.jpg",
-    "images": ["/assets/products/necklace-set-002.jpg"]
+    "img": "/images/necklace_ruby.jpg",
+    "image": "/images/necklace_ruby.jpg",
+    "images": [
+      "/images/necklace_ruby.jpg"
+    ]
   },
   {
     "id": 18,
@@ -554,9 +588,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Intricately articulated white and yellow gold collar suite complemented by oval sapphire drops and diamond clusters.",
     "description": "Intricately articulated white and yellow gold collar suite complemented by oval sapphire drops and diamond clusters.",
-    "img": "/assets/products/necklace-set-003.jpg",
-    "image": "/assets/products/necklace-set-003.jpg",
-    "images": ["/assets/products/necklace-set-003.jpg"]
+    "img": "/images/products/sapphire_bridal_set.jpg",
+    "image": "/images/products/sapphire_bridal_set.jpg",
+    "images": [
+      "/images/products/sapphire_bridal_set.jpg"
+    ]
   },
   {
     "id": 19,
@@ -585,9 +621,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Regal necklace and chandelier earring suite studded with certified syndicate polki stones and pigeon blood rubies.",
     "description": "Regal necklace and chandelier earring suite studded with certified syndicate polki stones and pigeon blood rubies.",
-    "img": "/assets/products/necklace-set-004.jpg",
-    "image": "/assets/products/necklace-set-004.jpg",
-    "images": ["/assets/products/necklace-set-004.jpg"]
+    "img": "/images/necklace_ruby.jpg",
+    "image": "/images/necklace_ruby.jpg",
+    "images": [
+      "/images/necklace_ruby.jpg"
+    ]
   },
   {
     "id": 20,
@@ -616,9 +654,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Intricately carved Goddess Lakshmi medallions on a double-rope chain with matching auspicious jhumkis.",
     "description": "Intricately carved Goddess Lakshmi medallions on a double-rope chain with matching auspicious jhumkis.",
-    "img": "/assets/products/necklace-set-005.jpg",
-    "image": "/assets/products/necklace-set-005.jpg",
-    "images": ["/assets/products/necklace-set-005.jpg"]
+    "img": "/images/categories/necklace_sets.jpg",
+    "image": "/images/categories/necklace_sets.jpg",
+    "images": [
+      "/images/categories/necklace_sets.jpg"
+    ]
   },
   {
     "id": 21,
@@ -647,9 +687,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Lustrous uncut polki choker with tumbling emerald bead tassels and coordinating teardrop ear pendants.",
     "description": "Lustrous uncut polki choker with tumbling emerald bead tassels and coordinating teardrop ear pendants.",
-    "img": "/assets/products/necklace-set-006.jpg",
-    "image": "/assets/products/necklace-set-006.jpg",
-    "images": ["/assets/products/necklace-set-006.jpg"]
+    "img": "/images/products/necklace_set_bridal_emerald.jpg",
+    "image": "/images/products/necklace_set_bridal_emerald.jpg",
+    "images": [
+      "/images/products/necklace_set_bridal_emerald.jpg"
+    ]
   },
   {
     "id": 22,
@@ -678,9 +720,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Rajasthan jadau craftsmanship featuring woven micro-pearl cords and open-back polki lotus clusters.",
     "description": "Rajasthan jadau craftsmanship featuring woven micro-pearl cords and open-back polki lotus clusters.",
-    "img": "/assets/products/necklace-set-007.jpg",
-    "image": "/assets/products/necklace-set-007.jpg",
-    "images": ["/assets/products/necklace-set-007.jpg"]
+    "img": "/images/products/pearl_necklace.jpg",
+    "image": "/images/products/pearl_necklace.jpg",
+    "images": [
+      "/images/products/pearl_necklace.jpg"
+    ]
   },
   {
     "id": 23,
@@ -709,9 +753,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Regal temple necklace set featuring dancing apsara motifs with unheated ruby accents and antique golden finish.",
     "description": "Regal temple necklace set featuring dancing apsara motifs with unheated ruby accents and antique golden finish.",
-    "img": "/assets/products/necklace-set-008.jpg",
-    "image": "/assets/products/necklace-set-008.jpg",
-    "images": ["/assets/products/necklace-set-008.jpg"]
+    "img": "/images/necklace_ruby.jpg",
+    "image": "/images/necklace_ruby.jpg",
+    "images": [
+      "/images/necklace_ruby.jpg"
+    ]
   },
   {
     "id": 24,
@@ -740,9 +786,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Contemporary floral cluster necklace in 18K white gold with matching round brilliant-cut solitaire earrings.",
     "description": "Contemporary floral cluster necklace in 18K white gold with matching round brilliant-cut solitaire earrings.",
-    "img": "/assets/products/necklace-set-009.jpg",
-    "image": "/assets/products/necklace-set-009.jpg",
-    "images": ["/assets/products/necklace-set-009.jpg"]
+    "img": "/images/necklace_diamond.jpg",
+    "image": "/images/necklace_diamond.jpg",
+    "images": [
+      "/images/necklace_diamond.jpg"
+    ]
   },
   {
     "id": 25,
@@ -771,9 +819,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Timeless South Indian paisley manga malai linked with ruby-studded mango motifs and matching antique drops.",
     "description": "Timeless South Indian paisley manga malai linked with ruby-studded mango motifs and matching antique drops.",
-    "img": "/assets/products/necklace-set-010.jpg",
-    "image": "/assets/products/necklace-set-010.jpg",
-    "images": ["/assets/products/necklace-set-010.jpg"]
+    "img": "/images/necklace_ruby.jpg",
+    "image": "/images/necklace_ruby.jpg",
+    "images": [
+      "/images/necklace_ruby.jpg"
+    ]
   },
   {
     "id": 26,
@@ -802,9 +852,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Structured torque hasli with reversible floral meenakari enamel and matching circular polki button studs.",
     "description": "Structured torque hasli with reversible floral meenakari enamel and matching circular polki button studs.",
-    "img": "/assets/products/necklace-set-011.jpg",
-    "image": "/assets/products/necklace-set-011.jpg",
-    "images": ["/assets/products/necklace-set-011.jpg"]
+    "img": "/images/products/necklace_set_bridal_emerald.jpg",
+    "image": "/images/products/necklace_set_bridal_emerald.jpg",
+    "images": [
+      "/images/products/necklace_set_bridal_emerald.jpg"
+    ]
   },
   {
     "id": 27,
@@ -833,9 +885,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Solid 22 karat gold mesh choker with hanging golden bead fringe and handcrafted dome jhumkis.",
     "description": "Solid 22 karat gold mesh choker with hanging golden bead fringe and handcrafted dome jhumkis.",
-    "img": "/assets/products/necklace-set-012.jpg",
-    "image": "/assets/products/necklace-set-012.jpg",
-    "images": ["/assets/products/necklace-set-012.jpg"]
+    "img": "/images/products/necklace_set_bridal_emerald.jpg",
+    "image": "/images/products/necklace_set_bridal_emerald.jpg",
+    "images": [
+      "/images/products/necklace_set_bridal_emerald.jpg"
+    ]
   },
   {
     "id": 28,
@@ -864,9 +918,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Deep red kempu gemstones set in 22K antique gold casing with floral repoussé links and matching earrings.",
     "description": "Deep red kempu gemstones set in 22K antique gold casing with floral repoussé links and matching earrings.",
-    "img": "/assets/products/necklace-set-013.jpg",
-    "image": "/assets/products/necklace-set-013.jpg",
-    "images": ["/assets/products/necklace-set-013.jpg"]
+    "img": "/images/necklace_ruby.jpg",
+    "image": "/images/necklace_ruby.jpg",
+    "images": [
+      "/images/necklace_ruby.jpg"
+    ]
   },
   {
     "id": 29,
@@ -895,9 +951,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Seven-strand natural pearl satlada mala connected by gold jadau clasps with statement crescent chandbalis.",
     "description": "Seven-strand natural pearl satlada mala connected by gold jadau clasps with statement crescent chandbalis.",
-    "img": "/assets/products/necklace-set-014.jpg",
-    "image": "/assets/products/necklace-set-014.jpg",
-    "images": ["/assets/products/necklace-set-014.jpg"]
+    "img": "/images/products/pearl_necklace.jpg",
+    "image": "/images/products/pearl_necklace.jpg",
+    "images": [
+      "/images/products/pearl_necklace.jpg"
+    ]
   },
   {
     "id": 30,
@@ -926,9 +984,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Complete sacred nine-gem necklace suite set in polished yellow gold with coordinating navratna drop earrings.",
     "description": "Complete sacred nine-gem necklace suite set in polished yellow gold with coordinating navratna drop earrings.",
-    "img": "/assets/products/necklace-set-015.jpg",
-    "image": "/assets/products/necklace-set-015.jpg",
-    "images": ["/assets/products/necklace-set-015.jpg"]
+    "img": "/images/products/necklace_set_bridal_emerald.jpg",
+    "image": "/images/products/necklace_set_bridal_emerald.jpg",
+    "images": [
+      "/images/products/necklace_set_bridal_emerald.jpg"
+    ]
   },
   {
     "id": 31,
@@ -957,9 +1017,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Substantial 22 karat solid yellow gold curb chain with precision diamond-cut beveled edges and lobster clasp.",
     "description": "Substantial 22 karat solid yellow gold curb chain with precision diamond-cut beveled edges and lobster clasp.",
-    "img": "/assets/products/chain-001.jpg",
-    "image": "/assets/products/chain-001.jpg",
-    "images": ["/assets/products/chain-001.jpg"]
+    "img": "/images/products/chain_gold_curb.jpg",
+    "image": "/images/products/chain_gold_curb.jpg",
+    "images": [
+      "/images/products/chain_gold_curb.jpg"
+    ]
   },
   {
     "id": 32,
@@ -988,9 +1050,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Timeless Italian Figaro pattern featuring three circular links alternating with an elongated oval link in 22K gold.",
     "description": "Timeless Italian Figaro pattern featuring three circular links alternating with an elongated oval link in 22K gold.",
-    "img": "/assets/products/chain-002.jpg",
-    "image": "/assets/products/chain-002.jpg",
-    "images": ["/assets/products/chain-002.jpg"]
+    "img": "/images/products/chain_gold_figaro.jpg",
+    "image": "/images/products/chain_gold_figaro.jpg",
+    "images": [
+      "/images/products/chain_gold_figaro.jpg"
+    ]
   },
   {
     "id": 33,
@@ -1019,9 +1083,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Tightly interwoven spiral rope chain capturing and reflecting ambient light from every facet.",
     "description": "Tightly interwoven spiral rope chain capturing and reflecting ambient light from every facet.",
-    "img": "/assets/products/chain-003.jpg",
-    "image": "/assets/products/chain-003.jpg",
-    "images": ["/assets/products/chain-003.jpg"]
+    "img": "/images/categories/chains.jpg",
+    "image": "/images/categories/chains.jpg",
+    "images": [
+      "/images/categories/chains.jpg"
+    ]
   },
   {
     "id": 34,
@@ -1050,9 +1116,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Flexible four-strand wheat chain in 18K white gold with rhodium plating for exceptional shine and durability.",
     "description": "Flexible four-strand wheat chain in 18K white gold with rhodium plating for exceptional shine and durability.",
-    "img": "/assets/products/chain-004.jpg",
-    "image": "/assets/products/chain-004.jpg",
-    "images": ["/assets/products/chain-004.jpg"]
+    "img": "/images/products/chain_gold_curb.jpg",
+    "image": "/images/products/chain_gold_curb.jpg",
+    "images": [
+      "/images/products/chain_gold_curb.jpg"
+    ]
   },
   {
     "id": 35,
@@ -1081,9 +1149,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Clean geometric square box links delivering unmatched structural resilience and smooth skin contact.",
     "description": "Clean geometric square box links delivering unmatched structural resilience and smooth skin contact.",
-    "img": "/assets/products/chain-005.jpg",
-    "image": "/assets/products/chain-005.jpg",
-    "images": ["/assets/products/chain-005.jpg"]
+    "img": "/images/products/chain_gold_curb.jpg",
+    "image": "/images/products/chain_gold_curb.jpg",
+    "images": [
+      "/images/products/chain_gold_curb.jpg"
+    ]
   },
   {
     "id": 36,
@@ -1112,9 +1182,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Substantial anchor/mariner style links with center reinforcing bar, crafted in certified 22 karat gold.",
     "description": "Substantial anchor/mariner style links with center reinforcing bar, crafted in certified 22 karat gold.",
-    "img": "/assets/products/chain-006.jpg",
-    "image": "/assets/products/chain-006.jpg",
-    "images": ["/assets/products/chain-006.jpg"]
+    "img": "/images/products/chain_gold_curb.jpg",
+    "image": "/images/products/chain_gold_curb.jpg",
+    "images": [
+      "/images/products/chain_gold_curb.jpg"
+    ]
   },
   {
     "id": 37,
@@ -1143,9 +1215,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Silky, seamless snake chain links with mirror-finish cylindrical contouring for effortless drape.",
     "description": "Silky, seamless snake chain links with mirror-finish cylindrical contouring for effortless drape.",
-    "img": "/assets/products/chain-007.jpg",
-    "image": "/assets/products/chain-007.jpg",
-    "images": ["/assets/products/chain-007.jpg"]
+    "img": "/images/products/chain_gold_curb.jpg",
+    "image": "/images/products/chain_gold_curb.jpg",
+    "images": [
+      "/images/products/chain_gold_curb.jpg"
+    ]
   },
   {
     "id": 38,
@@ -1174,9 +1248,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Braided teardrop spiga links alternating between yellow and white gold in a dynamic interlocking weave.",
     "description": "Braided teardrop spiga links alternating between yellow and white gold in a dynamic interlocking weave.",
-    "img": "/assets/products/chain-008.jpg",
-    "image": "/assets/products/chain-008.jpg",
-    "images": ["/assets/products/chain-008.jpg"]
+    "img": "/images/categories/chains.jpg",
+    "image": "/images/categories/chains.jpg",
+    "images": [
+      "/images/categories/chains.jpg"
+    ]
   },
   {
     "id": 39,
@@ -1205,9 +1281,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Delicate twisted Singapore wave chain that shimmers dynamically with every subtle movement.",
     "description": "Delicate twisted Singapore wave chain that shimmers dynamically with every subtle movement.",
-    "img": "/assets/products/chain-009.jpg",
-    "image": "/assets/products/chain-009.jpg",
-    "images": ["/assets/products/chain-009.jpg"]
+    "img": "/images/categories/chains.jpg",
+    "image": "/images/categories/chains.jpg",
+    "images": [
+      "/images/categories/chains.jpg"
+    ]
   },
   {
     "id": 40,
@@ -1236,9 +1314,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Ultra-flat polished herringbone chain lying flush against the collarbone with liquid gold fluidity.",
     "description": "Ultra-flat polished herringbone chain lying flush against the collarbone with liquid gold fluidity.",
-    "img": "/assets/products/chain-010.jpg",
-    "image": "/assets/products/chain-010.jpg",
-    "images": ["/assets/products/chain-010.jpg"]
+    "img": "/images/products/chain_gold_figaro.jpg",
+    "image": "/images/products/chain_gold_figaro.jpg",
+    "images": [
+      "/images/products/chain_gold_figaro.jpg"
+    ]
   },
   {
     "id": 41,
@@ -1267,9 +1347,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Dense chevron-patterned foxtail weave made entirely by hand in hallmarked 916 purity yellow gold.",
     "description": "Dense chevron-patterned foxtail weave made entirely by hand in hallmarked 916 purity yellow gold.",
-    "img": "/assets/products/chain-011.jpg",
-    "image": "/assets/products/chain-011.jpg",
-    "images": ["/assets/products/chain-011.jpg"]
+    "img": "/images/products/chain_gold_curb.jpg",
+    "image": "/images/products/chain_gold_curb.jpg",
+    "images": [
+      "/images/products/chain_gold_curb.jpg"
+    ]
   },
   {
     "id": 42,
@@ -1298,9 +1380,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Dense 950 purity solid platinum cable links offering superior strength and hypoallergenic comfort.",
     "description": "Dense 950 purity solid platinum cable links offering superior strength and hypoallergenic comfort.",
-    "img": "/assets/products/chain-012.jpg",
-    "image": "/assets/products/chain-012.jpg",
-    "images": ["/assets/products/chain-012.jpg"]
+    "img": "/images/products/platinum_cross_chain.jpg",
+    "image": "/images/products/platinum_cross_chain.jpg",
+    "images": [
+      "/images/products/platinum_cross_chain.jpg"
+    ]
   },
   {
     "id": 43,
@@ -1329,9 +1413,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Romantic 18K blush rose gold box chain with polished geometric links and secure spring ring.",
     "description": "Romantic 18K blush rose gold box chain with polished geometric links and secure spring ring.",
-    "img": "/assets/products/chain-013.jpg",
-    "image": "/assets/products/chain-013.jpg",
-    "images": ["/assets/products/chain-013.jpg"]
+    "img": "/images/products/chain_gold_curb.jpg",
+    "image": "/images/products/chain_gold_curb.jpg",
+    "images": [
+      "/images/products/chain_gold_curb.jpg"
+    ]
   },
   {
     "id": 44,
@@ -1360,9 +1446,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Voluminous Miami Cuban chain engineered with lightweight hollow core for grand visual presence.",
     "description": "Voluminous Miami Cuban chain engineered with lightweight hollow core for grand visual presence.",
-    "img": "/assets/products/chain-014.jpg",
-    "image": "/assets/products/chain-014.jpg",
-    "images": ["/assets/products/chain-014.jpg"]
+    "img": "/images/products/chain_gold_curb.jpg",
+    "image": "/images/products/chain_gold_curb.jpg",
+    "images": [
+      "/images/products/chain_gold_curb.jpg"
+    ]
   },
   {
     "id": 45,
@@ -1391,9 +1479,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Featherlight 18K yellow gold trace chain ideal for suspending lightweight lockets and solitary charms.",
     "description": "Featherlight 18K yellow gold trace chain ideal for suspending lightweight lockets and solitary charms.",
-    "img": "/assets/products/chain-015.jpg",
-    "image": "/assets/products/chain-015.jpg",
-    "images": ["/assets/products/chain-015.jpg"]
+    "img": "/images/products/chain_gold_curb.jpg",
+    "image": "/images/products/chain_gold_curb.jpg",
+    "images": [
+      "/images/products/chain_gold_curb.jpg"
+    ]
   },
   {
     "id": 46,
@@ -1422,9 +1512,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Sculpted 22K yellow gold Latin crucifix suspended from a classic diamond-cut cable link chain.",
     "description": "Sculpted 22K yellow gold Latin crucifix suspended from a classic diamond-cut cable link chain.",
-    "img": "/assets/products/cross-chain-001.jpg",
-    "image": "/assets/products/cross-chain-001.jpg",
-    "images": ["/assets/products/cross-chain-001.jpg"]
+    "img": "/images/products/cross_chain_diamond.jpg",
+    "image": "/images/products/cross_chain_diamond.jpg",
+    "images": [
+      "/images/products/cross_chain_diamond.jpg"
+    ]
   },
   {
     "id": 47,
@@ -1453,9 +1545,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Hallmarked Pt950 solid platinum cross centered with a round brilliant diamond on an Italian curb chain.",
     "description": "Hallmarked Pt950 solid platinum cross centered with a round brilliant diamond on an Italian curb chain.",
-    "img": "/assets/products/cross-chain-002.jpg",
-    "image": "/assets/products/cross-chain-002.jpg",
-    "images": ["/assets/products/cross-chain-002.jpg"]
+    "img": "/images/products/platinum_cross_chain.jpg",
+    "image": "/images/products/platinum_cross_chain.jpg",
+    "images": [
+      "/images/products/platinum_cross_chain.jpg"
+    ]
   },
   {
     "id": 48,
@@ -1484,9 +1578,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Romantic 18K rose gold crucifix set with 24 micro-pavé diamonds on a delicate faceted trace chain.",
     "description": "Romantic 18K rose gold crucifix set with 24 micro-pavé diamonds on a delicate faceted trace chain.",
-    "img": "/assets/products/cross-chain-003.jpg",
-    "image": "/assets/products/cross-chain-003.jpg",
-    "images": ["/assets/products/cross-chain-003.jpg"]
+    "img": "/images/products/rose_gold_cross_chain.jpg",
+    "image": "/images/products/rose_gold_cross_chain.jpg",
+    "images": [
+      "/images/products/rose_gold_cross_chain.jpg"
+    ]
   },
   {
     "id": 49,
@@ -1515,9 +1611,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Historical Byzantine flared-arm cross in antique matte gold with ruby cabochon terminal points.",
     "description": "Historical Byzantine flared-arm cross in antique matte gold with ruby cabochon terminal points.",
-    "img": "/assets/products/cross-chain-004.jpg",
-    "image": "/assets/products/cross-chain-004.jpg",
-    "images": ["/assets/products/cross-chain-004.jpg"]
+    "img": "/images/categories/cross_chains.jpg",
+    "image": "/images/categories/cross_chains.jpg",
+    "images": [
+      "/images/categories/cross_chains.jpg"
+    ]
   },
   {
     "id": 50,
@@ -1546,9 +1644,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Three-bar Russian Orthodox cross with engraved IC XC NIKA emblems on a sturdy rope chain.",
     "description": "Three-bar Russian Orthodox cross with engraved IC XC NIKA emblems on a sturdy rope chain.",
-    "img": "/assets/products/cross-chain-005.jpg",
-    "image": "/assets/products/cross-chain-005.jpg",
-    "images": ["/assets/products/cross-chain-005.jpg"]
+    "img": "/images/categories/cross_chains.jpg",
+    "image": "/images/categories/cross_chains.jpg",
+    "images": [
+      "/images/categories/cross_chains.jpg"
+    ]
   },
   {
     "id": 51,
@@ -1577,9 +1677,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Eleven bezel-set brilliant diamonds linked together to form a dazzling, minimalist Christian cross.",
     "description": "Eleven bezel-set brilliant diamonds linked together to form a dazzling, minimalist Christian cross.",
-    "img": "/assets/products/cross-chain-006.jpg",
-    "image": "/assets/products/cross-chain-006.jpg",
-    "images": ["/assets/products/cross-chain-006.jpg"]
+    "img": "/images/products/cross_chain_diamond.jpg",
+    "image": "/images/products/cross_chain_diamond.jpg",
+    "images": [
+      "/images/products/cross_chain_diamond.jpg"
+    ]
   },
   {
     "id": 52,
@@ -1608,9 +1710,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Yellow gold cross body featuring an embossed white gold Corpus Christi figure on a wheat chain.",
     "description": "Yellow gold cross body featuring an embossed white gold Corpus Christi figure on a wheat chain.",
-    "img": "/assets/products/cross-chain-007.jpg",
-    "image": "/assets/products/cross-chain-007.jpg",
-    "images": ["/assets/products/cross-chain-007.jpg"]
+    "img": "/images/products/cross_chain_diamond.jpg",
+    "image": "/images/products/cross_chain_diamond.jpg",
+    "images": [
+      "/images/products/cross_chain_diamond.jpg"
+    ]
   },
   {
     "id": 53,
@@ -1639,9 +1743,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Intricate lacework filigree Jerusalem cross with four small crosslets occupying each corner quadrant.",
     "description": "Intricate lacework filigree Jerusalem cross with four small crosslets occupying each corner quadrant.",
-    "img": "/assets/products/cross-chain-008.jpg",
-    "image": "/assets/products/cross-chain-008.jpg",
-    "images": ["/assets/products/cross-chain-008.jpg"]
+    "img": "/images/products/cross_chain_diamond.jpg",
+    "image": "/images/products/cross_chain_diamond.jpg",
+    "images": [
+      "/images/products/cross_chain_diamond.jpg"
+    ]
   },
   {
     "id": 54,
@@ -1670,9 +1776,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Celtic ringed high cross decorated with endless knotwork carvings and a center square emerald.",
     "description": "Celtic ringed high cross decorated with endless knotwork carvings and a center square emerald.",
-    "img": "/assets/products/cross-chain-009.jpg",
-    "image": "/assets/products/cross-chain-009.jpg",
-    "images": ["/assets/products/cross-chain-009.jpg"]
+    "img": "/images/categories/cross_chains.jpg",
+    "image": "/images/categories/cross_chains.jpg",
+    "images": [
+      "/images/categories/cross_chains.jpg"
+    ]
   },
   {
     "id": 55,
@@ -1701,9 +1809,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Sleek, high-polish tubular gold cross designed for understated daily devotion and modern layering.",
     "description": "Sleek, high-polish tubular gold cross designed for understated daily devotion and modern layering.",
-    "img": "/assets/products/cross-chain-010.jpg",
-    "image": "/assets/products/cross-chain-010.jpg",
-    "images": ["/assets/products/cross-chain-010.jpg"]
+    "img": "/images/products/cross_chain_diamond.jpg",
+    "image": "/images/products/cross_chain_diamond.jpg",
+    "images": [
+      "/images/products/cross_chain_diamond.jpg"
+    ]
   },
   {
     "id": 56,
@@ -1732,9 +1842,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Eight-pointed Maltese cross with seed pearl terminal accents suspended from a diamond-cut box chain.",
     "description": "Eight-pointed Maltese cross with seed pearl terminal accents suspended from a diamond-cut box chain.",
-    "img": "/assets/products/cross-chain-011.jpg",
-    "image": "/assets/products/cross-chain-011.jpg",
-    "images": ["/assets/products/cross-chain-011.jpg"]
+    "img": "/images/products/cross_chain_diamond.jpg",
+    "image": "/images/products/cross_chain_diamond.jpg",
+    "images": [
+      "/images/products/cross_chain_diamond.jpg"
+    ]
   },
   {
     "id": 57,
@@ -1763,9 +1875,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Satin-finished 22K yellow gold cross engraved with the Lord's Prayer on an interlocking Figaro chain.",
     "description": "Satin-finished 22K yellow gold cross engraved with the Lord's Prayer on an interlocking Figaro chain.",
-    "img": "/assets/products/cross-chain-012.jpg",
-    "image": "/assets/products/cross-chain-012.jpg",
-    "images": ["/assets/products/cross-chain-012.jpg"]
+    "img": "/images/products/cross_chain_diamond.jpg",
+    "image": "/images/products/cross_chain_diamond.jpg",
+    "images": [
+      "/images/products/cross_chain_diamond.jpg"
+    ]
   },
   {
     "id": 58,
@@ -1794,9 +1908,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "18K white gold crucifix bordered by channel-set Ceylon blue sapphires and fine milgrain edging.",
     "description": "18K white gold crucifix bordered by channel-set Ceylon blue sapphires and fine milgrain edging.",
-    "img": "/assets/products/cross-chain-013.jpg",
-    "image": "/assets/products/cross-chain-013.jpg",
-    "images": ["/assets/products/cross-chain-013.jpg"]
+    "img": "/images/products/cross_chain_diamond.jpg",
+    "image": "/images/products/cross_chain_diamond.jpg",
+    "images": [
+      "/images/products/cross_chain_diamond.jpg"
+    ]
   },
   {
     "id": 59,
@@ -1825,9 +1941,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Gothic architectural trefoil cross ends crafted in warm antique gold on an oxidized link chain.",
     "description": "Gothic architectural trefoil cross ends crafted in warm antique gold on an oxidized link chain.",
-    "img": "/assets/products/cross-chain-014.jpg",
-    "image": "/assets/products/cross-chain-014.jpg",
-    "images": ["/assets/products/cross-chain-014.jpg"]
+    "img": "/images/products/cross_chain_diamond.jpg",
+    "image": "/images/products/cross_chain_diamond.jpg",
+    "images": [
+      "/images/products/cross_chain_diamond.jpg"
+    ]
   },
   {
     "id": 60,
@@ -1856,9 +1974,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Curated trio of layered chains featuring a micro cross, solitaire diamond bezel, and hammered coin.",
     "description": "Curated trio of layered chains featuring a micro cross, solitaire diamond bezel, and hammered coin.",
-    "img": "/assets/products/cross-chain-015.jpg",
-    "image": "/assets/products/cross-chain-015.jpg",
-    "images": ["/assets/products/cross-chain-015.jpg"]
+    "img": "/images/products/cross_chain_diamond.jpg",
+    "image": "/images/products/cross_chain_diamond.jpg",
+    "images": [
+      "/images/products/cross_chain_diamond.jpg"
+    ]
   },
   {
     "id": 61,
@@ -1887,9 +2007,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Auspicious nine planetary gemstones framed in a solar halo of hallmarked 22 karat yellow gold.",
     "description": "Auspicious nine planetary gemstones framed in a solar halo of hallmarked 22 karat yellow gold.",
-    "img": "/assets/products/pendant-001.jpg",
-    "image": "/assets/products/pendant-001.jpg",
-    "images": ["/assets/products/pendant-001.jpg"]
+    "img": "/images/categories/pendants.jpg",
+    "image": "/images/categories/pendants.jpg",
+    "images": [
+      "/images/categories/pendants.jpg"
+    ]
   },
   {
     "id": 62,
@@ -1918,9 +2040,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Radiant Surya sunburst medallion featuring intricate repoussé rays and a centered auspicious om emblem.",
     "description": "Radiant Surya sunburst medallion featuring intricate repoussé rays and a centered auspicious om emblem.",
-    "img": "/assets/products/pendant-002.jpg",
-    "image": "/assets/products/pendant-002.jpg",
-    "images": ["/assets/products/pendant-002.jpg"]
+    "img": "/images/categories/pendants.jpg",
+    "image": "/images/categories/pendants.jpg",
+    "images": [
+      "/images/categories/pendants.jpg"
+    ]
   },
   {
     "id": 63,
@@ -1949,9 +2073,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Pear-shaped brilliant diamond haloed by micro-pavé gems on an 18K yellow gold bail.",
     "description": "Pear-shaped brilliant diamond haloed by micro-pavé gems on an 18K yellow gold bail.",
-    "img": "/assets/products/pendant-003.jpg",
-    "image": "/assets/products/pendant-003.jpg",
-    "images": ["/assets/products/pendant-003.jpg"]
+    "img": "/images/products/cross_chain_diamond.jpg",
+    "image": "/images/products/cross_chain_diamond.jpg",
+    "images": [
+      "/images/products/cross_chain_diamond.jpg"
+    ]
   },
   {
     "id": 64,
@@ -1980,9 +2106,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Graceful handcrafted Lord Ganesha silhouette accented by a natural ruby eye and antique gold finish.",
     "description": "Graceful handcrafted Lord Ganesha silhouette accented by a natural ruby eye and antique gold finish.",
-    "img": "/assets/products/pendant-004.jpg",
-    "image": "/assets/products/pendant-004.jpg",
-    "images": ["/assets/products/pendant-004.jpg"]
+    "img": "/images/categories/pendants.jpg",
+    "image": "/images/categories/pendants.jpg",
+    "images": [
+      "/images/categories/pendants.jpg"
+    ]
   },
   {
     "id": 65,
@@ -2011,9 +2139,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Multi-layered three-dimensional lotus petals blooming outward from a polished golden stamen.",
     "description": "Multi-layered three-dimensional lotus petals blooming outward from a polished golden stamen.",
-    "img": "/assets/products/pendant-005.jpg",
-    "image": "/assets/products/pendant-005.jpg",
-    "images": ["/assets/products/pendant-005.jpg"]
+    "img": "/images/categories/pendants.jpg",
+    "image": "/images/categories/pendants.jpg",
+    "images": [
+      "/images/categories/pendants.jpg"
+    ]
   },
   {
     "id": 66,
@@ -2042,9 +2172,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Oval-cut certified Zambian emerald surrounded by brilliant-cut diamond accents on 18K gold.",
     "description": "Oval-cut certified Zambian emerald surrounded by brilliant-cut diamond accents on 18K gold.",
-    "img": "/assets/products/pendant-006.jpg",
-    "image": "/assets/products/pendant-006.jpg",
-    "images": ["/assets/products/pendant-006.jpg"]
+    "img": "/images/categories/pendants.jpg",
+    "image": "/images/categories/pendants.jpg",
+    "images": [
+      "/images/categories/pendants.jpg"
+    ]
   },
   {
     "id": 67,
@@ -2073,9 +2205,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Crescent jadau polki medallion with enameled peacock backing and suspended natural pearl bunch.",
     "description": "Crescent jadau polki medallion with enameled peacock backing and suspended natural pearl bunch.",
-    "img": "/assets/products/pendant-007.jpg",
-    "image": "/assets/products/pendant-007.jpg",
-    "images": ["/assets/products/pendant-007.jpg"]
+    "img": "/images/categories/pendants.jpg",
+    "image": "/images/categories/pendants.jpg",
+    "images": [
+      "/images/categories/pendants.jpg"
+    ]
   },
   {
     "id": 68,
@@ -2104,9 +2238,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Vibrant Banaras green and cobalt meenakari enamel peacock with ruby eye and golden feathers.",
     "description": "Vibrant Banaras green and cobalt meenakari enamel peacock with ruby eye and golden feathers.",
-    "img": "/assets/products/pendant-008.jpg",
-    "image": "/assets/products/pendant-008.jpg",
-    "images": ["/assets/products/pendant-008.jpg"]
+    "img": "/images/categories/pendants.jpg",
+    "image": "/images/categories/pendants.jpg",
+    "images": [
+      "/images/categories/pendants.jpg"
+    ]
   },
   {
     "id": 69,
@@ -2135,9 +2271,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Classic six-prong basket mounting holding an exceptional round brilliant solitaire diamond.",
     "description": "Classic six-prong basket mounting holding an exceptional round brilliant solitaire diamond.",
-    "img": "/assets/products/pendant-009.jpg",
-    "image": "/assets/products/pendant-009.jpg",
-    "images": ["/assets/products/pendant-009.jpg"]
+    "img": "/images/products/cross_chain_diamond.jpg",
+    "image": "/images/products/cross_chain_diamond.jpg",
+    "images": [
+      "/images/products/cross_chain_diamond.jpg"
+    ]
   },
   {
     "id": 70,
@@ -2166,9 +2304,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Sacred coiled serpent motif representing protection and wisdom, carved in deep relief antique gold.",
     "description": "Sacred coiled serpent motif representing protection and wisdom, carved in deep relief antique gold.",
-    "img": "/assets/products/pendant-010.jpg",
-    "image": "/assets/products/pendant-010.jpg",
-    "images": ["/assets/products/pendant-010.jpg"]
+    "img": "/images/categories/pendants.jpg",
+    "image": "/images/categories/pendants.jpg",
+    "images": [
+      "/images/categories/pendants.jpg"
+    ]
   },
   {
     "id": 71,
@@ -2197,9 +2337,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Hinged keepsake locket with delicate filigree lattice work allowing two miniature photographs inside.",
     "description": "Hinged keepsake locket with delicate filigree lattice work allowing two miniature photographs inside.",
-    "img": "/assets/products/pendant-011.jpg",
-    "image": "/assets/products/pendant-011.jpg",
-    "images": ["/assets/products/pendant-011.jpg"]
+    "img": "/images/categories/pendants.jpg",
+    "image": "/images/categories/pendants.jpg",
+    "images": [
+      "/images/categories/pendants.jpg"
+    ]
   },
   {
     "id": 72,
@@ -2228,9 +2370,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Traditional Lakshmi kasu gold coin with seated goddess relief and ornate floral border loop.",
     "description": "Traditional Lakshmi kasu gold coin with seated goddess relief and ornate floral border loop.",
-    "img": "/assets/products/pendant-012.jpg",
-    "image": "/assets/products/pendant-012.jpg",
-    "images": ["/assets/products/pendant-012.jpg"]
+    "img": "/images/categories/pendants.jpg",
+    "image": "/images/categories/pendants.jpg",
+    "images": [
+      "/images/categories/pendants.jpg"
+    ]
   },
   {
     "id": 73,
@@ -2259,9 +2403,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Lustrous teardrop natural pearl capped with ornate 22K gold granulation and filigree cap.",
     "description": "Lustrous teardrop natural pearl capped with ornate 22K gold granulation and filigree cap.",
-    "img": "/assets/products/pendant-013.jpg",
-    "image": "/assets/products/pendant-013.jpg",
-    "images": ["/assets/products/pendant-013.jpg"]
+    "img": "/images/products/cross_chain_diamond.jpg",
+    "image": "/images/products/cross_chain_diamond.jpg",
+    "images": [
+      "/images/products/cross_chain_diamond.jpg"
+    ]
   },
   {
     "id": 74,
@@ -2290,9 +2436,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Genuine five-mukhi sacred Rudraksha bead encased between handcrafted 22K gold designer caps.",
     "description": "Genuine five-mukhi sacred Rudraksha bead encased between handcrafted 22K gold designer caps.",
-    "img": "/assets/products/pendant-014.jpg",
-    "image": "/assets/products/pendant-014.jpg",
-    "images": ["/assets/products/pendant-014.jpg"]
+    "img": "/images/categories/pendants.jpg",
+    "image": "/images/categories/pendants.jpg",
+    "images": [
+      "/images/categories/pendants.jpg"
+    ]
   },
   {
     "id": 75,
@@ -2321,9 +2469,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Auspicious Shiva Trishul and Damru emblem rendered with sharp lines and antique matte finish.",
     "description": "Auspicious Shiva Trishul and Damru emblem rendered with sharp lines and antique matte finish.",
-    "img": "/assets/products/pendant-015.jpg",
-    "image": "/assets/products/pendant-015.jpg",
-    "images": ["/assets/products/pendant-015.jpg"]
+    "img": "/images/categories/pendants.jpg",
+    "image": "/images/categories/pendants.jpg",
+    "images": [
+      "/images/categories/pendants.jpg"
+    ]
   },
   {
     "id": 76,
@@ -2352,9 +2502,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Classic bell jhumkas adorned with ruby-red meenakari inlay, seed pearl droplets, and floral stud tops.",
     "description": "Classic bell jhumkas adorned with ruby-red meenakari inlay, seed pearl droplets, and floral stud tops.",
-    "img": "/assets/products/earrings-001.jpg",
-    "image": "/assets/products/earrings-001.jpg",
-    "images": ["/assets/products/earrings-001.jpg"]
+    "img": "/images/earrings_jhumka.jpg",
+    "image": "/images/earrings_jhumka.jpg",
+    "images": [
+      "/images/earrings_jhumka.jpg"
+    ]
   },
   {
     "id": 77,
@@ -2383,9 +2535,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Tiered chandelier earrings with cascades of natural Basra pearls strung on delicate gold link wires.",
     "description": "Tiered chandelier earrings with cascades of natural Basra pearls strung on delicate gold link wires.",
-    "img": "/assets/products/earrings-002.jpg",
-    "image": "/assets/products/earrings-002.jpg",
-    "images": ["/assets/products/earrings-002.jpg"]
+    "img": "/images/earrings_pearl.jpg",
+    "image": "/images/earrings_pearl.jpg",
+    "images": [
+      "/images/earrings_pearl.jpg"
+    ]
   },
   {
     "id": 78,
@@ -2414,9 +2568,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Crescent-shaped Mughal chandbalis set with uncut polki diamonds and finished with micro-pearl latkans.",
     "description": "Crescent-shaped Mughal chandbalis set with uncut polki diamonds and finished with micro-pearl latkans.",
-    "img": "/assets/products/earrings-003.jpg",
-    "image": "/assets/products/earrings-003.jpg",
-    "images": ["/assets/products/earrings-003.jpg"]
+    "img": "/images/earrings_chandbali.jpg",
+    "image": "/images/earrings_chandbali.jpg",
+    "images": [
+      "/images/earrings_chandbali.jpg"
+    ]
   },
   {
     "id": 79,
@@ -2445,9 +2601,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Handcrafted 22K gold peacock ear tops featuring detailed feather etching and centered ruby stones.",
     "description": "Handcrafted 22K gold peacock ear tops featuring detailed feather etching and centered ruby stones.",
-    "img": "/assets/products/earrings-004.jpg",
-    "image": "/assets/products/earrings-004.jpg",
-    "images": ["/assets/products/earrings-004.jpg"]
+    "img": "/images/categories/earrings.jpg",
+    "image": "/images/categories/earrings.jpg",
+    "images": [
+      "/images/categories/earrings.jpg"
+    ]
   },
   {
     "id": 80,
@@ -2476,9 +2634,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Timeless four-prong solitaire diamond studs in 18K white gold, certified VVS clarity and ideal cut.",
     "description": "Timeless four-prong solitaire diamond studs in 18K white gold, certified VVS clarity and ideal cut.",
-    "img": "/assets/products/earrings-005.jpg",
-    "image": "/assets/products/earrings-005.jpg",
-    "images": ["/assets/products/earrings-005.jpg"]
+    "img": "/images/products/diamond_earrings.jpg",
+    "image": "/images/products/diamond_earrings.jpg",
+    "images": [
+      "/images/products/diamond_earrings.jpg"
+    ]
   },
   {
     "id": 81,
@@ -2507,9 +2667,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Airy filigree wirework bell domes with dangling golden bead droplets in high-polish 22 karat gold.",
     "description": "Airy filigree wirework bell domes with dangling golden bead droplets in high-polish 22 karat gold.",
-    "img": "/assets/products/earrings-006.jpg",
-    "image": "/assets/products/earrings-006.jpg",
-    "images": ["/assets/products/earrings-006.jpg"]
+    "img": "/images/earrings_jhumka.jpg",
+    "image": "/images/earrings_jhumka.jpg",
+    "images": [
+      "/images/earrings_jhumka.jpg"
+    ]
   },
   {
     "id": 82,
@@ -2538,9 +2700,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Antique gold crescent earrings encrusted with foil-backed kundan gems and emerald bead fringes.",
     "description": "Antique gold crescent earrings encrusted with foil-backed kundan gems and emerald bead fringes.",
-    "img": "/assets/products/earrings-007.jpg",
-    "image": "/assets/products/earrings-007.jpg",
-    "images": ["/assets/products/earrings-007.jpg"]
+    "img": "/images/earrings_chandbali.jpg",
+    "image": "/images/earrings_chandbali.jpg",
+    "images": [
+      "/images/earrings_chandbali.jpg"
+    ]
   },
   {
     "id": 83,
@@ -2569,9 +2733,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Flower blossom earrings featuring six Ceylon sapphire petals surrounding a brilliant diamond center.",
     "description": "Flower blossom earrings featuring six Ceylon sapphire petals surrounding a brilliant diamond center.",
-    "img": "/assets/products/earrings-008.jpg",
-    "image": "/assets/products/earrings-008.jpg",
-    "images": ["/assets/products/earrings-008.jpg"]
+    "img": "/images/products/diamond_earrings.jpg",
+    "image": "/images/products/diamond_earrings.jpg",
+    "images": [
+      "/images/products/diamond_earrings.jpg"
+    ]
   },
   {
     "id": 84,
@@ -2600,9 +2766,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Heritage bridal kanphool ear adornment with ear-supporting pearl chain sahara and ruby florets.",
     "description": "Heritage bridal kanphool ear adornment with ear-supporting pearl chain sahara and ruby florets.",
-    "img": "/assets/products/earrings-009.jpg",
-    "image": "/assets/products/earrings-009.jpg",
-    "images": ["/assets/products/earrings-009.jpg"]
+    "img": "/images/categories/earrings.jpg",
+    "image": "/images/categories/earrings.jpg",
+    "images": [
+      "/images/categories/earrings.jpg"
+    ]
   },
   {
     "id": 85,
@@ -2631,9 +2799,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Sleek 18K rose gold hinged huggie hoops paved with micro-diamonds for elegant daily comfort.",
     "description": "Sleek 18K rose gold hinged huggie hoops paved with micro-diamonds for elegant daily comfort.",
-    "img": "/assets/products/earrings-010.jpg",
-    "image": "/assets/products/earrings-010.jpg",
-    "images": ["/assets/products/earrings-010.jpg"]
+    "img": "/images/products/diamond_earrings.jpg",
+    "image": "/images/products/diamond_earrings.jpg",
+    "images": [
+      "/images/products/diamond_earrings.jpg"
+    ]
   },
   {
     "id": 86,
@@ -2662,9 +2832,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Curved white and yellow gold lotus petals suspended from articulated geometric ear hooks.",
     "description": "Curved white and yellow gold lotus petals suspended from articulated geometric ear hooks.",
-    "img": "/assets/products/earrings-011.jpg",
-    "image": "/assets/products/earrings-011.jpg",
-    "images": ["/assets/products/earrings-011.jpg"]
+    "img": "/images/earrings_jhumka.jpg",
+    "image": "/images/earrings_jhumka.jpg",
+    "images": [
+      "/images/earrings_jhumka.jpg"
+    ]
   },
   {
     "id": 87,
@@ -2693,9 +2865,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Auspicious Lakshmi coin tops anchored to antique bell jhumkis with delicate golden chain dori.",
     "description": "Auspicious Lakshmi coin tops anchored to antique bell jhumkis with delicate golden chain dori.",
-    "img": "/assets/products/earrings-012.jpg",
-    "image": "/assets/products/earrings-012.jpg",
-    "images": ["/assets/products/earrings-012.jpg"]
+    "img": "/images/earrings_jhumka.jpg",
+    "image": "/images/earrings_jhumka.jpg",
+    "images": [
+      "/images/earrings_jhumka.jpg"
+    ]
   },
   {
     "id": 88,
@@ -2724,9 +2898,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Contemporary silhouette ear-climbers set with uncut polki slices and emerald cluster finials.",
     "description": "Contemporary silhouette ear-climbers set with uncut polki slices and emerald cluster finials.",
-    "img": "/assets/products/earrings-013.jpg",
-    "image": "/assets/products/earrings-013.jpg",
-    "images": ["/assets/products/earrings-013.jpg"]
+    "img": "/images/earrings_jhumka.jpg",
+    "image": "/images/earrings_jhumka.jpg",
+    "images": [
+      "/images/earrings_jhumka.jpg"
+    ]
   },
   {
     "id": 89,
@@ -2755,9 +2931,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Inside-out diamond hoop earrings engineered so diamonds face forward from both exterior and interior.",
     "description": "Inside-out diamond hoop earrings engineered so diamonds face forward from both exterior and interior.",
-    "img": "/assets/products/earrings-014.jpg",
-    "image": "/assets/products/earrings-014.jpg",
-    "images": ["/assets/products/earrings-014.jpg"]
+    "img": "/images/products/diamond_earrings.jpg",
+    "image": "/images/products/diamond_earrings.jpg",
+    "images": [
+      "/images/products/diamond_earrings.jpg"
+    ]
   },
   {
     "id": 90,
@@ -2786,9 +2964,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Traditional red kempu teardrops nestled inside 22K antique gold bezel prongs with screwback posts.",
     "description": "Traditional red kempu teardrops nestled inside 22K antique gold bezel prongs with screwback posts.",
-    "img": "/assets/products/earrings-015.jpg",
-    "image": "/assets/products/earrings-015.jpg",
-    "images": ["/assets/products/earrings-015.jpg"]
+    "img": "/images/categories/earrings.jpg",
+    "image": "/images/categories/earrings.jpg",
+    "images": [
+      "/images/categories/earrings.jpg"
+    ]
   },
   {
     "id": 91,
@@ -2817,9 +2997,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Splendid cushion-cut certified solitaire diamond held securely in an 18K white gold cathedral shank.",
     "description": "Splendid cushion-cut certified solitaire diamond held securely in an 18K white gold cathedral shank.",
-    "img": "/assets/products/ring-001.jpg",
-    "image": "/assets/products/ring-001.jpg",
-    "images": ["/assets/products/ring-001.jpg"]
+    "img": "/images/categories/rings.jpg",
+    "image": "/images/categories/rings.jpg",
+    "images": [
+      "/images/categories/rings.jpg"
+    ]
   },
   {
     "id": 92,
@@ -2848,9 +3030,11 @@ window.AureliaData = {
     "isNew": true,
     "desc": "Vivid green octagon-cut Zambian emerald surrounded by a double halo of brilliant pavé diamonds.",
     "description": "Vivid green octagon-cut Zambian emerald surrounded by a double halo of brilliant pavé diamonds.",
-    "img": "/assets/products/ring-002.jpg",
-    "image": "/assets/products/ring-002.jpg",
-    "images": ["/assets/products/ring-002.jpg"]
+    "img": "/images/ring_emerald.jpg",
+    "image": "/images/ring_emerald.jpg",
+    "images": [
+      "/images/ring_emerald.jpg"
+    ]
   },
   {
     "id": 93,
@@ -2879,9 +3063,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Oval natural Burmese ruby framed by ornate hand-chased antique gold petals and milgrain borders.",
     "description": "Oval natural Burmese ruby framed by ornate hand-chased antique gold petals and milgrain borders.",
-    "img": "/assets/products/ring-003.jpg",
-    "image": "/assets/products/ring-003.jpg",
-    "images": ["/assets/products/ring-003.jpg"]
+    "img": "/images/products/ruby_cocktail_ring.jpg",
+    "image": "/images/products/ruby_cocktail_ring.jpg",
+    "images": [
+      "/images/products/ruby_cocktail_ring.jpg"
+    ]
   },
   {
     "id": 94,
@@ -2910,9 +3096,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Oversized Mughal floral statement ring with uncut polki petals, meenakari underside, and adjustable ring band.",
     "description": "Oversized Mughal floral statement ring with uncut polki petals, meenakari underside, and adjustable ring band.",
-    "img": "/assets/products/ring-004.jpg",
-    "image": "/assets/products/ring-004.jpg",
-    "images": ["/assets/products/ring-004.jpg"]
+    "img": "/images/ring_solitaire.jpg",
+    "image": "/images/ring_solitaire.jpg",
+    "images": [
+      "/images/ring_solitaire.jpg"
+    ]
   },
   {
     "id": 95,
@@ -2941,9 +3129,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Three-stone trilogy ring representing past, present, and future with natural blue sapphires in solid Pt950.",
     "description": "Three-stone trilogy ring representing past, present, and future with natural blue sapphires in solid Pt950.",
-    "img": "/assets/products/ring-005.jpg",
-    "image": "/assets/products/ring-005.jpg",
-    "images": ["/assets/products/ring-005.jpg"]
+    "img": "/images/ring_solitaire.jpg",
+    "image": "/images/ring_solitaire.jpg",
+    "images": [
+      "/images/ring_solitaire.jpg"
+    ]
   },
   {
     "id": 96,
@@ -2972,9 +3162,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Nine sacred planetary gems set in an auspicious cosmic mandala pattern in solid 22K yellow gold.",
     "description": "Nine sacred planetary gems set in an auspicious cosmic mandala pattern in solid 22K yellow gold.",
-    "img": "/assets/products/ring-006.jpg",
-    "image": "/assets/products/ring-006.jpg",
-    "images": ["/assets/products/ring-006.jpg"]
+    "img": "/images/ring_solitaire.jpg",
+    "image": "/images/ring_solitaire.jpg",
+    "images": [
+      "/images/ring_solitaire.jpg"
+    ]
   },
   {
     "id": 97,
@@ -3003,9 +3195,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Bunch of luminous natural seed pearls blooming from a golden floral basket with carved leaves.",
     "description": "Bunch of luminous natural seed pearls blooming from a golden floral basket with carved leaves.",
-    "img": "/assets/products/ring-007.jpg",
-    "image": "/assets/products/ring-007.jpg",
-    "images": ["/assets/products/ring-007.jpg"]
+    "img": "/images/ring_solitaire.jpg",
+    "image": "/images/ring_solitaire.jpg",
+    "images": [
+      "/images/ring_solitaire.jpg"
+    ]
   },
   {
     "id": 98,
@@ -3034,9 +3228,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Handcrafted filigree dome ring featuring micro-granulation beads and open-air scrolling arabesques.",
     "description": "Handcrafted filigree dome ring featuring micro-granulation beads and open-air scrolling arabesques.",
-    "img": "/assets/products/ring-008.jpg",
-    "image": "/assets/products/ring-008.jpg",
-    "images": ["/assets/products/ring-008.jpg"]
+    "img": "/images/ring_solitaire.jpg",
+    "image": "/images/ring_solitaire.jpg",
+    "images": [
+      "/images/ring_solitaire.jpg"
+    ]
   },
   {
     "id": 99,
@@ -3065,9 +3261,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Heavy solid 22K gold signet ring featuring a sculpted lion head emblem symbolising courage and royalty.",
     "description": "Heavy solid 22K gold signet ring featuring a sculpted lion head emblem symbolising courage and royalty.",
-    "img": "/assets/products/ring-009.jpg",
-    "image": "/assets/products/ring-009.jpg",
-    "images": ["/assets/products/ring-009.jpg"]
+    "img": "/images/ring_solitaire.jpg",
+    "image": "/images/ring_solitaire.jpg",
+    "images": [
+      "/images/ring_solitaire.jpg"
+    ]
   },
   {
     "id": 100,
@@ -3096,9 +3294,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Fluid bypass ribbon band in dual-tone gold ending in twin sparkling round diamonds.",
     "description": "Fluid bypass ribbon band in dual-tone gold ending in twin sparkling round diamonds.",
-    "img": "/assets/products/ring-010.jpg",
-    "image": "/assets/products/ring-010.jpg",
-    "images": ["/assets/products/ring-010.jpg"]
+    "img": "/images/categories/rings.jpg",
+    "image": "/images/categories/rings.jpg",
+    "images": [
+      "/images/categories/rings.jpg"
+    ]
   },
   {
     "id": 101,
@@ -3127,9 +3327,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "South Indian antique temple ring with square cabochon kemp stones surrounding a central golden flower.",
     "description": "South Indian antique temple ring with square cabochon kemp stones surrounding a central golden flower.",
-    "img": "/assets/products/ring-011.jpg",
-    "image": "/assets/products/ring-011.jpg",
-    "images": ["/assets/products/ring-011.jpg"]
+    "img": "/images/products/ruby_cocktail_ring.jpg",
+    "image": "/images/products/ruby_cocktail_ring.jpg",
+    "images": [
+      "/images/products/ruby_cocktail_ring.jpg"
+    ]
   },
   {
     "id": 102,
@@ -3158,9 +3360,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Continuous circle of channel-set square French-cut Zambian emeralds in 18K yellow gold.",
     "description": "Continuous circle of channel-set square French-cut Zambian emeralds in 18K yellow gold.",
-    "img": "/assets/products/ring-012.jpg",
-    "image": "/assets/products/ring-012.jpg",
-    "images": ["/assets/products/ring-012.jpg"]
+    "img": "/images/ring_emerald.jpg",
+    "image": "/images/ring_emerald.jpg",
+    "images": [
+      "/images/ring_emerald.jpg"
+    ]
   },
   {
     "id": 103,
@@ -3189,9 +3393,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Pink Jaipur gulabi meenakari enamel floral ring with uncut polki center and adjustable shank.",
     "description": "Pink Jaipur gulabi meenakari enamel floral ring with uncut polki center and adjustable shank.",
-    "img": "/assets/products/ring-013.jpg",
-    "image": "/assets/products/ring-013.jpg",
-    "images": ["/assets/products/ring-013.jpg"]
+    "img": "/images/ring_solitaire.jpg",
+    "image": "/images/ring_solitaire.jpg",
+    "images": [
+      "/images/ring_solitaire.jpg"
+    ]
   },
   {
     "id": 104,
@@ -3220,9 +3426,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Delicate lotus bud prongs opening to present a certified laboratory-grown solitaire diamond.",
     "description": "Delicate lotus bud prongs opening to present a certified laboratory-grown solitaire diamond.",
-    "img": "/assets/products/ring-014.jpg",
-    "image": "/assets/products/ring-014.jpg",
-    "images": ["/assets/products/ring-014.jpg"]
+    "img": "/images/categories/rings.jpg",
+    "image": "/images/categories/rings.jpg",
+    "images": [
+      "/images/categories/rings.jpg"
+    ]
   },
   {
     "id": 105,
@@ -3251,9 +3459,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Traditional paisley motif curving along the finger, studded with seed rubies and micro-pearls.",
     "description": "Traditional paisley motif curving along the finger, studded with seed rubies and micro-pearls.",
-    "img": "/assets/products/ring-015.jpg",
-    "image": "/assets/products/ring-015.jpg",
-    "images": ["/assets/products/ring-015.jpg"]
+    "img": "/images/products/ruby_cocktail_ring.jpg",
+    "image": "/images/products/ruby_cocktail_ring.jpg",
+    "images": [
+      "/images/products/ruby_cocktail_ring.jpg"
+    ]
   },
   {
     "id": 106,
@@ -3282,9 +3492,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Ergonomically contoured comfort-fit band with gentle twisting spirals that hug the finger naturally.",
     "description": "Ergonomically contoured comfort-fit band with gentle twisting spirals that hug the finger naturally.",
-    "img": "/assets/products/hug-ring-001.jpg",
-    "image": "/assets/products/hug-ring-001.jpg",
-    "images": ["/assets/products/hug-ring-001.jpg"]
+    "img": "/images/products/ring_hug_hands.jpg",
+    "image": "/images/products/ring_hug_hands.jpg",
+    "images": [
+      "/images/products/ring_hug_hands.jpg"
+    ]
   },
   {
     "id": 107,
@@ -3313,9 +3525,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Low-profile micro-pavé diamond eternity band designed to hug engagement rings seamlessly without gaps.",
     "description": "Low-profile micro-pavé diamond eternity band designed to hug engagement rings seamlessly without gaps.",
-    "img": "/assets/products/hug-ring-002.jpg",
-    "image": "/assets/products/hug-ring-002.jpg",
-    "images": ["/assets/products/hug-ring-002.jpg"]
+    "img": "/images/products/diamond_ring_cushion.jpg",
+    "image": "/images/products/diamond_ring_cushion.jpg",
+    "images": [
+      "/images/products/diamond_ring_cushion.jpg"
+    ]
   },
   {
     "id": 108,
@@ -3344,9 +3558,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Slim stackable ring with alternating round blue sapphires and bezel-set diamond accents.",
     "description": "Slim stackable ring with alternating round blue sapphires and bezel-set diamond accents.",
-    "img": "/assets/products/hug-ring-003.jpg",
-    "image": "/assets/products/hug-ring-003.jpg",
-    "images": ["/assets/products/hug-ring-003.jpg"]
+    "img": "/images/categories/hug_rings.jpg",
+    "image": "/images/categories/hug_rings.jpg",
+    "images": [
+      "/images/categories/hug_rings.jpg"
+    ]
   },
   {
     "id": 109,
@@ -3375,9 +3591,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Braided 18K rose gold ropes intertwining in a continuous harmonious band with mirror polish.",
     "description": "Braided 18K rose gold ropes intertwining in a continuous harmonious band with mirror polish.",
-    "img": "/assets/products/hug-ring-004.jpg",
-    "image": "/assets/products/hug-ring-004.jpg",
-    "images": ["/assets/products/hug-ring-004.jpg"]
+    "img": "/images/products/ring_hug_hands.jpg",
+    "image": "/images/products/ring_hug_hands.jpg",
+    "images": [
+      "/images/products/ring_hug_hands.jpg"
+    ]
   },
   {
     "id": 110,
@@ -3406,9 +3624,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Delicate milgrain-beaded contour band shaped to hug solitaire gemstones and cocktail settings.",
     "description": "Delicate milgrain-beaded contour band shaped to hug solitaire gemstones and cocktail settings.",
-    "img": "/assets/products/hug-ring-005.jpg",
-    "image": "/assets/products/hug-ring-005.jpg",
-    "images": ["/assets/products/hug-ring-005.jpg"]
+    "img": "/images/categories/hug_rings.jpg",
+    "image": "/images/categories/hug_rings.jpg",
+    "images": [
+      "/images/categories/hug_rings.jpg"
+    ]
   },
   {
     "id": 111,
@@ -3437,9 +3657,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Ultra-pure Pt950 platinum wedding band engineered with rounded interior curves for supreme comfort.",
     "description": "Ultra-pure Pt950 platinum wedding band engineered with rounded interior curves for supreme comfort.",
-    "img": "/assets/products/hug-ring-006.jpg",
-    "image": "/assets/products/hug-ring-006.jpg",
-    "images": ["/assets/products/hug-ring-006.jpg"]
+    "img": "/images/products/ring_hug_hands.jpg",
+    "image": "/images/products/ring_hug_hands.jpg",
+    "images": [
+      "/images/products/ring_hug_hands.jpg"
+    ]
   },
   {
     "id": 112,
@@ -3468,9 +3690,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Petite 18K gold band set with a graduated chevron arc of natural emeralds designed to wrap stones.",
     "description": "Petite 18K gold band set with a graduated chevron arc of natural emeralds designed to wrap stones.",
-    "img": "/assets/products/hug-ring-007.jpg",
-    "image": "/assets/products/hug-ring-007.jpg",
-    "images": ["/assets/products/hug-ring-007.jpg"]
+    "img": "/images/products/ring_hug_hands.jpg",
+    "image": "/images/products/ring_hug_hands.jpg",
+    "images": [
+      "/images/products/ring_hug_hands.jpg"
+    ]
   },
   {
     "id": 113,
@@ -3499,9 +3723,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Artisanal hand-hammered facets scattering light with an organic, tactile matte antique texture.",
     "description": "Artisanal hand-hammered facets scattering light with an organic, tactile matte antique texture.",
-    "img": "/assets/products/hug-ring-008.jpg",
-    "image": "/assets/products/hug-ring-008.jpg",
-    "images": ["/assets/products/hug-ring-008.jpg"]
+    "img": "/images/categories/hug_rings.jpg",
+    "image": "/images/categories/hug_rings.jpg",
+    "images": [
+      "/images/categories/hug_rings.jpg"
+    ]
   },
   {
     "id": 114,
@@ -3530,9 +3756,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Clean geometric V-shaped chevron ring that nests gracefully beneath any marquise or pear ring.",
     "description": "Clean geometric V-shaped chevron ring that nests gracefully beneath any marquise or pear ring.",
-    "img": "/assets/products/hug-ring-009.jpg",
-    "image": "/assets/products/hug-ring-009.jpg",
-    "images": ["/assets/products/hug-ring-009.jpg"]
+    "img": "/images/categories/hug_rings.jpg",
+    "image": "/images/categories/hug_rings.jpg",
+    "images": [
+      "/images/categories/hug_rings.jpg"
+    ]
   },
   {
     "id": 115,
@@ -3561,9 +3789,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Alternating bezel-set seed pearls and polished gold spheres creating a textured beaded band.",
     "description": "Alternating bezel-set seed pearls and polished gold spheres creating a textured beaded band.",
-    "img": "/assets/products/hug-ring-010.jpg",
-    "image": "/assets/products/hug-ring-010.jpg",
-    "images": ["/assets/products/hug-ring-010.jpg"]
+    "img": "/images/categories/hug_rings.jpg",
+    "image": "/images/categories/hug_rings.jpg",
+    "images": [
+      "/images/categories/hug_rings.jpg"
+    ]
   },
   {
     "id": 116,
@@ -3592,9 +3822,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Twin interlocking rolling bands in rose and white gold that slide smoothly over the knuckle.",
     "description": "Twin interlocking rolling bands in rose and white gold that slide smoothly over the knuckle.",
-    "img": "/assets/products/hug-ring-011.jpg",
-    "image": "/assets/products/hug-ring-011.jpg",
-    "images": ["/assets/products/hug-ring-011.jpg"]
+    "img": "/images/categories/hug_rings.jpg",
+    "image": "/images/categories/hug_rings.jpg",
+    "images": [
+      "/images/categories/hug_rings.jpg"
+    ]
   },
   {
     "id": 117,
@@ -3623,9 +3855,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Delicate continuous vine and blossom pattern hand-engraved around a solid 22K yellow gold band.",
     "description": "Delicate continuous vine and blossom pattern hand-engraved around a solid 22K yellow gold band.",
-    "img": "/assets/products/hug-ring-012.jpg",
-    "image": "/assets/products/hug-ring-012.jpg",
-    "images": ["/assets/products/hug-ring-012.jpg"]
+    "img": "/images/products/ring_hug_hands.jpg",
+    "image": "/images/products/ring_hug_hands.jpg",
+    "images": [
+      "/images/products/ring_hug_hands.jpg"
+    ]
   },
   {
     "id": 118,
@@ -3654,9 +3888,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Tiara-inspired curved crown band featuring seven graduating round diamonds crowning your ring.",
     "description": "Tiara-inspired curved crown band featuring seven graduating round diamonds crowning your ring.",
-    "img": "/assets/products/hug-ring-013.jpg",
-    "image": "/assets/products/hug-ring-013.jpg",
-    "images": ["/assets/products/hug-ring-013.jpg"]
+    "img": "/images/products/diamond_ring_cushion.jpg",
+    "image": "/images/products/diamond_ring_cushion.jpg",
+    "images": [
+      "/images/products/diamond_ring_cushion.jpg"
+    ]
   },
   {
     "id": 119,
@@ -3685,9 +3921,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Channel-set square natural rubies secured between smooth protective gold borders without snagging.",
     "description": "Channel-set square natural rubies secured between smooth protective gold borders without snagging.",
-    "img": "/assets/products/hug-ring-014.jpg",
-    "image": "/assets/products/hug-ring-014.jpg",
-    "images": ["/assets/products/hug-ring-014.jpg"]
+    "img": "/images/categories/hug_rings.jpg",
+    "image": "/images/categories/hug_rings.jpg",
+    "images": [
+      "/images/categories/hug_rings.jpg"
+    ]
   },
   {
     "id": 120,
@@ -3716,9 +3954,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Ultra-slim solid 18K yellow gold wire band, ideal for multi-finger curation and stacking.",
     "description": "Ultra-slim solid 18K yellow gold wire band, ideal for multi-finger curation and stacking.",
-    "img": "/assets/products/hug-ring-015.jpg",
-    "image": "/assets/products/hug-ring-015.jpg",
-    "images": ["/assets/products/hug-ring-015.jpg"]
+    "img": "/images/categories/hug_rings.jpg",
+    "image": "/images/categories/hug_rings.jpg",
+    "images": [
+      "/images/categories/hug_rings.jpg"
+    ]
   },
   {
     "id": 121,
@@ -3747,9 +3987,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Classic Gujarati gokharu spike-stud kada pair cast in pure 22K antique gold with screw closures.",
     "description": "Classic Gujarati gokharu spike-stud kada pair cast in pure 22K antique gold with screw closures.",
-    "img": "/assets/products/bangle-001.jpg",
-    "image": "/assets/products/bangle-001.jpg",
-    "images": ["/assets/products/bangle-001.jpg"]
+    "img": "/images/bangles_kadas.jpg",
+    "image": "/images/bangles_kadas.jpg",
+    "images": [
+      "/images/bangles_kadas.jpg"
+    ]
   },
   {
     "id": 122,
@@ -3778,9 +4020,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Channel-set diamond single-line openable bangle in 18K white gold with hidden box clasp and safety lock.",
     "description": "Channel-set diamond single-line openable bangle in 18K white gold with hidden box clasp and safety lock.",
-    "img": "/assets/products/bangle-002.jpg",
-    "image": "/assets/products/bangle-002.jpg",
-    "images": ["/assets/products/bangle-002.jpg"]
+    "img": "/images/bangles_diamond.jpg",
+    "image": "/images/bangles_diamond.jpg",
+    "images": [
+      "/images/bangles_diamond.jpg"
+    ]
   },
   {
     "id": 123,
@@ -3809,9 +4053,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Pair of delicate filigree lace bangles from the master silversmiths and goldsmiths of Odisha.",
     "description": "Pair of delicate filigree lace bangles from the master silversmiths and goldsmiths of Odisha.",
-    "img": "/assets/products/bangle-003.jpg",
-    "image": "/assets/products/bangle-003.jpg",
-    "images": ["/assets/products/bangle-003.jpg"]
+    "img": "/images/bangles_filigree.jpg",
+    "image": "/images/bangles_filigree.jpg",
+    "images": [
+      "/images/bangles_filigree.jpg"
+    ]
   },
   {
     "id": 124,
@@ -3840,9 +4086,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Rajasthani pachchikam kada featuring elephant head makara finials with ruby eyes and reverse enamel.",
     "description": "Rajasthani pachchikam kada featuring elephant head makara finials with ruby eyes and reverse enamel.",
-    "img": "/assets/products/bangle-004.jpg",
-    "image": "/assets/products/bangle-004.jpg",
-    "images": ["/assets/products/bangle-004.jpg"]
+    "img": "/images/bangles_kadas.jpg",
+    "image": "/images/bangles_kadas.jpg",
+    "images": [
+      "/images/bangles_kadas.jpg"
+    ]
   },
   {
     "id": 125,
@@ -3871,9 +4119,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Wide cuff kada showcasing Goddess Lakshmi surrounded by floral vine scrolls in high-relief repoussé.",
     "description": "Wide cuff kada showcasing Goddess Lakshmi surrounded by floral vine scrolls in high-relief repoussé.",
-    "img": "/assets/products/bangle-005.jpg",
-    "image": "/assets/products/bangle-005.jpg",
-    "images": ["/assets/products/bangle-005.jpg"]
+    "img": "/images/bangles_kadas.jpg",
+    "image": "/images/bangles_kadas.jpg",
+    "images": [
+      "/images/bangles_kadas.jpg"
+    ]
   },
   {
     "id": 126,
@@ -3902,9 +4152,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Set of four daily-wear solid gold bangles with diamond-cut faceted grooves reflecting brilliant light.",
     "description": "Set of four daily-wear solid gold bangles with diamond-cut faceted grooves reflecting brilliant light.",
-    "img": "/assets/products/bangle-006.jpg",
-    "image": "/assets/products/bangle-006.jpg",
-    "images": ["/assets/products/bangle-006.jpg"]
+    "img": "/images/categories/bangles.jpg",
+    "image": "/images/categories/bangles.jpg",
+    "images": [
+      "/images/categories/bangles.jpg"
+    ]
   },
   {
     "id": 127,
@@ -3933,9 +4185,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Hinged antique kada bordered by seed pearls and centering a row of open-back syndicate polki gems.",
     "description": "Hinged antique kada bordered by seed pearls and centering a row of open-back syndicate polki gems.",
-    "img": "/assets/products/bangle-007.jpg",
-    "image": "/assets/products/bangle-007.jpg",
-    "images": ["/assets/products/bangle-007.jpg"]
+    "img": "/images/bangles_kadas.jpg",
+    "image": "/images/bangles_kadas.jpg",
+    "images": [
+      "/images/bangles_kadas.jpg"
+    ]
   },
   {
     "id": 128,
@@ -3964,9 +4218,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Alternating oval blue sapphires and brilliant diamond clusters set in an elegant scalloped gold frame.",
     "description": "Alternating oval blue sapphires and brilliant diamond clusters set in an elegant scalloped gold frame.",
-    "img": "/assets/products/bangle-008.jpg",
-    "image": "/assets/products/bangle-008.jpg",
-    "images": ["/assets/products/bangle-008.jpg"]
+    "img": "/images/bangles_diamond.jpg",
+    "image": "/images/bangles_diamond.jpg",
+    "images": [
+      "/images/bangles_diamond.jpg"
+    ]
   },
   {
     "id": 129,
@@ -3995,9 +4251,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Twin peacock heads meeting at the center with ruby eyes and feathered golden neck details.",
     "description": "Twin peacock heads meeting at the center with ruby eyes and feathered golden neck details.",
-    "img": "/assets/products/bangle-009.jpg",
-    "image": "/assets/products/bangle-009.jpg",
-    "images": ["/assets/products/bangle-009.jpg"]
+    "img": "/images/bangles_kadas.jpg",
+    "image": "/images/bangles_kadas.jpg",
+    "images": [
+      "/images/bangles_kadas.jpg"
+    ]
   },
   {
     "id": 130,
@@ -4026,9 +4284,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Pair of slim polki bangles designed to sandwich glass or gold bangles in festive wedding sets.",
     "description": "Pair of slim polki bangles designed to sandwich glass or gold bangles in festive wedding sets.",
-    "img": "/assets/products/bangle-010.jpg",
-    "image": "/assets/products/bangle-010.jpg",
-    "images": ["/assets/products/bangle-010.jpg"]
+    "img": "/images/categories/bangles.jpg",
+    "image": "/images/categories/bangles.jpg",
+    "images": [
+      "/images/categories/bangles.jpg"
+    ]
   },
   {
     "id": 131,
@@ -4057,9 +4317,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Heavyweight 22 karat solid gold kada with matte antique patina and engraved Sanskrit blessings.",
     "description": "Heavyweight 22 karat solid gold kada with matte antique patina and engraved Sanskrit blessings.",
-    "img": "/assets/products/bangle-011.jpg",
-    "image": "/assets/products/bangle-011.jpg",
-    "images": ["/assets/products/bangle-011.jpg"]
+    "img": "/images/bangles_kadas.jpg",
+    "image": "/images/bangles_kadas.jpg",
+    "images": [
+      "/images/bangles_kadas.jpg"
+    ]
   },
   {
     "id": 132,
@@ -4088,9 +4350,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Modern hexagonal facets in dual-tone yellow and white gold with sleek tongue clasp.",
     "description": "Modern hexagonal facets in dual-tone yellow and white gold with sleek tongue clasp.",
-    "img": "/assets/products/bangle-012.jpg",
-    "image": "/assets/products/bangle-012.jpg",
-    "images": ["/assets/products/bangle-012.jpg"]
+    "img": "/images/categories/bangles.jpg",
+    "image": "/images/categories/bangles.jpg",
+    "images": [
+      "/images/categories/bangles.jpg"
+    ]
   },
   {
     "id": 133,
@@ -4119,9 +4383,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Lush green emerald beads woven alongside antique gold filigree medallions in a wide statement cuff.",
     "description": "Lush green emerald beads woven alongside antique gold filigree medallions in a wide statement cuff.",
-    "img": "/assets/products/bangle-013.jpg",
-    "image": "/assets/products/bangle-013.jpg",
-    "images": ["/assets/products/bangle-013.jpg"]
+    "img": "/images/bangles_kadas.jpg",
+    "image": "/images/bangles_kadas.jpg",
+    "images": [
+      "/images/bangles_kadas.jpg"
+    ]
   },
   {
     "id": 134,
@@ -4150,9 +4416,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Continuous cycle of the nine sacred planetary gemstones set in individual bezel cups in 22K gold.",
     "description": "Continuous cycle of the nine sacred planetary gemstones set in individual bezel cups in 22K gold.",
-    "img": "/assets/products/bangle-014.jpg",
-    "image": "/assets/products/bangle-014.jpg",
-    "images": ["/assets/products/bangle-014.jpg"]
+    "img": "/images/categories/bangles.jpg",
+    "image": "/images/categories/bangles.jpg",
+    "images": [
+      "/images/categories/bangles.jpg"
+    ]
   },
   {
     "id": 135,
@@ -4181,9 +4449,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "South Indian heritage temple kada with dancing figurines of divine musicians and ruby cabochons.",
     "description": "South Indian heritage temple kada with dancing figurines of divine musicians and ruby cabochons.",
-    "img": "/assets/products/bangle-015.jpg",
-    "image": "/assets/products/bangle-015.jpg",
-    "images": ["/assets/products/bangle-015.jpg"]
+    "img": "/images/bangles_kadas.jpg",
+    "image": "/images/bangles_kadas.jpg",
+    "images": [
+      "/images/bangles_kadas.jpg"
+    ]
   },
   {
     "id": 136,
@@ -4212,9 +4482,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Continuous strand of certified round brilliant diamonds in individual four-prong 18K yellow gold baskets.",
     "description": "Continuous strand of certified round brilliant diamonds in individual four-prong 18K yellow gold baskets.",
-    "img": "/assets/products/bracelet-001.jpg",
-    "image": "/assets/products/bracelet-001.jpg",
-    "images": ["/assets/products/bracelet-001.jpg"]
+    "img": "/images/products/bracelet_tennis.jpg",
+    "image": "/images/products/bracelet_tennis.jpg",
+    "images": [
+      "/images/products/bracelet_tennis.jpg"
+    ]
   },
   {
     "id": 137,
@@ -4243,9 +4515,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Bold artisanal gold cuff embossed with majestic royal motifs and finished with a rich antique glow.",
     "description": "Bold artisanal gold cuff embossed with majestic royal motifs and finished with a rich antique glow.",
-    "img": "/assets/products/bracelet-002.jpg",
-    "image": "/assets/products/bracelet-002.jpg",
-    "images": ["/assets/products/bracelet-002.jpg"]
+    "img": "/images/products/bracelet_gold_cuff.jpg",
+    "image": "/images/products/bracelet_gold_cuff.jpg",
+    "images": [
+      "/images/products/bracelet_gold_cuff.jpg"
+    ]
   },
   {
     "id": 138,
@@ -4274,9 +4548,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "22K link bracelet suspending five traditional auspicious charms including lotus, om, coin, and conch.",
     "description": "22K link bracelet suspending five traditional auspicious charms including lotus, om, coin, and conch.",
-    "img": "/assets/products/bracelet-003.jpg",
-    "image": "/assets/products/bracelet-003.jpg",
-    "images": ["/assets/products/bracelet-003.jpg"]
+    "img": "/images/products/bracelet_gold_charm.jpg",
+    "image": "/images/products/bracelet_gold_charm.jpg",
+    "images": [
+      "/images/products/bracelet_gold_charm.jpg"
+    ]
   },
   {
     "id": 139,
@@ -4305,9 +4581,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Solid Pt950 platinum geometric links interspersed with diamond bar links for enduring prestige.",
     "description": "Solid Pt950 platinum geometric links interspersed with diamond bar links for enduring prestige.",
-    "img": "/assets/products/bracelet-004.jpg",
-    "image": "/assets/products/bracelet-004.jpg",
-    "images": ["/assets/products/bracelet-004.jpg"]
+    "img": "/images/products/bracelet_tennis.jpg",
+    "image": "/images/products/bracelet_tennis.jpg",
+    "images": [
+      "/images/products/bracelet_tennis.jpg"
+    ]
   },
   {
     "id": 140,
@@ -4336,9 +4614,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Delicate polki florets connected by multi-strand seed pearl cords with ornate enameled gold clasp.",
     "description": "Delicate polki florets connected by multi-strand seed pearl cords with ornate enameled gold clasp.",
-    "img": "/assets/products/bracelet-005.jpg",
-    "image": "/assets/products/bracelet-005.jpg",
-    "images": ["/assets/products/bracelet-005.jpg"]
+    "img": "/images/categories/bracelets.jpg",
+    "image": "/images/categories/bracelets.jpg",
+    "images": [
+      "/images/categories/bracelets.jpg"
+    ]
   },
   {
     "id": 141,
@@ -4367,9 +4647,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Protective evil eye talisman crafted with blue sapphire, diamond halo, and mother-of-pearl center.",
     "description": "Protective evil eye talisman crafted with blue sapphire, diamond halo, and mother-of-pearl center.",
-    "img": "/assets/products/bracelet-006.jpg",
-    "image": "/assets/products/bracelet-006.jpg",
-    "images": ["/assets/products/bracelet-006.jpg"]
+    "img": "/images/products/bracelet_gold_charm.jpg",
+    "image": "/images/products/bracelet_gold_charm.jpg",
+    "images": [
+      "/images/products/bracelet_gold_charm.jpg"
+    ]
   },
   {
     "id": 142,
@@ -4398,9 +4680,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Interconnected tarakasi filigree flowers with articulated hinges and invisible pressure clasp.",
     "description": "Interconnected tarakasi filigree flowers with articulated hinges and invisible pressure clasp.",
-    "img": "/assets/products/bracelet-007.jpg",
-    "image": "/assets/products/bracelet-007.jpg",
-    "images": ["/assets/products/bracelet-007.jpg"]
+    "img": "/images/categories/bracelets.jpg",
+    "image": "/images/categories/bracelets.jpg",
+    "images": [
+      "/images/categories/bracelets.jpg"
+    ]
   },
   {
     "id": 143,
@@ -4429,9 +4713,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Complex four-direction Byzantine link weave forming a flexible, supple golden rope on the wrist.",
     "description": "Complex four-direction Byzantine link weave forming a flexible, supple golden rope on the wrist.",
-    "img": "/assets/products/bracelet-008.jpg",
-    "image": "/assets/products/bracelet-008.jpg",
-    "images": ["/assets/products/bracelet-008.jpg"]
+    "img": "/images/categories/bracelets.jpg",
+    "image": "/images/categories/bracelets.jpg",
+    "images": [
+      "/images/categories/bracelets.jpg"
+    ]
   },
   {
     "id": 144,
@@ -4460,9 +4746,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Open bypass cuff featuring oval emerald cabochons and uncut polki clusters at both wrist finials.",
     "description": "Open bypass cuff featuring oval emerald cabochons and uncut polki clusters at both wrist finials.",
-    "img": "/assets/products/bracelet-009.jpg",
-    "image": "/assets/products/bracelet-009.jpg",
-    "images": ["/assets/products/bracelet-009.jpg"]
+    "img": "/images/products/bracelet_gold_cuff.jpg",
+    "image": "/images/products/bracelet_gold_cuff.jpg",
+    "images": [
+      "/images/products/bracelet_gold_cuff.jpg"
+    ]
   },
   {
     "id": 145,
@@ -4491,9 +4779,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Curved bar paved with micro-diamonds on an 18K rose gold cable chain for everyday minimalism.",
     "description": "Curved bar paved with micro-diamonds on an 18K rose gold cable chain for everyday minimalism.",
-    "img": "/assets/products/bracelet-010.jpg",
-    "image": "/assets/products/bracelet-010.jpg",
-    "images": ["/assets/products/bracelet-010.jpg"]
+    "img": "/images/products/bracelet_tennis.jpg",
+    "image": "/images/products/bracelet_tennis.jpg",
+    "images": [
+      "/images/products/bracelet_tennis.jpg"
+    ]
   },
   {
     "id": 146,
@@ -4522,9 +4812,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Antique gold links engraved with sacred floral medallions and ruby-red kempu gemstone centers.",
     "description": "Antique gold links engraved with sacred floral medallions and ruby-red kempu gemstone centers.",
-    "img": "/assets/products/bracelet-011.jpg",
-    "image": "/assets/products/bracelet-011.jpg",
-    "images": ["/assets/products/bracelet-011.jpg"]
+    "img": "/images/categories/bracelets.jpg",
+    "image": "/images/categories/bracelets.jpg",
+    "images": [
+      "/images/categories/bracelets.jpg"
+    ]
   },
   {
     "id": 147,
@@ -4553,9 +4845,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Nine astrological gems set along a continuous 22K yellow gold bezel chain with safety lock.",
     "description": "Nine astrological gems set along a continuous 22K yellow gold bezel chain with safety lock.",
-    "img": "/assets/products/bracelet-012.jpg",
-    "image": "/assets/products/bracelet-012.jpg",
-    "images": ["/assets/products/bracelet-012.jpg"]
+    "img": "/images/categories/bracelets.jpg",
+    "image": "/images/categories/bracelets.jpg",
+    "images": [
+      "/images/categories/bracelets.jpg"
+    ]
   },
   {
     "id": 148,
@@ -4584,9 +4878,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Dense foxtail link bracelet with engraved decorative endcaps and solid 22K swivel lobster clasp.",
     "description": "Dense foxtail link bracelet with engraved decorative endcaps and solid 22K swivel lobster clasp.",
-    "img": "/assets/products/bracelet-013.jpg",
-    "image": "/assets/products/bracelet-013.jpg",
-    "images": ["/assets/products/bracelet-013.jpg"]
+    "img": "/images/categories/bracelets.jpg",
+    "image": "/images/categories/bracelets.jpg",
+    "images": [
+      "/images/categories/bracelets.jpg"
+    ]
   },
   {
     "id": 149,
@@ -4615,9 +4911,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Bold alternating yellow and white gold curb links with high-polished diamond-cut chamfered edges.",
     "description": "Bold alternating yellow and white gold curb links with high-polished diamond-cut chamfered edges.",
-    "img": "/assets/products/bracelet-014.jpg",
-    "image": "/assets/products/bracelet-014.jpg",
-    "images": ["/assets/products/bracelet-014.jpg"]
+    "img": "/images/categories/bracelets.jpg",
+    "image": "/images/categories/bracelets.jpg",
+    "images": [
+      "/images/categories/bracelets.jpg"
+    ]
   },
   {
     "id": 150,
@@ -4646,9 +4944,11 @@ window.AureliaData = {
     "isNew": false,
     "desc": "Central infinity symbol studded with diamonds signifying eternal love, on a delicate gold cable chain.",
     "description": "Central infinity symbol studded with diamonds signifying eternal love, on a delicate gold cable chain.",
-    "img": "/assets/products/bracelet-015.jpg",
-    "image": "/assets/products/bracelet-015.jpg",
-    "images": ["/assets/products/bracelet-015.jpg"]
+    "img": "/images/products/bracelet_tennis.jpg",
+    "image": "/images/products/bracelet_tennis.jpg",
+    "images": [
+      "/images/products/bracelet_tennis.jpg"
+    ]
   }
 ],
 
