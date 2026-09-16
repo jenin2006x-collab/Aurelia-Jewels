@@ -1,15 +1,10 @@
 ﻿{
-  "version": 2,
-  "builds": [
-    {
-      "src": "aurelia-final/server.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "aurelia-final/server.js"
-    }
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/index.js" },
+    { "source": "/", "destination": "/aurelia-final/index.html" },
+    { "source": "/admin", "destination": "/aurelia-final/admin/index.html" },
+    { "source": "/admin/", "destination": "/aurelia-final/admin/index.html" },
+    { "source": "/(.*)", "destination": "/aurelia-final/$1" }
   ]
 }
