@@ -1,4 +1,5 @@
-﻿const { handle } = require('../aurelia-final/backend/api');
+﻿const path = require('path');
+const { handle } = require('../backend/api');
 
 module.exports = async (req, res) => {
   const host = req.headers.host || 'localhost';
